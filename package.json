@@ -1,0 +1,15 @@
+{
+  "name": "musicapp",
+  "version": "1.0.0",
+  "description": "The music app for the last project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Harel Gelberg & Idan Ben-Moshe & Maayen Fael & Raz Ingber",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongoose": "^4.10.2"
+  }
+}
