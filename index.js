@@ -1,24 +1,25 @@
+// ***** Requires
 var express = require('express');
 var mongoose = require('mongoose');
 var fs = require('fs');
 
-var mongo_schemas = require('./mongo_schemas');
-
+// ***** Config Init
 var config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+
+// ***** Express Init
 var app = express();
 app.use('/static', express.static(__dirname + '/static'));
+
+// ***** Mongoose Init
 mongoose.connect(config.mongo_connection);
+var { Songs, Albums, Artists } = require('./mongo_schemas');
 
-//console.log(mongo_schemas.Songs);
-mongo_schemas.Songs.find({}, function (err, songs) {
-    if (err) console.log(err);
-    console.log(songs);
-});
-
+// ***** Routes
 app.get('/', function (req, res) {
     res.sendFile(__dirname + "/index.html");
 });
 
-app.listen(8080, function () {
-    console.log('listening on port 8080')
+// ***** Run Server
+app.listen(config.port, function () {
+    console.log('listening on port ' + config.port)
 });

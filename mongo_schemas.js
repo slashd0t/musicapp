@@ -13,11 +13,29 @@ var songsSchema = new Schema({
     views : Number
 });
 
-// Create all the models using the schemas
-var Songs = mongoose.model('Songs', songsSchema);
-// var Artists = mongoose.model('Artists', artistsSchema);
-// var Albums = mongoose.model('Albums', albumsSchema);
+var artistsSchema = new Schema({
+    _id : Number,
+    name : String,
+    picture : String,
+    biography : String,
+    views : Number
+});
 
+var albumsSchema = new Schema({
+    _id : Number,
+    name : String,
+    artist : Number,
+    photo : String,
+    songs : [Number],
+    views : Number
+});
+
+// Create all the models using the schemas
+var Songs = mongoose.model('songs', songsSchema);
+var Artists = mongoose.model('artists', artistsSchema);
+var Albums = mongoose.model('albums', albumsSchema);
+
+// Export all the modules for farther use
 module.exports = {
-    Songs
+    Songs, Artists, Albums
 };
