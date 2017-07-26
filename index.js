@@ -26,15 +26,12 @@ app.get('/', function (req, res) {
  * example: '/getAll?model=Songs'
  */
 app.get('/getAll', (req, res) => {
-    // If the model is in the schemas
-    if (validQuery(req.query)) {
-        Schemas[req.query.model].find({}, function (err, data) {
+    validateTemplate(req, res, (query) => {
+        Schemas[query.model].find({}, function (err, data) {
             if (err) throw err;
             res.send(data);
         });
-    } else {
-        res.send("No such model");
-    }
+    });
 });
 
 /**
@@ -43,17 +40,30 @@ app.get('/getAll', (req, res) => {
  * example: '/getAll?model=Songs&id=1'
  */
 app.get('/getById', (req, res) => {
-    if (validQuery(req.query)) {
-        Schemas[req.query.model].find({ _id: req.query.id }, function (err, data) {
+    validateTemplate(req, res, (query) => {
+        Schemas[query.model].find({ _id: query.id }, function (err, data) {
             if (err) throw err;
             res.send(data);
         });
-    } else {
-        res.send("error");
-    }
+    });
 });
 
 /********** Useful Functions **********/
+
+/**
+ * Checks if the parameters are valid and if so callbacks to the function
+ */
+function validateTemplate(req, res, callback) {
+    if (validQuery(req.query)) {
+        callback(req.query);
+    } else {
+        res.send("error");
+    }
+}
+
+/**
+ * Receive query of a request and checks if they are acceptable
+ */
 function validQuery(query) {
     if (!(query.model in Schemas)) {
         console.log("Model does not exist");
