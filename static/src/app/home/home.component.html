@@ -1,0 +1,37 @@
+<h3>Home Component</h3>
+
+
+<div class="jumbotron">
+  <h1>Music App</h1>
+  <p class="lead">Music App makes it easier than ever to listen to the music you love and the music you’ll love next.</p>
+</div>
+
+<div class="row">
+  <section class="col-md-4">
+    <h2>Most viewed Artists</h2>
+    <ol>
+      <!--@foreach (var item in @ViewBag.TopArtists)-->
+      <!--{-->
+      <!--<li>@item.firstName @item.lastName (@item.numOfViews)</li>-->
+      <!--}-->
+    </ol>
+  </section>
+  <section class="col-md-4">
+    <h2>Most viewed Albums</h2>
+    <ol>
+      <!--@foreach (var item in @ViewBag.TopAlbums)-->
+      <!--{-->
+      <!--<li>@item.AlbumName (@item.numOfViews)</li>-->
+      <!--}-->
+    </ol>
+  </section>
+  <section class="col-md-4">
+    <h2>Most viewed Songs</h2>
+    <ol>
+      <!--@foreach (var item in @ViewBag.TopSongs)-->
+      <!--{-->
+      <!--<li>@item.songName (@item.numOfViews)</li>-->
+      <!--}-->
+    </ol>
+  </section>
+</div>
