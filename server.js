@@ -26,68 +26,124 @@ app.use(express.static(path.join(__dirname, 'client')));
 
 // Body Parser MW
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', index);
 
 /**
- * This functions return the whole dataset of a choosed model
+ * This function return the whole dataset of a choosen model
  * It requires a name of a model
  * example: '/getAll?model=Songs'
  */
 app.get('/getAll', (req, res) => {
-    validateTemplate(req, res, (query) => {
-    Schemas[query.model].find({}, function (err, data) {
-        if (err) throw err;
-        res.send(data);
+    validateTemplate(req, res, ['model'], (query) => {
+        Schemas[query.model].find({}, function (err, data) {
+            if (err) throw err;
+            res.send(data);
+        });
     });
-});
 });
 
 /**
- * This functions return an object from the dataset by it's ID
+ * This function return the whole dataset of a choosen model
+ * It requires a name of a model
+ * example: '/getAll?model=Songs&n=10'
+ */
+app.get('/getNMostViewed', (req, res) => {
+    validateTemplate(req, res, ['model', 'n'], (query) => {
+        Schemas[query.model].find({}, null, { sort: { views: -1 } }, function (err, data) {
+            if (err) throw err;
+            res.send(data.slice(0, query.n));
+        });
+    });
+});
+
+/**
+ * This function return an object from the dataset by it's ID
  * It requires a name of a model and the ID
  * example: '/getAll?model=Songs&id=1'
  */
 app.get('/getById', (req, res) => {
-    validateTemplate(req, res, (query) => {
-    Schemas[query.model].find({ _id: query.id }, function (err, data) {
-        if (err) throw err;
-        res.send(data);
+    validateTemplate(req, res, ['model', 'id'], (query) => {
+        Schemas[query.model].find({ _id: query.id }, function (err, data) {
+            if (err) throw err;
+            res.send(data);
+        });
     });
-});
 });
 
 /********** Useful Functions **********/
 
+// Object of all the query attributes and the functions that will be checking them later
+const queryAttributes = {
+    model: function (model) {
+        if (!(model in Schemas)) {
+            console.log('the model doesn\'t exist in database');
+            return false;
+        }
+
+        return true;
+    },
+    id: function (id) {
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            console.log('ID should be of mongo ObjectID type');
+            return false;
+        }
+
+        return true;
+    },
+    n: function (n) {
+        if (isNaN(n)) {
+            console.log('N should be a number');
+            return false;
+        }
+
+        return true;
+    }
+}
+
 /**
  * Checks if the parameters are valid and if so callbacks to the function
  */
-function validateTemplate(req, res, callback) {
-    if (validQuery(req.query)) {
+function validateTemplate(req, res, params, callback) {
+    if (validQuery(req.query, params)) {
         callback(req.query);
     } else {
-        res.send("error");
+        res.send('error');
     }
 }
 
 /**
  * Receive query of a request and checks if they are acceptable
  */
-function validQuery(query) {
-    if (!(query.model in Schemas)) {
-        console.log("Model does not exist");
-        return false;
-    }
-    // If ID exists on the query and is not a number
-    if (query.id && isNaN(query.id)) {
-        console.log("ID should be a number");
-        return false;
+function validQuery(query, params) {
+    // Runs on all the query attributes and only if everyone passes
+    // the requirements proceed with the request 
+    return Object.keys(queryAttributes).every((val) => {
+        return basicQueryValidation(val, query, params, queryAttributes[val]);
+    });
+}
+
+/*
+* Checks if the attribute is in the params needed for the request
+* if it isn't then return true 
+* if it is check if it is indeed on the request
+* if it is use the specific validation functions from the queryAttributes object
+*/
+function basicQueryValidation(attr, query, params, callback) {
+    // If this attributes needs to be checked in this specific request
+    if (params.includes(attr)) {
+        if (!(attr in query)) {
+            console.log(attr + ' doesn\'t exist on the query');
+            return false;
+        }
+
+        return callback(query[attr]);
     }
 
     return true;
 }
 
-app.listen(config.port, function(){
-    console.log('Server started on port '+ config.port);
+app.listen(config.port, function () {
+    console.log('Server started on port ' + config.port);
 });

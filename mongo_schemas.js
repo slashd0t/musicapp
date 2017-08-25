@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 // creating the schemas
 var songsSchema = new Schema({
-    _id : Number,
+    _id : Schema.ObjectId,
     name : String,
     artist : Number,
     album : Number,
@@ -14,7 +14,7 @@ var songsSchema = new Schema({
 });
 
 var artistsSchema = new Schema({
-    _id : Number,
+    _id : Schema.ObjectId,
     name : String,
     picture : String,
     biography : String,
@@ -22,7 +22,7 @@ var artistsSchema = new Schema({
 });
 
 var albumsSchema = new Schema({
-    _id : Number,
+    _id : Schema.ObjectId,
     name : String,
     artist : Number,
     photo : String,
