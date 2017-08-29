@@ -1,33 +1,35 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var ObjectIdSchema = Schema.ObjectId;
+var ObjectId = mongoose.Types.ObjectId;
 
 // creating the schemas
 var songsSchema = new Schema({
-    _id : Schema.ObjectId,
-    name : String,
-    artist : Number,
-    album : Number,
-    date : Date,
-    picture : String,
-    genre : String,
-    views : Number
+    _id: { type: ObjectIdSchema, default: function () { return new ObjectId() } },
+    name: String,
+    artist: Number,
+    album: Number,
+    date: Date,
+    picture: String,
+    genre: String,
+    views: Number
 });
 
 var artistsSchema = new Schema({
-    _id : Schema.ObjectId,
-    name : String,
-    picture : String,
-    biography : String,
-    views : Number
+    _id: { type: ObjectIdSchema, default: function () { return new ObjectId() } },
+    name: String,
+    picture: String,
+    biography: String,
+    views: Number
 });
 
 var albumsSchema = new Schema({
-    _id : Schema.ObjectId,
-    name : String,
-    artist : Number,
-    photo : String,
-    songs : [Number],
-    views : Number
+    _id: { type: ObjectIdSchema, default: function () { return new ObjectId() } },
+    name: String,
+    artist: Number,
+    photo: String,
+    songs: [Number],
+    views: Number
 });
 
 // Create all the models using the schemas
