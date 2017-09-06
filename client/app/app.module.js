@@ -13,30 +13,38 @@ var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
-var about_component_1 = require("./components/about/about.component");
-var home_component_1 = require("./components/home/home.component");
 var navbar_component_1 = require("./components/navbar/navbar.component");
+var home_component_1 = require("./components/home/home.component");
+var song_component_1 = require("./components/song/song.component");
+var artist_component_1 = require("./components/artist/artist.component");
+var album_component_1 = require("./components/album/album.component");
+var about_component_1 = require("./components/about/about.component");
+var item_list_component_1 = require("./components/items/item-list.component");
 var AppModule = (function () {
     function AppModule() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule,
-                http_1.HttpModule,
-                forms_1.FormsModule,
-                router_1.RouterModule.forRoot(app_routes_1.rootRouterConfig, { useHash: false })
-            ],
-            declarations: [
-                app_component_1.AppComponent,
-                about_component_1.AboutComponent,
-                home_component_1.HomeComponent,
-                navbar_component_1.NavbarComponent
-            ],
-            bootstrap: [app_component_1.AppComponent]
-        })
-    ], AppModule);
     return AppModule;
 }());
+AppModule = __decorate([
+    core_1.NgModule({
+        imports: [
+            platform_browser_1.BrowserModule,
+            http_1.HttpModule,
+            forms_1.FormsModule,
+            router_1.RouterModule.forRoot(app_routes_1.rootRouterConfig, { useHash: false })
+        ],
+        declarations: [
+            app_component_1.AppComponent,
+            home_component_1.HomeComponent,
+            song_component_1.SongComponent,
+            artist_component_1.ArtistComponent,
+            album_component_1.AlbumComponent,
+            about_component_1.AboutComponent,
+            navbar_component_1.NavbarComponent,
+            item_list_component_1.ListItemComponent
+        ],
+        bootstrap: [app_component_1.AppComponent]
+    })
+], AppModule);
 exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map

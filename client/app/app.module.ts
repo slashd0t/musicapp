@@ -6,9 +6,13 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 
-import { AboutComponent } from './components/about/about.component';
-import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
+import {SongComponent} from "./components/song/song.component";
+import {ArtistComponent} from "./components/artist/artist.component";
+import {AlbumComponent} from "./components/album/album.component";
+import { AboutComponent } from './components/about/about.component';
+import {ListItemComponent} from "./components/items/item-list.component";
 
 @NgModule({
   imports:      [
@@ -19,9 +23,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   declarations: [
       AppComponent,
-      AboutComponent,
       HomeComponent,
-      NavbarComponent
+      SongComponent,
+      ArtistComponent,
+      AlbumComponent,
+      AboutComponent,
+      NavbarComponent,
+      ListItemComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,25 @@
+<title>Albums</title>
+
+<div *ngFor="let item of albumsList">
+    <div class="row listInfo" onclick="location.href='/Artists/Details/1';">
+        <div class="col-md-2" >
+            <!--Will be an imade src-->
+            <img class="songImageStyle" src="{{item.photo}}"/>
+        </div>
+        <div class="col-md-10">
+            <div class="ListActionBtnPos">
+                <a href="/Artists/Details/1" class="ListActionBtn glyphicon glyphicon-info-sign"></a>
+            </div>
+            <h3 class="ListTitle">{{item.name}}</h3>
+            <span>
+                album by {{item.artist}} inclueds the songs
+                <!-- TODO: check when the loop prints the last song-->
+                <span *ngFor="let song of item.songs" >
+                    {{song}},
+
+                </span>
+                and more...
+            </span>
+        </div>
+    </div>
+</div>

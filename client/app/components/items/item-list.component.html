@@ -1,0 +1,17 @@
+<div *ngFor="let item of items">
+    <div class="row listInfo" onclick="location.href='/Artists/Details/1';">
+        <div class="col-md-2" >
+            <!--Will be an imade src-->
+            {{item.picture}}
+        </div>
+        <div class="col-md-10">
+            <div class="ListActionBtnPos">
+                <a href="/Artists/Details/1" class="ListActionBtn glyphicon glyphicon-info-sign"></a>
+            </div>
+            <h3 class="ListTitle">{{item.name}}</h3>
+            <span>
+                {{item.artist}} {{item.genre}}
+            </span>
+        </div>
+    </div>
+</div>

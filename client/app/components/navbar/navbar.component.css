@@ -86,9 +86,11 @@ textarea {
   color: white !important;
 }
 
-.hvr-bounce-to-top a {
+.hvr-bounce-to-top {
   color: inherit;
+  padding: 15px;
 }
+
 
 .listImg {
   max-width: 100%;
