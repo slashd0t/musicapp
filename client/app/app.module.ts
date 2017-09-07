@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import {SongComponent} from "./components/song/song.component";
 import {ArtistComponent} from "./components/artist/artist.component";
 import {AlbumComponent} from "./components/album/album.component";
+import {ChatComponent} from "./components/chat/chat.component";
 import { AboutComponent } from './components/about/about.component';
 import {ListItemComponent} from "./components/items/item-list.component";
 
@@ -27,6 +28,7 @@ import {ListItemComponent} from "./components/items/item-list.component";
       SongComponent,
       ArtistComponent,
       AlbumComponent,
+      ChatComponent,
       AboutComponent,
       NavbarComponent,
       ListItemComponent

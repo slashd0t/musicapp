@@ -9,20 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var task_service_1 = require('./services/task.service');
-var AppComponent = (function () {
-    function AppComponent() {
+var ChatComponent = (function () {
+    function ChatComponent() {
     }
-    AppComponent = __decorate([
+    ChatComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: 'app.component.html',
-            providers: [task_service_1.TaskService]
+            selector: 'chat',
+            styleUrls: ['./app/components/chat/chat.component.css'],
+            templateUrl: './app/components/chat/chat.component.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], ChatComponent);
+    return ChatComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.ChatComponent = ChatComponent;
+//# sourceMappingURL=chat.component.js.map

@@ -8,9 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var task_service_1 = require("../../services/task.service");
+var core_1 = require('@angular/core');
+var task_service_1 = require('../../services/task.service');
 var TasksComponent = (function () {
     function TasksComponent(taskService) {
         var _this = this;
@@ -60,8 +59,8 @@ var TasksComponent = (function () {
             moduleId: module.id,
             selector: 'tasks',
             templateUrl: 'tasks.component.html'
-        }),
-        __metadata("design:paramtypes", [task_service_1.TaskService])
+        }), 
+        __metadata('design:paramtypes', [task_service_1.TaskService])
     ], TasksComponent);
     return TasksComponent;
 }());
