@@ -38,7 +38,8 @@ app.use('/', index);
  * example: '/getAll?model=Songs'
  */
 app.get('/getAll', (req, res) => {
-    validateTemplate(req.query, ['model'], (query) => {
+    validateTemplate(req.query, ['model'], (err, query) => {
+        if (err) res.send(err);
         Schemas[query.model].find({}, function (err, data) {
             if (err) return res.send(500, { error: err });
             res.send(data);
@@ -52,9 +53,9 @@ app.get('/getAll', (req, res) => {
  * example: '/getNMostViewed?model=Songs&n=10'
  */
 app.get('/getNMostViewed', (req, res) => {
-    validateTemplate(req.query, ['model', 'n'], (query) => {
+    validateTemplate(req.query, ['model', 'n'], (err, query) => {
         Schemas[query.model].find({}, null, { sort: { views: -1 } }, function (err, data) {
-
+            if (err) res.send(err);
             if (err) return res.send(500, { error: err });
             res.send(data.slice(0, query.n));
         });
@@ -67,7 +68,8 @@ app.get('/getNMostViewed', (req, res) => {
  * example: '/getById?model=Songs&id=1'
  */
 app.get('/getById', (req, res) => {
-    validateTemplate(req.query, ['model', 'id'], (query) => {
+    validateTemplate(req.query, ['model', 'id'], (err, query) => {
+        if (err) res.send(err);
         Schemas[query.model].find({ _id: query.id }, function (err, data) {
             if (err) return res.send(500, { error: err });
             res.send(data);
@@ -91,7 +93,8 @@ app.get('/getById', (req, res) => {
     }
  */
 app.put('/insert', (req, res) => {
-    validateTemplate(req.body, ['model'], (query) => {
+    validateTemplate(req.body, ['model'], (err, query) => {
+        if (err) res.send(err);
         const model_final_data = Object.assign({}, query.model_data, { views: 0 }); // Set views to zero
         Schemas[query.model].create(query.model_data, function (err, data) {
             if (err) return res.send(500, { error: err });
@@ -112,7 +115,8 @@ app.put('/insert', (req, res) => {
     }
  */
 app.put('/update', (req, res) => {
-    validateTemplate(req.body, ['model', 'id'], (query) => {
+    validateTemplate(req.body, ['model', 'id'], (err, query) => {
+        if (err) res.send(err);
         Schemas[query.model].findOneAndUpdate(
             query.id, query.model_data, { upsert: true }, function (err, doc) {
             if (err) return res.send(500, { error: err });
@@ -156,9 +160,9 @@ const queryAttributes = {
  */
 function validateTemplate(data, params, callback) {
     if (validQuery(data, params)) {
-        callback(data);
+        callback(null, data);
     } else {
-        res.send('error');
+        callback('Failed validating query', null);
     }
 }
 

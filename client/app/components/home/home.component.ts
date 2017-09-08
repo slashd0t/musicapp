@@ -8,7 +8,7 @@ import { Http } from '@angular/http';
 })
 export class HomeComponent {
 
-    private MostViewedSongs = [];
+  private MostViewedSongs = [];
   // // Http request example
   // constructor(http: Http) {
   //   http.put('/update', {
@@ -24,20 +24,20 @@ export class HomeComponent {
   // }
 
 
-    //let params: URLSearchParams = new URLSearchParams();
-   // params.set('model', 'Songs');
-    //params.set('n', 10);
+  //let params: URLSearchParams = new URLSearchParams();
+  // params.set('model', 'Songs');
+  //params.set('n', 10);
 
   // Http request example
   constructor(http: Http) {
     http.get('/getNMostViewed', {
-        search: 'model=Songs&n=10'
+      search: 'model=Songs&n=10'
       //model: 'Songs',
-     // n: 10
+      // n: 10
     }).subscribe(data => {
       // Read the result field from the JSON response.
 
-      console.log(data);
+      console.log(data.json());
     });
   }
 
