@@ -21,7 +21,7 @@ var album_component_1 = require("./components/album/album.component");
 var chat_component_1 = require("./components/chat/chat.component");
 var about_component_1 = require("./components/about/about.component");
 var item_list_component_1 = require("./components/items/item-list.component");
-var AppModule = (function () {
+var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([

@@ -47,8 +47,8 @@ export class AboutComponent implements OnInit {
   private initAxis() {
     this.x = d3Scale.scaleBand().rangeRound([0, this.width]).padding(0.1);
     this.y = d3Scale.scaleLinear().rangeRound([this.height, 0]);
-    this.x.domain(STATISTICS.map((d) => d.letter));
-    this.y.domain([0, d3Array.max(STATISTICS, (d) => d.frequency)]);
+    this.x.domain(STATISTICS.map((d) => d.song));
+    this.y.domain([0, d3Array.max(STATISTICS, (d) => d.views)]);
   }
 
   private drawAxis() {
@@ -58,14 +58,14 @@ export class AboutComponent implements OnInit {
       .call(d3Axis.axisBottom(this.x));
     this.g.append("g")
       .attr("class", "axis axis--y")
-      .call(d3Axis.axisLeft(this.y).ticks(10, "%"))
+      .call(d3Axis.axisLeft(this.y))
       .append("text")
       .attr("class", "axis-title")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
       .attr("dy", "0.71em")
       .attr("text-anchor", "end")
-      .text("Frequency");
+      .text("views");
   }
 
   private drawBars() {
@@ -73,10 +73,10 @@ export class AboutComponent implements OnInit {
       .data(STATISTICS)
       .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", (d) => this.x(d.letter))
-      .attr("y", (d) => this.y(d.frequency))
+      .attr("x", (d) => this.x(d.song))
+      .attr("y", (d) => this.y(d.views))
       .attr("width", this.x.bandwidth())
-      .attr("height", (d) => this.height - this.y(d.frequency));
+      .attr("height", (d) => this.height - this.y(d.views));
   }
 
 }

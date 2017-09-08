@@ -15,7 +15,7 @@ var d3Scale = require("d3-scale");
 var d3Array = require("d3-array");
 var d3Axis = require("d3-axis");
 var data_1 = require("./shared/data");
-var AboutComponent = (function () {
+var AboutComponent = /** @class */ (function () {
     function AboutComponent() {
         this.title = 'D3.js with Angular 2!';
         this.subtitle = 'Bar Chart';
@@ -38,8 +38,8 @@ var AboutComponent = (function () {
     AboutComponent.prototype.initAxis = function () {
         this.x = d3Scale.scaleBand().rangeRound([0, this.width]).padding(0.1);
         this.y = d3Scale.scaleLinear().rangeRound([this.height, 0]);
-        this.x.domain(data_1.STATISTICS.map(function (d) { return d.letter; }));
-        this.y.domain([0, d3Array.max(data_1.STATISTICS, function (d) { return d.frequency; })]);
+        this.x.domain(data_1.STATISTICS.map(function (d) { return d.song; }));
+        this.y.domain([0, d3Array.max(data_1.STATISTICS, function (d) { return d.views; })]);
     };
     AboutComponent.prototype.drawAxis = function () {
         this.g.append("g")
@@ -48,14 +48,14 @@ var AboutComponent = (function () {
             .call(d3Axis.axisBottom(this.x));
         this.g.append("g")
             .attr("class", "axis axis--y")
-            .call(d3Axis.axisLeft(this.y).ticks(10, "%"))
+            .call(d3Axis.axisLeft(this.y))
             .append("text")
             .attr("class", "axis-title")
             .attr("transform", "rotate(-90)")
             .attr("y", 6)
             .attr("dy", "0.71em")
             .attr("text-anchor", "end")
-            .text("Frequency");
+            .text("views");
     };
     AboutComponent.prototype.drawBars = function () {
         var _this = this;
@@ -63,10 +63,10 @@ var AboutComponent = (function () {
             .data(data_1.STATISTICS)
             .enter().append("rect")
             .attr("class", "bar")
-            .attr("x", function (d) { return _this.x(d.letter); })
-            .attr("y", function (d) { return _this.y(d.frequency); })
+            .attr("x", function (d) { return _this.x(d.song); })
+            .attr("y", function (d) { return _this.y(d.views); })
             .attr("width", this.x.bandwidth())
-            .attr("height", function (d) { return _this.height - _this.y(d.frequency); });
+            .attr("height", function (d) { return _this.height - _this.y(d.views); });
     };
     AboutComponent = __decorate([
         core_1.Component({
