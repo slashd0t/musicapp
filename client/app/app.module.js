@@ -23,6 +23,7 @@ var album_component_1 = require("./components/album/album.component");
 var chat_component_1 = require("./components/chat/chat.component");
 var about_component_1 = require('./components/about/about.component');
 var item_list_component_1 = require("./components/items/item-list.component");
+var song_details_component_1 = require("./components/song/song-details/song-details.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -38,6 +39,7 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 home_component_1.HomeComponent,
                 song_component_1.SongComponent,
+                song_details_component_1.SongDetailsComponent,
                 artist_component_1.ArtistComponent,
                 album_component_1.AlbumComponent,
                 chat_component_1.ChatComponent,
