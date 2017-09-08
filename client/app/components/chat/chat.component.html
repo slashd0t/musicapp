@@ -1,1 +1,11 @@
-<h1> Harel Do your shit here</h1>
+<div class='divChat'>
+    <ul id="messages">
+        <li *ngFor="let message of messages">
+            {{message.text}}
+        </li>
+    </ul>
+    <form action="">
+        <input #messageInput [(ngModel)]="message" name='message' autocomplete="off" />
+        <button (click)="sendMessage(messageInput)">Send</button>
+    </form>
+</div>

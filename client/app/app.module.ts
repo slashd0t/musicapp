@@ -14,13 +14,14 @@ import {AlbumComponent} from "./components/album/album.component";
 import {ChatComponent} from "./components/chat/chat.component";
 import { AboutComponent } from './components/about/about.component';
 import {ListItemComponent} from "./components/items/item-list.component";
+ 
 
 @NgModule({
   imports:      [
       BrowserModule,
       HttpModule,
       FormsModule,
-      RouterModule.forRoot(rootRouterConfig, { useHash: false })
+      RouterModule.forRoot(rootRouterConfig, { useHash: false }),
   ],
   declarations: [
       AppComponent,

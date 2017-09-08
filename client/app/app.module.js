@@ -30,7 +30,7 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 http_1.HttpModule,
                 forms_1.FormsModule,
-                router_1.RouterModule.forRoot(app_routes_1.rootRouterConfig, { useHash: false })
+                router_1.RouterModule.forRoot(app_routes_1.rootRouterConfig, { useHash: false }),
             ],
             declarations: [
                 app_component_1.AppComponent,
