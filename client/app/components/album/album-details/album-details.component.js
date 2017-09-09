@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
-var AlbumDetailsComponent = (function () {
+var AlbumDetailsComponent = /** @class */ (function () {
     function AlbumDetailsComponent(route, http) {
         var _this = this;
         this.route = route;

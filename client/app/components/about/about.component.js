@@ -15,7 +15,7 @@ var d3 = require("d3-selection");
 var d3Scale = require("d3-scale");
 var d3Array = require("d3-array");
 var d3Axis = require("d3-axis");
-var AboutComponent = (function () {
+var AboutComponent = /** @class */ (function () {
     function AboutComponent(http) {
         this.http = http;
         this.STATISTICS = [];
