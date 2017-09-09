@@ -187,17 +187,34 @@ app.get('/getFullDetailSong', (req, res) => {
 });
 
 /**
+ * This function returns songs by album, artist and genre.
+ * It doesn't have to receive each and every one of them - all are optional
+ * examples: 
+ * /getSongs?album=59b2ee47ef53dd8c2fac3063&artist=59b2ee47ef53dd8c2fac3063
+ * /getSongs?genre=rock&album=59b2ee47ef53dd8c2fac3063
+ * /getSongs?artist=59b2ee47ef53dd8c2fac3063
+ */
+app.get('/getSongs', (req, res) => {
+    let searchParams = {
+        album,
+        artist,
+        genre
+    } = req.query;
+
+    Schemas['Songs'].find(searchParams, function (err, songs) {
+        sendIncaseOfError(err, res);
+        res.send(songs);
+    });
+});
+
+/**
  * This functions return an array with all the genres that are present on the songs 
  * example: /getAllGenres
  */
 app.get('/getAllGenres', (req, res) => {
-    validateTemplate(req.query, [], (err, query) => {
+    Schemas['Songs'].distinct('genre', function (err, genres) {
         sendIncaseOfError(err, res);
-
-        Schemas['Songs'].distinct('genre', function (err, genres) {
-            sendIncaseOfError(err, res);
-            res.send(genres);
-        });
+        res.send(genres);
     });
 });
 
