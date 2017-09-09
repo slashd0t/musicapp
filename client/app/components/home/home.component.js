@@ -34,7 +34,7 @@ var HomeComponent = (function () {
             search: 'model=Songs&n=10'
         }).subscribe(function (data) {
             // Read the result field from the JSON response.
-            console.log(data);
+            console.log(data.json());
         });
     }
     HomeComponent = __decorate([

@@ -1,36 +1,40 @@
-<div class="row">
-    <div class="col-md-10 col-md-offset-1">
-        <div class="centerAlignment">
+<div *ngIf="song">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="centerAlignment">
 
-            <img class="imgTitle" src="{{song.picture}}" />
-            }
-        </div>
-        <div class="headerTitle colorD active">
-            <div class="actionBtnTitlePos">
-                <a title="Back to List" [routerLink]="['/song']" class="actionBtnTitle glyphicon glyphicon-arrow-left"></a>
-                <a title="Edit Artist" [routerLink]="['/song']" class="actionBtnTitle glyphicon glyphicon-pencil"></a>
+                <img class="imgTitle" [src]="song.picture"/>
+
             </div>
-            {{song.name}}
+            <div class="headerTitle colorD active">
+                <div class="actionBtnTitlePos">
+                    <a title="Back to List" [routerLink]="['/song']"
+                       class="actionBtnTitle glyphicon glyphicon-arrow-left"></a>
+                    <a title="Edit Artist" [routerLink]="['/song']"
+                       class="actionBtnTitle glyphicon glyphicon-pencil"></a>
+                </div>
+                {{song.name}}
+            </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-10 col-md-offset-1 MultipleColumns">
-        <!--<label> Artist </label> <a href='@Url.Action("Details", "Artists", new { id = Model.artistId })'>@Html.DisplayFor(modelItem => Model.artist.firstName) @Html.DisplayFor(modelItem => Model.artist.lastName)</a> <br />-->
-        <!--<label> Album </label> <a href='@Url.Action("Details", "Albums", new { id = Model.albumId })'>@Html.DisplayFor(modelItem => Model.album.AlbumName)</a><br />-->
-        <!--<label> Published on </label> @Html.DisplayFor(modelItem => Model.publishDate)<br />-->
-        <!--<label> Genre </label> @Html.DisplayFor(modelItem => Model.genre)<br />-->
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 MultipleColumns">
+            <!--<label> Artist </label> <a href='@Url.Action("Details", "Artists", new { id = Model.artistId })'>@Html.DisplayFor(modelItem => Model.artist.firstName) @Html.DisplayFor(modelItem => Model.artist.lastName)</a> <br />-->
+            <!--<label> Album </label> <a href='@Url.Action("Details", "Albums", new { id = Model.albumId })'>@Html.DisplayFor(modelItem => Model.album.AlbumName)</a><br />-->
+            <!--<label> Published on </label> @Html.DisplayFor(modelItem => Model.publishDate)<br />-->
+            <!--<label> Genre </label> @Html.DisplayFor(modelItem => Model.genre)<br />-->
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-10 col-md-offset-1">
-        <!--@if (Html.DisplayFor(model => model.video).ToString().Length > 0)-->
-        <!--{-->
-        <!--<label>Video Clip</label><br />-->
-        <!--<video controls="controls">-->
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <!--@if (Html.DisplayFor(model => model.video).ToString().Length > 0)-->
+            <!--{-->
+            <!--<label>Video Clip</label><br />-->
+            <!--<video controls="controls">-->
             <!--<source src="data:video/mp4;base64,@Html.DisplayFor(model => model.video)" type="video/mp4" />-->
             <!--Your browser does not support the video tag.-->
-        <!--</video>-->
-        <!--}-->
+            <!--</video>-->
+            <!--}-->
+        </div>
     </div>
 </div>

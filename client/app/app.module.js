@@ -24,6 +24,7 @@ var chat_component_1 = require("./components/chat/chat.component");
 var about_component_1 = require('./components/about/about.component');
 var item_list_component_1 = require("./components/items/item-list.component");
 var song_details_component_1 = require("./components/song/song-details/song-details.component");
+var statistics_component_1 = require("./components/statistics/statistics.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -33,7 +34,7 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 http_1.HttpModule,
                 forms_1.FormsModule,
-                router_1.RouterModule.forRoot(app_routes_1.rootRouterConfig, { useHash: false })
+                router_1.RouterModule.forRoot(app_routes_1.rootRouterConfig, { useHash: false }),
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -43,6 +44,7 @@ var AppModule = (function () {
                 artist_component_1.ArtistComponent,
                 album_component_1.AlbumComponent,
                 chat_component_1.ChatComponent,
+                statistics_component_1.StatisticsComponent,
                 about_component_1.AboutComponent,
                 navbar_component_1.NavbarComponent,
                 item_list_component_1.ListItemComponent

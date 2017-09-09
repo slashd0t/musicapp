@@ -9,27 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var http_1 = require("@angular/http");
-var AlbumComponent = (function () {
-    // Http request example
-    function AlbumComponent(http) {
-        var _this = this;
-        http.get('/getAll', {
-            search: 'model=Albums'
-        }).subscribe(function (data) {
-            // Read the result field from the JSON response.
-            _this.albumsList = eval(data._body);
-        });
+var StatisticsComponent = (function () {
+    function StatisticsComponent() {
     }
-    AlbumComponent = __decorate([
+    StatisticsComponent = __decorate([
         core_1.Component({
-            selector: 'album',
-            styleUrls: ['./app/components/album/album.component.css'],
-            templateUrl: './app/components/album/album.component.html'
+            selector: 'statistics',
+            styleUrls: ['./app/components/statistics/statistics.component.css'],
+            templateUrl: './app/components/statistics/statistics.component.html'
         }), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], AlbumComponent);
-    return AlbumComponent;
+        __metadata('design:paramtypes', [])
+    ], StatisticsComponent);
+    return StatisticsComponent;
 }());
-exports.AlbumComponent = AlbumComponent;
-//# sourceMappingURL=album.component.js.map
+exports.StatisticsComponent = StatisticsComponent;
+//# sourceMappingURL=statistics.component.js.map

@@ -12,16 +12,17 @@ import {SongComponent} from "./components/song/song.component";
 import {ArtistComponent} from "./components/artist/artist.component";
 import {AlbumComponent} from "./components/album/album.component";
 import {ChatComponent} from "./components/chat/chat.component";
-import { AboutComponent } from './components/about/about.component';
+import {AboutComponent } from './components/about/about.component';
 import {ListItemComponent} from "./components/items/item-list.component";
 import {SongDetailsComponent} from "./components/song/song-details/song-details.component";
+import {StatisticsComponent} from "./components/statistics/statistics.component";
 
 @NgModule({
   imports:      [
       BrowserModule,
       HttpModule,
       FormsModule,
-      RouterModule.forRoot(rootRouterConfig, { useHash: false })
+      RouterModule.forRoot(rootRouterConfig, { useHash: false }),
   ],
   declarations: [
       AppComponent,
@@ -31,6 +32,7 @@ import {SongDetailsComponent} from "./components/song/song-details/song-details.
       ArtistComponent,
       AlbumComponent,
       ChatComponent,
+      StatisticsComponent,
       AboutComponent,
       NavbarComponent,
       ListItemComponent
