@@ -8,13 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var d3 = require('d3-selection');
-var d3Scale = require('d3-scale');
-var d3Shape = require('d3-shape');
-var d3Axis = require('d3-axis');
-var d3Array = require('d3-array');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
+var d3 = require("d3-selection");
+var d3Scale = require("d3-scale");
+var d3Shape = require("d3-shape");
+var d3Axis = require("d3-axis");
+var d3Array = require("d3-array");
 var StatisticsComponent = (function () {
     function StatisticsComponent(http) {
         this.http = http;
@@ -22,13 +23,10 @@ var StatisticsComponent = (function () {
     }
     StatisticsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.http.get('/getAll', {
-            search: 'model=Albums'
-        }).subscribe(function (data) {
+        this.http.get('/getAllAlbumsWithSongs', {}).subscribe(function (data) {
             // Read the result field from the JSON response.
             _this.SAMPLE_DATA = data.json().map(function (a) {
-                var d = { Album: "", 'pop': 0, 'rock': 0, 'classic': 0 };
-                d.Album = a.name;
+                var d = { Album: a.name, 'pop': 0, 'rock': 0, 'classic': 0 };
                 var pop_c = 0, rock_c = 0, classic_c = 0;
                 a.songs.forEach(function (element) {
                     switch (element.genre) {
@@ -135,8 +133,8 @@ var StatisticsComponent = (function () {
             selector: 'statistics',
             styleUrls: ['./app/components/statistics/statistics.component.css'],
             templateUrl: './app/components/statistics/statistics.component.html'
-        }), 
-        __metadata('design:paramtypes', [http_1.Http])
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
     ], StatisticsComponent);
     return StatisticsComponent;
 }());

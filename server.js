@@ -122,6 +122,25 @@ app.get('/getAlbumWithSongs', (req, res) => {
 });
 
 /**
+ * This function returns all the albums from the database 
+ * and adds all the songs that are connected to each album in an array called 'songs'
+ * example: '/getAllAlbumsWithSongs
+ */
+app.get('/getAllAlbumsWithSongs', (req, res) => {
+    Schemas['Albums'].aggregate([{
+        "$lookup": {
+            "from": "songs",
+            "localField": "_id",
+            "foreignField": "album",
+            "as": "songs"
+        }
+    }], function (err, albums) {
+        sendIncaseOfError(err, res);
+        res.send(albums);
+    });
+});
+
+/**
  * This function returns an album model from the database by it's ID 
  * and adds all the songs that are connected to this album in an array called 'songs'
  * It requires the ID of the artist
