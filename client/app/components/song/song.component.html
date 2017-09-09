@@ -1,12 +1,12 @@
 <div *ngFor="let item of SongsList">
-    <div class="row listInfo" onclick="location.href='/Artists/Details/1';">
+    <div class="row listInfo" [routerLink]="['/song-details', item._id]" >
         <div class="col-md-2" >
             <!--Will be an imade src-->
             <img class="songImageStyle" src="{{item.picture}}"/>
         </div>
         <div class="col-md-10">
             <div class="ListActionBtnPos">
-                <a href="/Artists/Details/1" class="ListActionBtn glyphicon glyphicon-info-sign"></a>
+                <a [routerLink]="['/song-details', item._id]" class="ListActionBtn glyphicon glyphicon-info-sign"></a>
             </div>
             <h3 class="ListTitle">{{item.name}}</h3>
             <span>

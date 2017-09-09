@@ -83,6 +83,7 @@ app.get('/getNMostViewed', (req, res) => {
  */
 app.get('/getById', (req, res) => {
     validateTemplate(req.query, ['model', 'id'], (err, query) => {
+        console.error(req + "/n" +err);
         if (err) res.send(err);
         Schemas[query.model].find({
             _id: query.id
