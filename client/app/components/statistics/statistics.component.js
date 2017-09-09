@@ -128,17 +128,6 @@ var StatisticsComponent = (function () {
             .attr("dy", "0.32em")
             .text(function (d) { return d; });
     };
-<<<<<<< HEAD
-=======
-    StatisticsComponent = __decorate([
-        core_1.Component({
-            selector: 'statistics',
-            styleUrls: ['./app/components/statistics/statistics.component.css'],
-            templateUrl: './app/components/statistics/statistics.component.html'
-        }),
-        __metadata("design:paramtypes", [http_1.Http])
-    ], StatisticsComponent);
->>>>>>> f80bbc2938134bdefecb98908e2f96d9b54509f8
     return StatisticsComponent;
 }());
 StatisticsComponent = __decorate([

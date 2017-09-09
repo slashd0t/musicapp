@@ -22,17 +22,6 @@ var ArtistComponent = (function () {
             _this.artistsList = eval(data._body);
         });
     }
-<<<<<<< HEAD
-=======
-    ArtistComponent = __decorate([
-        core_1.Component({
-            selector: 'artist',
-            styleUrls: ['./app/components/artist/artist.component.css'],
-            templateUrl: './app/components/artist/artist.component.html'
-        }),
-        __metadata("design:paramtypes", [http_1.Http])
-    ], ArtistComponent);
->>>>>>> f80bbc2938134bdefecb98908e2f96d9b54509f8
     return ArtistComponent;
 }());
 ArtistComponent = __decorate([

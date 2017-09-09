@@ -40,7 +40,6 @@ var SongComponent = (function () {
         });
         this.http = http;
     }
-<<<<<<< HEAD
     SongComponent.prototype.setFilter = function (value, pos) {
         this.searchFilters[pos] = value;
         if (pos == 0) {
@@ -107,16 +106,6 @@ var SongComponent = (function () {
             });
         }
     };
-=======
-    SongComponent = __decorate([
-        core_1.Component({
-            selector: 'song',
-            styleUrls: ['./app/components/song/song.component.css'],
-            templateUrl: './app/components/song/song.component.html'
-        }),
-        __metadata("design:paramtypes", [http_1.Http])
-    ], SongComponent);
->>>>>>> f80bbc2938134bdefecb98908e2f96d9b54509f8
     return SongComponent;
 }());
 SongComponent = __decorate([

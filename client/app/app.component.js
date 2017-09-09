@@ -11,16 +11,6 @@ var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
     }
-<<<<<<< HEAD
-=======
-    AppComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: 'app.component.html',
-        })
-    ], AppComponent);
->>>>>>> f80bbc2938134bdefecb98908e2f96d9b54509f8
     return AppComponent;
 }());
 AppComponent = __decorate([

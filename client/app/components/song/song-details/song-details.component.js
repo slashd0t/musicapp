@@ -33,18 +33,6 @@ var SongDetailsComponent = (function () {
             }
         });
     }
-<<<<<<< HEAD
-=======
-    SongDetailsComponent = __decorate([
-        core_1.Component({
-            selector: 'song-details',
-            styleUrls: ['./app/components/song/song-details/song-details.component.css'],
-            templateUrl: './app/components/song/song-details/song-details.component.html'
-        }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute,
-            http_1.Http])
-    ], SongDetailsComponent);
->>>>>>> f80bbc2938134bdefecb98908e2f96d9b54509f8
     return SongDetailsComponent;
 }());
 SongDetailsComponent = __decorate([
