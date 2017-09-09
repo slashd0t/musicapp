@@ -8,27 +8,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var ArtistComponent = (function () {
     // Http request example
     function ArtistComponent(http) {
+        var _this = this;
         http.get('/getAll', {
             search: 'model=Artists'
         }).subscribe(function (data) {
             // Read the result field from the JSON response.
-            // this.artistsList = eval(data._body);
+            _this.artistsList = eval(data._body);
         });
     }
-    ArtistComponent = __decorate([
-        core_1.Component({
-            selector: 'artist',
-            styleUrls: ['./app/components/artist/artist.component.css'],
-            templateUrl: './app/components/artist/artist.component.html'
-        }), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], ArtistComponent);
     return ArtistComponent;
 }());
+ArtistComponent = __decorate([
+    core_1.Component({
+        selector: 'artist',
+        styleUrls: ['./app/components/artist/artist.component.css'],
+        templateUrl: './app/components/artist/artist.component.html'
+    }),
+    __metadata("design:paramtypes", [http_1.Http])
+], ArtistComponent);
 exports.ArtistComponent = ArtistComponent;
 //# sourceMappingURL=artist.component.js.map

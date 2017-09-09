@@ -8,13 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var d3 = require('d3-selection');
-var d3Scale = require('d3-scale');
-var d3Shape = require('d3-shape');
-var d3Axis = require('d3-axis');
-var d3Array = require('d3-array');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
+var d3 = require("d3-selection");
+var d3Scale = require("d3-scale");
+var d3Shape = require("d3-shape");
+var d3Axis = require("d3-axis");
+var d3Array = require("d3-array");
 var StatisticsComponent = (function () {
     function StatisticsComponent(http) {
         this.http = http;
@@ -122,15 +123,15 @@ var StatisticsComponent = (function () {
             .attr("dy", "0.32em")
             .text(function (d) { return d; });
     };
-    StatisticsComponent = __decorate([
-        core_1.Component({
-            selector: 'statistics',
-            styleUrls: ['./app/components/statistics/statistics.component.css'],
-            templateUrl: './app/components/statistics/statistics.component.html'
-        }), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], StatisticsComponent);
     return StatisticsComponent;
 }());
+StatisticsComponent = __decorate([
+    core_1.Component({
+        selector: 'statistics',
+        styleUrls: ['./app/components/statistics/statistics.component.css'],
+        templateUrl: './app/components/statistics/statistics.component.html'
+    }),
+    __metadata("design:paramtypes", [http_1.Http])
+], StatisticsComponent);
 exports.StatisticsComponent = StatisticsComponent;
 //# sourceMappingURL=statistics.component.js.map

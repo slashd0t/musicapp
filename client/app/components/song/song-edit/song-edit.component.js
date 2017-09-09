@@ -8,8 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
 var SongEditComponent = (function () {
     function SongEditComponent(route, http) {
@@ -77,15 +78,16 @@ var SongEditComponent = (function () {
             }
         });
     }
-    SongEditComponent = __decorate([
-        core_1.Component({
-            selector: 'song-edit',
-            styleUrls: ['./app/components/song/song.component.css'],
-            templateUrl: './app/components/song/song-edit/song-edit.component.html'
-        }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, http_1.Http])
-    ], SongEditComponent);
     return SongEditComponent;
 }());
+SongEditComponent = __decorate([
+    core_1.Component({
+        selector: 'song-edit',
+        styleUrls: ['./app/components/song/song.component.css'],
+        templateUrl: './app/components/song/song-edit/song-edit.component.html'
+    }),
+    __metadata("design:paramtypes", [router_1.ActivatedRoute,
+        http_1.Http])
+], SongEditComponent);
 exports.SongEditComponent = SongEditComponent;
 //# sourceMappingURL=song-edit.component.js.map
