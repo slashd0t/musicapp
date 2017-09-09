@@ -7,13 +7,19 @@ import { AlbumComponent } from './components/album/album.component';
 import { AboutComponent } from './components/about/about.component';
 import {ChatComponent} from "./components/chat/chat.component";
 import {SongDetailsComponent} from "./components/song/song-details/song-details.component";
+import {ArtistDetailsComponent} from "./components/artist/artist-details/artist-details.component";
+import {AlbumDetailsComponent} from "./components/album/album-details/album-details.component";
 import {StatisticsComponent} from "./components/statistics/statistics.component";
+import {SongEditComponent} from "./components/song/song-edit/song-edit.component";
 
 export const rootRouterConfig: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'song', component: SongComponent },
-    { path: 'song-details/:id', component: SongDetailsComponent }
+    { path: 'song-details/:id', component: SongDetailsComponent },
+    { path: 'song-edit/:id', component: SongEditComponent },
+    { path: 'artist-details/:id', component: ArtistDetailsComponent },
+    { path: 'album-details/:id', component: AlbumDetailsComponent },
     { path: 'artist', component: ArtistComponent },
     { path: 'album', component: AlbumComponent },
     { path: 'chat', component: ChatComponent },

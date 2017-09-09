@@ -27,7 +27,7 @@ var albumsSchema = new Schema({
     _id: { type: ObjectIdSchema, default: function () { return new ObjectId() } },
     name: String,
     artist: Number,
-    photo: String,
+    picture: String,
     songs: [Number],
     views: Number
 });

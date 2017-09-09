@@ -1,0 +1,21 @@
+<label>Name:</label>
+<input type="text" placeholder="song name">
+
+<label>Artist</label>
+<option *ngFor="let artist of artistsList" (click)="selectItem(artist._id)">
+    {{artist.name}}
+</option>
+
+<label>Album</label>
+<option *ngFor="let album of albumsList" (click)="selectItem(album._id)">
+    {{album.name}}
+
+<label>Picture</label>
+<input type="file" id="picture" name="picture" />
+
+</option><label>Genre</label>
+<option *ngFor="let genre of genresList" (click)="selectItem()">
+    {{genre.name}}
+</option>
+
+<!--"views" : 0-->
