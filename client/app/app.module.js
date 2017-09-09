@@ -13,7 +13,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
-var ngx_facebook_1 = require("ngx-facebook");
+// import { FacebookModule } from 'ngx-facebook';
 var navbar_component_1 = require("./components/navbar/navbar.component");
 var home_component_1 = require("./components/home/home.component");
 var song_component_1 = require("./components/song/song.component");
@@ -34,7 +34,6 @@ var AppModule = /** @class */ (function () {
                 http_1.HttpModule,
                 forms_1.FormsModule,
                 router_1.RouterModule.forRoot(app_routes_1.rootRouterConfig, { useHash: false }),
-                ngx_facebook_1.FacebookModule.forRoot()
             ],
             declarations: [
                 app_component_1.AppComponent,

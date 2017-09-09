@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FacebookService, InitParams, LoginResponse  } from 'ngx-facebook';
+// import { FacebookService, InitParams, LoginResponse  } from 'ngx-facebook';
 
 @Component({
   moduleId: module.id,
@@ -9,18 +9,18 @@ import { FacebookService, InitParams, LoginResponse  } from 'ngx-facebook';
 
 export class AppComponent { 
 
-  constructor(private fb: FacebookService){
-    let initParams: InitParams = {
-      appId: '1234566778',
-      xfbml: true,
-      version: 'v2.8'
-    };
+  // constructor(private fb: FacebookService){
+  //   let initParams: InitParams = {
+  //     appId: '1234566778',
+  //     xfbml: true,
+  //     version: 'v2.8'
+  //   };
  
-    fb.init(initParams);
+  //   fb.init(initParams);
     
-    this.fb.login()
-    .then((response: LoginResponse) => console.log(response))
-    .catch((error: any) => console.error(error));
-  }
+  //   this.fb.login()
+  //   .then((response: LoginResponse) => console.log(response))
+  //   .catch((error: any) => console.error(error));
+  // }
 
 }
