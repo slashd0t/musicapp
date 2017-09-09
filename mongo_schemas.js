@@ -7,14 +7,13 @@ var ObjectId = mongoose.Types.ObjectId;
 var songsSchema = new Schema({
     _id: { type: ObjectIdSchema, default: function () { return new ObjectId() } },
     name: String,
-    artist: Number,
-    album: Number,
+    artist: ObjectIdSchema,
+    album: ObjectIdSchema,
     date: Date,
     picture: String,
     genre: String,
     views: Number
 });
-
 
 var artistsSchema = new Schema({
     _id: { type: ObjectIdSchema, default: function () { return new ObjectId() } },
@@ -27,9 +26,8 @@ var artistsSchema = new Schema({
 var albumsSchema = new Schema({
     _id: { type: ObjectIdSchema, default: function () { return new ObjectId() } },
     name: String,
-    artist: Number,
+    artist: ObjectIdSchema,
     picture: String,
-    songs: [Number],
     views: Number
 });
 
