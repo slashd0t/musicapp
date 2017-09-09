@@ -15,6 +15,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
+// import { FacebookModule } from 'ngx-facebook';
 var navbar_component_1 = require('./components/navbar/navbar.component');
 var home_component_1 = require('./components/home/home.component');
 var song_component_1 = require("./components/song/song.component");

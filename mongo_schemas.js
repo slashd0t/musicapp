@@ -15,6 +15,7 @@ var songsSchema = new Schema({
     views: Number
 });
 
+
 var artistsSchema = new Schema({
     _id: { type: ObjectIdSchema, default: function () { return new ObjectId() } },
     name: String,
