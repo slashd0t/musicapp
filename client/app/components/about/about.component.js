@@ -75,15 +75,15 @@ var AboutComponent = /** @class */ (function () {
             .attr("width", this.x.bandwidth())
             .attr("height", function (d) { return _this.height - _this.y(d.views); });
     };
+    AboutComponent = __decorate([
+        core_1.Component({
+            selector: 'about',
+            styleUrls: ['./app/components/about/about.component.css'],
+            templateUrl: './app/components/about/about.component.html'
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], AboutComponent);
     return AboutComponent;
 }());
-AboutComponent = __decorate([
-    core_1.Component({
-        selector: 'about',
-        styleUrls: ['./app/components/about/about.component.css'],
-        templateUrl: './app/components/about/about.component.html'
-    }),
-    __metadata("design:paramtypes", [http_1.Http])
-], AboutComponent);
 exports.AboutComponent = AboutComponent;
 //# sourceMappingURL=about.component.js.map

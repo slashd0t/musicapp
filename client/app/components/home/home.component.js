@@ -40,15 +40,15 @@ var HomeComponent = /** @class */ (function () {
             console.log(data.json());
         });
     }
+    HomeComponent = __decorate([
+        core_1.Component({
+            selector: 'home',
+            styleUrls: ['./app/components/home/home.component.css'],
+            templateUrl: './app/components/home/home.component.html'
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], HomeComponent);
     return HomeComponent;
 }());
-HomeComponent = __decorate([
-    core_1.Component({
-        selector: 'home',
-        styleUrls: ['./app/components/home/home.component.css'],
-        templateUrl: './app/components/home/home.component.html'
-    }),
-    __metadata("design:paramtypes", [http_1.Http])
-], HomeComponent);
 exports.HomeComponent = HomeComponent;
 //# sourceMappingURL=home.component.js.map

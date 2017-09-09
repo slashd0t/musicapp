@@ -21,15 +21,15 @@ var AlbumComponent = /** @class */ (function () {
             // this.albumsList = eval(data._body);
         });
     }
+    AlbumComponent = __decorate([
+        core_1.Component({
+            selector: 'album',
+            styleUrls: ['./app/components/album/album.component.css'],
+            templateUrl: './app/components/album/album.component.html'
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], AlbumComponent);
     return AlbumComponent;
 }());
-AlbumComponent = __decorate([
-    core_1.Component({
-        selector: 'album',
-        styleUrls: ['./app/components/album/album.component.css'],
-        templateUrl: './app/components/album/album.component.html'
-    }),
-    __metadata("design:paramtypes", [http_1.Http])
-], AlbumComponent);
 exports.AlbumComponent = AlbumComponent;
 //# sourceMappingURL=album.component.js.map
