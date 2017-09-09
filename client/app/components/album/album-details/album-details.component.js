@@ -19,13 +19,56 @@ var AlbumDetailsComponent = (function () {
         this.sub = this.route.params.subscribe(function (params) {
             _this.id = params['id']; // (+) converts string 'id' to a number
             if (_this.id) {
-                _this.searchParams = 'model=Albums&id=' + _this.id;
+                _this.searchParams = 'id=' + _this.id;
                 // Http request example
-                http.get('/getById', {
+                http.get('/getAlbumWithSongs', {
                     search: _this.searchParams
                 }).subscribe(function (data) {
                     // Read the result field from the JSON response.
-                    _this.album = eval(data._body)[0];
+                    _this.album = JSON.parse(data._body);
+                    _this.searchParams = 'model=Artists&id=' + _this.album.artist;
+                    http.get('/getById', {
+                        search: _this.searchParams
+                    }).subscribe(function (data) {
+                        _this.album.artistName = JSON.parse(data._body)[0].name;
+                        // let canvas = document.getElementById("canvas");
+                        //
+                        // let pictures = [];
+                        //
+                        // for(let i = 0; i < this.album.songs.length; i++){
+                        //     pictures.push(this.album.songs[i].picture)
+                        // }
+                        //
+                        //
+                        // let imagesCount = this.album.songs.length;
+                        // imagesCount = parseInt(imagesCount);
+                        // var currImage = 0;
+                        //
+                        // imageAnimationFunc();
+                        //
+                        // function imageAnimationFunc() {
+                        //     if (currImage >= imagesCount) currImage = 0;
+                        //
+                        //     canvas.drawImage({
+                        //         layer: true,
+                        //         name: "image" + currImage,
+                        //         source: "data:image/png;base64," + pictures[currImage],
+                        //         x: 0,
+                        //         y: 200,
+                        //         height: 200,
+                        //         width: 200,
+                        //         fromCenter: false
+                        //     });
+                        //     canvas.animateLayer("image" + currImage, {
+                        //         x: 600,
+                        //         y: 200
+                        //     }, 5000, function () {
+                        //         canvas.removeLayer("image" + currImage).drawLayers();
+                        //         currImage++;
+                        //         imageAnimationFunc();
+                        //     });
+                        //
+                    });
                 });
             }
         });

@@ -19,10 +19,25 @@
     </div>
     <div class="row">
         <div class="col-md-10 col-md-offset-1 MultipleColumns">
-            <!--<label> Artist </label> <a href='@Url.Action("Details", "Artists", new { id = Model.artistId })'>@Html.DisplayFor(modelItem => Model.artist.firstName) @Html.DisplayFor(modelItem => Model.artist.lastName)</a> <br />-->
-            <!--<label> Album </label> <a href='@Url.Action("Details", "Albums", new { id = Model.albumId })'>@Html.DisplayFor(modelItem => Model.album.AlbumName)</a><br />-->
-            <!--<label> Published on </label> @Html.DisplayFor(modelItem => Model.publishDate)<br />-->
-            <!--<label> Genre </label> @Html.DisplayFor(modelItem => Model.genre)<br />-->
+
+            <div class="row">
+                <div class="col-md-offset-2 col-md-4">
+                    <label>Biography</label>
+                </div>
+                <div class="col-md-4">
+                    <span>{{artist.biography}}</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-offset-2 col-md-4">
+                    <label>Number Of Views</label>
+                </div>
+                <div class="col-md-4">
+                    <span>{{artist.views}}</span>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

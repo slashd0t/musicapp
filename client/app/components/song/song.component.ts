@@ -127,6 +127,5 @@ export class SongComponent {
     }
 
     private deleteSong = function(id){
-        this.http.
     }
 }
