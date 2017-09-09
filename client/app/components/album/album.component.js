@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var AlbumComponent = /** @class */ (function () {
+var AlbumComponent = (function () {
     // Http request example
     function AlbumComponent(http) {
         http.get('/getAll', {

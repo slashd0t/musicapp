@@ -13,22 +13,22 @@
        padding: 3px;
        position: fixed;
        bottom: 0;
-       width: 89.1%;
        margin-bottom: 2vh;
+       width: 90vw;
  }
 
  .divChat form input {
        border: 0;
        padding: 10px;
-       width: 90%;
-       margin-right: 0.65%;
+       width: 89%;
  }
 
  .divChat form button {
-       width: 9%;
+       width: 9.5%;
        background: rgb(130, 224, 255);
        border: none;
        padding: 10px;
+       margin-left: 0.5%;
  }
 
  .divChat #messages {
@@ -38,6 +38,7 @@
        border: black solid 1px;
        height: 80vh;
        overflow: auto;
+       width: 90vw;
  }
 
  .divChat #messages li {

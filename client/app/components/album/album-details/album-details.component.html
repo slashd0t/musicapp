@@ -1,19 +1,19 @@
-<div *ngIf="song">
+<div *ngIf="album">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="centerAlignment">
 
-                <img *ngIf="song.picture" class="imgTitle" src="{{song.picture}}"/>
+                <img *ngIf="album.picture" class="imgTitle" [src]="album.picture"/>
 
             </div>
-            <div class="headerTitle colorD active">
+            <div class="headerTitle colorC active">
                 <div class="actionBtnTitlePos">
-                    <a title="Back to List" [routerLink]="['/song']"
+                    <a title="Back to List" [routerLink]="['/album']"
                        class="actionBtnTitle glyphicon glyphicon-arrow-left"></a>
-                    <a title="Edit Song" [routerLink]="['/song-edit', song._id]"
+                    <a title="Edit Artist" [routerLink]="['/album']"
                        class="actionBtnTitle glyphicon glyphicon-pencil"></a>
                 </div>
-                {{song.name}}
+                {{album.name}}
             </div>
         </div>
     </div>

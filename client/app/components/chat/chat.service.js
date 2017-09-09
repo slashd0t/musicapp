@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Observable_1 = require("rxjs/Observable");
 var io = require("socket.io-client");
-var ChatService = /** @class */ (function () {
+var ChatService = (function () {
     function ChatService() {
         this.url = 'http://localhost:8080';
     }

@@ -45,11 +45,10 @@ app.use('/', index);
  */
 app.get('/getAll', (req, res) => {
     validateTemplate(req.query, ['model'], (err, query) => {
-        if (err) res.send(err);
+        sendIncaseOfError(err, res);
+
         Schemas[query.model].find({}, function (err, data) {
-            if (err) return res.send(500, {
-                error: err
-            });
+            sendIncaseOfError(err, res);
             res.send(data);
         });
     });
@@ -62,37 +61,179 @@ app.get('/getAll', (req, res) => {
  */
 app.get('/getNMostViewed', (req, res) => {
     validateTemplate(req.query, ['model', 'n'], (err, query) => {
+        sendIncaseOfError(err, res);
+
         Schemas[query.model].find({}, null, {
             sort: {
                 views: -1
             }
         }, function (err, data) {
-            if (err) res.send(err);
-            if (err) return res.send(500, {
-                error: err
-            });
+            sendIncaseOfError(err, res);
             res.send(data.slice(0, query.n));
         });
     });
 });
 
 /**
- * This function return an object from the dataset by it's ID
+ * This function return an object from the database by it's ID
  * It requires a name of a model and the ID
- * example: '/getById?model=Songs&id=1'
+ * example: '/getById?model=Songs&id=59b2ee47ef53dd8c2fac3063'
  */
 app.get('/getById', (req, res) => {
     validateTemplate(req.query, ['model', 'id'], (err, query) => {
-        console.error(req + "/n" +err);
-        if (err) res.send(err);
+        sendIncaseOfError(err, res);
         Schemas[query.model].find({
             _id: query.id
         }, function (err, data) {
-            if (err) return res.send(500, {
-                error: err
-            });
+            sendIncaseOfError(err, res);
             res.send(data);
         });
+    });
+});
+
+/**
+ * This function returns an album model from the database by it's ID 
+ * and adds all the songs that are connected to this album in an array called 'songs'
+ * It requires the ID of the album
+ * example: '/getAlbumWithSongs?id=59b2ee47ef53dd8c2fac3063'
+ */
+app.get('/getAlbumWithSongs', (req, res) => {
+    validateTemplate(req.query, ['id'], (err, query) => {
+        sendIncaseOfError(err, res);
+
+        Schemas['Albums'].findOne({
+            _id: query.id
+        }, function (err, album) {
+            sendIncaseOfError(err, res);
+
+            if (album) {
+                Schemas['Songs'].find({
+                    album: query.id
+                }, function (err, songs) {
+                    sendIncaseOfError(err, res);
+
+                    res.send(Object.assign({}, album.toObject(), {
+                        songs
+                    }));
+                });
+            }
+        });
+    });
+});
+
+/**
+ * This function returns all the albums from the database 
+ * and adds all the songs that are connected to each album in an array called 'songs'
+ * example: '/getAllAlbumsWithSongs
+ */
+app.get('/getAllAlbumsWithSongs', (req, res) => {
+    Schemas['Albums'].aggregate([{
+        "$lookup": {
+            "from": "songs",
+            "localField": "_id",
+            "foreignField": "album",
+            "as": "songs"
+        }
+    }], function (err, albums) {
+        sendIncaseOfError(err, res);
+        res.send(albums);
+    });
+});
+
+/**
+ * This function returns an album model from the database by it's ID 
+ * and adds all the songs that are connected to this album in an array called 'songs'
+ * It requires the ID of the artist
+ * example: '/getArtistWithAlbums?id=59b2ee47ef53dd8c2fac3063'
+ */
+app.get('/getArtistWithAlbums', (req, res) => {
+    validateTemplate(req.query, ['id'], (err, query) => {
+        sendIncaseOfError(err, res);
+        Schemas['Artists'].findOne({
+            _id: query.id
+        }, function (err, artist) {
+            sendIncaseOfError(err, res);
+
+            if (artist) {
+                Schemas['Albums'].find({
+                    artist: query.id
+                }, function (err, albums) {
+                    sendIncaseOfError(err, res);
+
+                    res.send(Object.assign({}, artist.toObject(), {
+                        albums
+                    }));
+                });
+            }
+        });
+    });
+});
+
+/**
+ * This function returns a song model from the database by it's ID 
+ * and adds the object of it's artist and album by their id
+ * It requires the ID of the song
+ * example: '/getFullDetailSong?id=59b2ee47ef53dd8c2fac3063'
+ */
+app.get('/getFullDetailSong', (req, res) => {
+    validateTemplate(req.query, ['id'], (err, query) => {
+        sendIncaseOfError(err, res);
+        Schemas['Songs'].findOne({
+            _id: query.id
+        }, function (err, song) {
+            sendIncaseOfError(err, res);
+
+            if (song) {
+                Schemas['Albums'].findOne({
+                    _id: song.album
+                }, function (err, album) {
+                    sendIncaseOfError(err, res);
+                    Schemas['Artists'].findOne({
+                        _id: song.artist
+                    }, function (err, artist) {
+                        sendIncaseOfError(err, res);
+
+                        res.send(Object.assign({}, song.toObject(), {
+                            album
+                        }, {
+                            artist
+                        }));
+                    });
+                });
+            }
+        });
+    });
+});
+
+/**
+ * This function returns songs by album, artist and genre.
+ * It doesn't have to receive each and every one of them - all are optional
+ * examples: 
+ * /getSongs?album=59b2ee47ef53dd8c2fac3063&artist=59b2ee47ef53dd8c2fac3063
+ * /getSongs?genre=rock&album=59b2ee47ef53dd8c2fac3063
+ * /getSongs?artist=59b2ee47ef53dd8c2fac3063
+ */
+app.get('/getSongs', (req, res) => {
+    let searchParams = {
+        album,
+        artist,
+        genre
+    } = req.query;
+
+    Schemas['Songs'].find(searchParams, function (err, songs) {
+        sendIncaseOfError(err, res);
+        res.send(songs);
+    });
+});
+
+/**
+ * This functions return an array with all the genres that are present on the songs 
+ * example: /getAllGenres
+ */
+app.get('/getAllGenres', (req, res) => {
+    Schemas['Songs'].distinct('genre', function (err, genres) {
+        sendIncaseOfError(err, res);
+        res.send(genres);
     });
 });
 
@@ -113,14 +254,12 @@ app.get('/getById', (req, res) => {
  */
 app.put('/insert', (req, res) => {
     validateTemplate(req.body, ['model'], (err, query) => {
-        if (err) res.send(err);
+        sendIncaseOfError(err, res);
         const model_final_data = Object.assign({}, query.model_data, {
             views: 0
         }); // Set views to zero
         Schemas[query.model].create(query.model_data, function (err, data) {
-            if (err) return res.send(500, {
-                error: err
-            });
+            sendIncaseOfError(err, res);
             res.send('success');
         });
     });
@@ -139,21 +278,28 @@ app.put('/insert', (req, res) => {
  */
 app.put('/update', (req, res) => {
     validateTemplate(req.body, ['model', 'id'], (err, query) => {
-        if (err) res.send(err);
+        sendIncaseOfError(err, res);
         Schemas[query.model].findOneAndUpdate(
             query.id, query.model_data, {
                 upsert: true
             },
             function (err, doc) {
-                if (err) return res.send(500, {
-                    error: err
-                });
+                sendIncaseOfError(err, res);
                 return res.send("succesfully saved");
             });
     });
 });
 
 /********** Useful Functions **********/
+
+function sendIncaseOfError(err, res) {
+    if (err) {
+        console.log(err);
+        res.send(500, {
+            error: err
+        });
+    }
+}
 
 // Object of all the query attributes and the functions that will be checking them later
 const queryAttributes = {

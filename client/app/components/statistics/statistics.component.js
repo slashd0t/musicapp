@@ -16,20 +16,17 @@ var d3Scale = require("d3-scale");
 var d3Shape = require("d3-shape");
 var d3Axis = require("d3-axis");
 var d3Array = require("d3-array");
-var StatisticsComponent = /** @class */ (function () {
+var StatisticsComponent = (function () {
     function StatisticsComponent(http) {
         this.http = http;
         this.SAMPLE_DATA = [];
     }
     StatisticsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.http.get('/getAll', {
-            search: 'model=Albums'
-        }).subscribe(function (data) {
+        this.http.get('/getAllAlbumsWithSongs', {}).subscribe(function (data) {
             // Read the result field from the JSON response.
             _this.SAMPLE_DATA = data.json().map(function (a) {
-                var d = { Album: "", 'pop': 0, 'rock': 0, 'classic': 0 };
-                d.Album = a.name;
+                var d = { Album: a.name, 'pop': 0, 'rock': 0, 'classic': 0 };
                 var pop_c = 0, rock_c = 0, classic_c = 0;
                 a.songs.forEach(function (element) {
                     switch (element.genre) {

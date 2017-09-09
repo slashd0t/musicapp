@@ -17,6 +17,9 @@ import {AboutComponent } from './components/about/about.component';
 import {ListItemComponent} from "./components/items/item-list.component";
 import {SongDetailsComponent} from "./components/song/song-details/song-details.component";
 import {StatisticsComponent} from "./components/statistics/statistics.component";
+import {ArtistDetailsComponent} from "./components/artist/artist-details/artist-details.component";
+import {AlbumDetailsComponent} from "./components/album/album-details/album-details.component";
+import {SongEditComponent} from "./components/song/song-edit/song-edit.component";
 
 @NgModule({
   imports:      [
@@ -31,8 +34,11 @@ import {StatisticsComponent} from "./components/statistics/statistics.component"
       HomeComponent,
       SongComponent,
       SongDetailsComponent,
+      SongEditComponent,
       ArtistComponent,
+      ArtistDetailsComponent,
       AlbumComponent,
+      AlbumDetailsComponent,
       ChatComponent,
       StatisticsComponent,
       AboutComponent,
