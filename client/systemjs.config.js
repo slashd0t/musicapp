@@ -34,7 +34,7 @@
       'd3-time': 'npm:d3-time/build/d3-time.js',
       'd3-time-format': 'npm:d3-time-format/build/d3-time-format.js',
       'd3-color': 'npm:d3-color/build/d3-color.js',
-      // 'ngx-facebook': 'npm:ngx-facebook/dist/esm/index.js',
+      // 'ngx-facebook': 'npm:ngx-facebook',
       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
@@ -48,6 +48,10 @@
       rxjs: {
         defaultExtension: 'js'
       },
+      // 'ngx-facebook': {
+      //   defaultExtension: 'js',
+      //   main: 'dist/umd/index.js'
+      // },
       'angular-in-memory-web-api': {
         main: './index.js',
         defaultExtension: 'js'

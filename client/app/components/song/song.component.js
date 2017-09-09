@@ -14,12 +14,11 @@ var http_1 = require("@angular/http");
 var SongComponent = /** @class */ (function () {
     // Http request example
     function SongComponent(http) {
-        var _this = this;
         http.get('/getAll', {
             search: 'model=Songs'
         }).subscribe(function (data) {
             // Read the result field from the JSON response.
-            _this.SongsList = eval(data._body);
+            // this.SongsList = eval(data._body);
         });
     }
     SongComponent = __decorate([

@@ -16,7 +16,7 @@ export class SongComponent {
             search: 'model=Songs'
         }).subscribe(data => {
             // Read the result field from the JSON response.
-            this.SongsList = eval(data._body);
+            // this.SongsList = eval(data._body);
         });
     }
 }

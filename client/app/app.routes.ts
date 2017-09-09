@@ -13,7 +13,7 @@ export const rootRouterConfig: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'song', component: SongComponent },
-    { path: 'song-details/:id', component: SongDetailsComponent }
+    { path: 'song-details/:id', component: SongDetailsComponent },
     { path: 'artist', component: ArtistComponent },
     { path: 'album', component: AlbumComponent },
     { path: 'chat', component: ChatComponent },
