@@ -28,9 +28,13 @@ var SongCreateComponent = (function () {
             if (this.song.name.replace(" ", "") == "") {
                 alert("Song must have a name");
             }
+            else if (!this.song.artist) {
+                alert("Song must have an artist");
+            }
+            else if (!this.song.album) {
+                alert("Song must have an album");
+            }
             else {
-                debugger;
-                this.song.artist = this.song.artist._id;
                 // Http request example
                 this.innerHttp.put('/insert', {
                     model: 'Songs',
@@ -41,34 +45,37 @@ var SongCreateComponent = (function () {
                 });
             }
         };
-        this.innerHttp = http;
         this.song = {
             name: " ",
-            artist: 0,
-            album: 0,
+            artist: null,
+            album: null,
             date: " ",
             picture: "",
-            genre: " ",
+            genre: null,
             views: 0
         };
+        this.innerHttp = http;
         http.get('/getAll', {
             search: 'model=Artists'
         }).subscribe(function (data) {
             // Read the result field from the JSON response.
             _this.artistsList = JSON.parse(data._body);
-            console.log("artistsList: " + _this.artistsList);
+            _this.song.artist = _this.artistsList[0]._id,
+                console.log("artistsList: " + _this.artistsList);
         });
         http.get('/getAll', {
             search: 'model=Albums'
         }).subscribe(function (data) {
             // Read the result field from the JSON response.
             _this.albumsList = JSON.parse(data._body);
+            _this.song.album = _this.albumsList[0]._id;
             console.log("albumsList: " + _this.albumsList);
         });
         http.get('/getAllGenres').subscribe(function (data) {
             // Read the result field from the JSON response.
             _this.genresList = JSON.parse(data._body);
             console.log("GENRES: " + _this.genresList);
+            _this.song.genre = _this.genresList[0];
         });
     }
     SongCreateComponent = __decorate([

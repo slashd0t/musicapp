@@ -15,6 +15,10 @@ var SongComponent = (function () {
     function SongComponent(http) {
         var _this = this;
         this.searchFilters = ["", "", ""];
+        this.deleteSong = function (id) {
+            this.http.
+            ;
+        };
         http.get('/getAll', {
             search: 'model=Songs'
         }).subscribe(function (data) {

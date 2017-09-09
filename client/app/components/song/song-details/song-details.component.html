@@ -20,7 +20,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1 MultipleColumns">
 
-            <div class="row">
+            <div class="row" *ngIf="song.artist">
                 <div class="col-md-offset-2 col-md-4">
                     <label>Artist</label>
                 </div>
@@ -28,7 +28,7 @@
                     <span>{{song.artist.name}}</span>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" *ngIf="song.album">
                 <div class="col-md-offset-2 col-md-4">
                     <label>Album</label>
                 </div>
