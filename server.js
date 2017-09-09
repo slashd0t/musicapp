@@ -187,6 +187,21 @@ app.get('/getFullDetailSong', (req, res) => {
 });
 
 /**
+ * This functions return an array with all the genres that are present on the songs 
+ * example: /getAllGenres
+ */
+app.get('/getAllGenres', (req, res) => {
+    validateTemplate(req.query, [], (err, query) => {
+        sendIncaseOfError(err, res);
+
+        Schemas['Songs'].distinct('genre', function (err, genres) {
+            sendIncaseOfError(err, res);
+            res.send(genres);
+        });
+    });
+});
+
+/**
  * This function inserts a new object to the database
  * It requires a name of a model and the model itself
  * this is a put request
