@@ -10,22 +10,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
 var d3 = require("d3-selection");
 var d3Scale = require("d3-scale");
 var d3Array = require("d3-array");
 var d3Axis = require("d3-axis");
-var data_1 = require("./shared/data");
 var AboutComponent = /** @class */ (function () {
-    function AboutComponent() {
-        this.title = 'D3.js with Angular 2!';
-        this.subtitle = 'Bar Chart';
+    function AboutComponent(http) {
+        this.http = http;
+        this.STATISTICS = [];
         this.margin = { top: 20, right: 20, bottom: 30, left: 40 };
     }
     AboutComponent.prototype.ngOnInit = function () {
-        this.initSvg();
-        this.initAxis();
-        this.drawAxis();
-        this.drawBars();
+        var _this = this;
+        this.http.get('/getNMostViewed', {
+            search: 'model=Songs&n=5'
+        }).subscribe(function (data) {
+            // Read the result field from the JSON response.
+            _this.STATISTICS = data.json();
+            _this.initSvg();
+            _this.initAxis();
+            _this.drawAxis();
+            _this.drawBars();
+            console.log(data.json());
+        });
     };
     AboutComponent.prototype.initSvg = function () {
         this.svg = d3.select("svg");
@@ -33,13 +41,12 @@ var AboutComponent = /** @class */ (function () {
         this.height = +this.svg.attr("height") - this.margin.top - this.margin.bottom;
         this.g = this.svg.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
-        ;
     };
     AboutComponent.prototype.initAxis = function () {
         this.x = d3Scale.scaleBand().rangeRound([0, this.width]).padding(0.1);
         this.y = d3Scale.scaleLinear().rangeRound([this.height, 0]);
-        this.x.domain(data_1.STATISTICS.map(function (d) { return d.song; }));
-        this.y.domain([0, d3Array.max(data_1.STATISTICS, function (d) { return d.views; })]);
+        this.x.domain(this.STATISTICS.map(function (d) { return d.name; }));
+        this.y.domain([0, d3Array.max(this.STATISTICS, function (d) { return d.views; })]);
     };
     AboutComponent.prototype.drawAxis = function () {
         this.g.append("g")
@@ -60,10 +67,10 @@ var AboutComponent = /** @class */ (function () {
     AboutComponent.prototype.drawBars = function () {
         var _this = this;
         this.g.selectAll(".bar")
-            .data(data_1.STATISTICS)
+            .data(this.STATISTICS)
             .enter().append("rect")
             .attr("class", "bar")
-            .attr("x", function (d) { return _this.x(d.song); })
+            .attr("x", function (d) { return _this.x(d.name); })
             .attr("y", function (d) { return _this.y(d.views); })
             .attr("width", this.x.bandwidth())
             .attr("height", function (d) { return _this.height - _this.y(d.views); });
@@ -74,7 +81,7 @@ var AboutComponent = /** @class */ (function () {
             styleUrls: ['./app/components/about/about.component.css'],
             templateUrl: './app/components/about/about.component.html'
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [http_1.Http])
     ], AboutComponent);
     return AboutComponent;
 }());

@@ -25,6 +25,7 @@
       'd3-selection': 'npm:d3-selection/build/d3-selection.js',
       'd3-scale': 'npm:d3-scale/build/d3-scale.js',
       'd3-array': 'npm:d3-array/build/d3-array.js',
+      'd3-shape': 'npm:d3-shape/build/d3-shape.js',
       'd3-axis': 'npm:d3-axis/build/d3-axis.js',
       'd3-collection': 'npm:d3-collection/build/d3-collection.js',
       'd3-interpolate': 'npm:d3-interpolate/build/d3-interpolate.js',
@@ -32,6 +33,7 @@
       'd3-time': 'npm:d3-time/build/d3-time.js',
       'd3-time-format': 'npm:d3-time-format/build/d3-time-format.js',
       'd3-color': 'npm:d3-color/build/d3-color.js',
+      'ngx-facebook': 'npm:ngx-facebook/dist/esm/index.js',
       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',

@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
+import { FacebookModule } from 'ngx-facebook';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -22,6 +23,7 @@ import {ListItemComponent} from "./components/items/item-list.component";
       HttpModule,
       FormsModule,
       RouterModule.forRoot(rootRouterConfig, { useHash: false }),
+      FacebookModule.forRoot()
   ],
   declarations: [
       AppComponent,
