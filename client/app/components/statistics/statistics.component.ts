@@ -22,7 +22,8 @@ export interface Margin {
 
 export class StatisticsComponent implements OnInit {
 
-    private SAMPLE_DATA = [];
+    private statisticsData = [];
+    private allGenres = [];
 
     private margin: Margin;
 
@@ -39,41 +40,34 @@ export class StatisticsComponent implements OnInit {
     constructor(private http: Http) { }
 
     ngOnInit() {
+        this.http.get('/getAllGenres', {}).subscribe(data => {
+            this.allGenres = data.json().map(g => {
+                return ({"name": g, "count": 0});
+            });
+        });
+
         this.http.get('/getAllAlbumsWithSongs', {}).subscribe(data => {
             // Read the result field from the JSON response.
 
-            this.SAMPLE_DATA = data.json().map(a => {
-                var d = { Album: a.name, 'pop': 0, 'rock': 0, 'classic': 0 };
+            this.statisticsData = data.json().map(a => {
+                var d = { Album: a.name};
 
-                var pop_c = 0, rock_c = 0, classic_c = 0;
                 a.songs.forEach(element => {
-                    switch (element.genre) {
-                        case "pop":
-                            pop_c++;
-                            break;
 
-                        case "rock":
-                            rock_c++;
-                            break;
-
-                        case "classic":
-                            classic_c++;
-                            break;
-                        default:
-                            break;
-                    }
+                    this.allGenres.forEach(g => {
+                        if(element.genre == g.name){
+                            g.count++;
+                            d[g.name] = g.count;
+                        }
+                    });
                 });
-
-                d.pop = pop_c;
-                d.rock = rock_c;
-                d.classic = classic_c;
 
                 return d;
             });
 
             this.initMargins();
             this.initSvg();
-            this.drawChart(this.SAMPLE_DATA);
+            this.drawChart(this.statisticsData);
             console.log(data.json());
         });
 
@@ -122,7 +116,7 @@ export class StatisticsComponent implements OnInit {
             .selectAll("rect")
             .data(d => d)
             .enter().append("rect")
-            .attr("x", d => this.x(d.data.Album))
+            .attr("x", d => this.x(d.Album))
             .attr("y", d => this.y(d[1]))
             .attr("height", d => this.y(d[0]) - this.y(d[1]))
             .attr("width", this.x.bandwidth());
