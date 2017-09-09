@@ -40,6 +40,17 @@ var HomeComponent = (function () {
             console.log(data.json());
         });
     }
+<<<<<<< HEAD
+=======
+    HomeComponent = __decorate([
+        core_1.Component({
+            selector: 'home',
+            styleUrls: ['./app/components/home/home.component.css'],
+            templateUrl: './app/components/home/home.component.html'
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], HomeComponent);
+>>>>>>> f80bbc2938134bdefecb98908e2f96d9b54509f8
     return HomeComponent;
 }());
 HomeComponent = __decorate([

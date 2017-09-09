@@ -33,6 +33,18 @@ var ChatComponent = (function () {
     ChatComponent.prototype.ngOnDestroy = function () {
         this.connection.unsubscribe();
     };
+<<<<<<< HEAD
+=======
+    ChatComponent = __decorate([
+        core_1.Component({
+            selector: 'chat',
+            styleUrls: ['./app/components/chat/chat.component.css'],
+            templateUrl: './app/components/chat/chat.component.html',
+            providers: [chat_service_1.ChatService]
+        }),
+        __metadata("design:paramtypes", [chat_service_1.ChatService])
+    ], ChatComponent);
+>>>>>>> f80bbc2938134bdefecb98908e2f96d9b54509f8
     return ChatComponent;
 }());
 ChatComponent = __decorate([

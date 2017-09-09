@@ -33,6 +33,18 @@ var ArtistDetailsComponent = (function () {
             }
         });
     }
+<<<<<<< HEAD
+=======
+    ArtistDetailsComponent = __decorate([
+        core_1.Component({
+            selector: 'artist-details',
+            styleUrls: ['./app/components/artist/artist-details/artist-details.component.css'],
+            templateUrl: './app/components/artist/artist-details/artist-details.component.html'
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            http_1.Http])
+    ], ArtistDetailsComponent);
+>>>>>>> f80bbc2938134bdefecb98908e2f96d9b54509f8
     return ArtistDetailsComponent;
 }());
 ArtistDetailsComponent = __decorate([

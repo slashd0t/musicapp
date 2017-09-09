@@ -22,6 +22,17 @@ var AlbumComponent = (function () {
             _this.albumsList = eval(data._body);
         });
     }
+<<<<<<< HEAD
+=======
+    AlbumComponent = __decorate([
+        core_1.Component({
+            selector: 'album',
+            styleUrls: ['./app/components/album/album.component.css'],
+            templateUrl: './app/components/album/album.component.html'
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], AlbumComponent);
+>>>>>>> f80bbc2938134bdefecb98908e2f96d9b54509f8
     return AlbumComponent;
 }());
 AlbumComponent = __decorate([

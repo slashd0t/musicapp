@@ -33,6 +33,17 @@ var SongEditComponent = (function () {
             }
         });
     }
+<<<<<<< HEAD
+=======
+    SongEditComponent = __decorate([
+        core_1.Component({
+            selector: 'song-edit',
+            templateUrl: './app/components/song/song-edit/song-edit.component.html'
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            http_1.Http])
+    ], SongEditComponent);
+>>>>>>> f80bbc2938134bdefecb98908e2f96d9b54509f8
     return SongEditComponent;
 }());
 SongEditComponent = __decorate([

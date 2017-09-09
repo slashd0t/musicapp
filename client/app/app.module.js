@@ -30,6 +30,36 @@ var song_edit_component_1 = require("./components/song/song-edit/song-edit.compo
 var AppModule = (function () {
     function AppModule() {
     }
+<<<<<<< HEAD
+=======
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                platform_browser_1.BrowserModule,
+                http_1.HttpModule,
+                forms_1.FormsModule,
+                router_1.RouterModule.forRoot(app_routes_1.rootRouterConfig, { useHash: false }),
+            ],
+            declarations: [
+                app_component_1.AppComponent,
+                home_component_1.HomeComponent,
+                song_component_1.SongComponent,
+                song_details_component_1.SongDetailsComponent,
+                song_edit_component_1.SongEditComponent,
+                artist_component_1.ArtistComponent,
+                artist_details_component_1.ArtistDetailsComponent,
+                album_component_1.AlbumComponent,
+                album_details_component_1.AlbumDetailsComponent,
+                chat_component_1.ChatComponent,
+                statistics_component_1.StatisticsComponent,
+                about_component_1.AboutComponent,
+                navbar_component_1.NavbarComponent,
+                item_list_component_1.ListItemComponent
+            ],
+            bootstrap: [app_component_1.AppComponent]
+        })
+    ], AppModule);
+>>>>>>> f80bbc2938134bdefecb98908e2f96d9b54509f8
     return AppModule;
 }());
 AppModule = __decorate([

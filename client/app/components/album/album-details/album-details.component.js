@@ -33,6 +33,18 @@ var AlbumDetailsComponent = (function () {
             }
         });
     }
+<<<<<<< HEAD
+=======
+    AlbumDetailsComponent = __decorate([
+        core_1.Component({
+            selector: 'album-details',
+            styleUrls: ['./app/components/album/album-details/album-details.component.css'],
+            templateUrl: './app/components/album/album-details/album-details.component.html'
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            http_1.Http])
+    ], AlbumDetailsComponent);
+>>>>>>> f80bbc2938134bdefecb98908e2f96d9b54509f8
     return AlbumDetailsComponent;
 }());
 AlbumDetailsComponent = __decorate([
