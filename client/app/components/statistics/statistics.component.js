@@ -18,41 +18,33 @@ var d3Array = require('d3-array');
 var StatisticsComponent = (function () {
     function StatisticsComponent(http) {
         this.http = http;
-        this.SAMPLE_DATA = [];
+        this.statisticsData = [];
+        this.allGenres = [];
     }
     StatisticsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.http.get('/getAll', {
-            search: 'model=Albums'
-        }).subscribe(function (data) {
+        this.http.get('/getAllGenres', {}).subscribe(function (data) {
+            _this.allGenres = data.json().map(function (g) {
+                return ({ "name": g, "count": 0 });
+            });
+        });
+        this.http.get('/getAllAlbumsWithSongs', {}).subscribe(function (data) {
             // Read the result field from the JSON response.
-            _this.SAMPLE_DATA = data.json().map(function (a) {
-                var d = { Album: "", 'pop': 0, 'rock': 0, 'classic': 0 };
-                d.Album = a.name;
-                var pop_c = 0, rock_c = 0, classic_c = 0;
+            _this.statisticsData = data.json().map(function (a) {
+                var d = { Album: a.name };
                 a.songs.forEach(function (element) {
-                    switch (element.genre) {
-                        case "pop":
-                            pop_c++;
-                            break;
-                        case "rock":
-                            rock_c++;
-                            break;
-                        case "classic":
-                            classic_c++;
-                            break;
-                        default:
-                            break;
-                    }
+                    _this.allGenres.forEach(function (g) {
+                        if (element.genre == g.name) {
+                            g.count++;
+                            d[g.name] = g.count;
+                        }
+                    });
                 });
-                d.pop = pop_c;
-                d.rock = rock_c;
-                d.classic = classic_c;
                 return d;
             });
             _this.initMargins();
             _this.initSvg();
-            _this.drawChart(_this.SAMPLE_DATA);
+            _this.drawChart(_this.statisticsData);
             console.log(data.json());
         });
     };
@@ -92,7 +84,7 @@ var StatisticsComponent = (function () {
             .selectAll("rect")
             .data(function (d) { return d; })
             .enter().append("rect")
-            .attr("x", function (d) { return _this.x(d.data.Album); })
+            .attr("x", function (d) { return _this.x(d.Album); })
             .attr("y", function (d) { return _this.y(d[1]); })
             .attr("height", function (d) { return _this.y(d[0]) - _this.y(d[1]); })
             .attr("width", this.x.bandwidth());

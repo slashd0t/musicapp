@@ -13,12 +13,11 @@ var http_1 = require("@angular/http");
 var AlbumComponent = (function () {
     // Http request example
     function AlbumComponent(http) {
-        var _this = this;
         http.get('/getAll', {
             search: 'model=Albums'
         }).subscribe(function (data) {
             // Read the result field from the JSON response.
-            _this.albumsList = eval(data._body);
+            // this.albumsList = eval(data._body);
         });
     }
     AlbumComponent = __decorate([

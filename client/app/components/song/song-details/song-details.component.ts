@@ -5,9 +5,9 @@ import {Http} from "@angular/http";
 @Component({
     selector: 'song-details',
     styleUrls: ['./app/components/song/song-details/song-details.component.css'],
-    templateUrl: './app/components/song/song-details/song-details.component.html'
+    templateUrl: './app/components/song/song-details/song-details.component.html',
 })
-export class SongDetailsComponent implements OnInit, OnDestroy{
+export class SongDetailsComponent{
 
     private id: string;
     private song: any;

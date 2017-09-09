@@ -16,7 +16,7 @@ export class ArtistComponent {
             search: 'model=Artists'
         }).subscribe(data => {
             // Read the result field from the JSON response.
-            this.artistsList = eval(data._body);
+            // this.artistsList = eval(data._body);
         });
     }
 

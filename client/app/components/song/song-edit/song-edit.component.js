@@ -8,10 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
-var SongEditComponent = (function () {
+var SongEditComponent = /** @class */ (function () {
     function SongEditComponent(route, http) {
         var _this = this;
         this.route = route;
@@ -51,6 +52,8 @@ var SongEditComponent = (function () {
                 // Http request example
                 http.get('/getFullDetailSong', {
                     search: _this.searchParams
+                    //model: 'Songs',
+                    // n: 10
                 }).subscribe(function (data) {
                     // Read the result field from the JSON response.
                     _this.song = JSON.parse(data._body);
@@ -82,8 +85,9 @@ var SongEditComponent = (function () {
             selector: 'song-edit',
             styleUrls: ['./app/components/song/song-edit/song-edit.component.css'],
             templateUrl: './app/components/song/song-edit/song-edit.component.html'
-        }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, http_1.Http])
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            http_1.Http])
     ], SongEditComponent);
     return SongEditComponent;
 }());

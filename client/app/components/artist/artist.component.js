@@ -13,12 +13,11 @@ var http_1 = require("@angular/http");
 var ArtistComponent = (function () {
     // Http request example
     function ArtistComponent(http) {
-        var _this = this;
         http.get('/getAll', {
             search: 'model=Artists'
         }).subscribe(function (data) {
             // Read the result field from the JSON response.
-            _this.artistsList = eval(data._body);
+            // this.artistsList = eval(data._body);
         });
     }
     ArtistComponent = __decorate([

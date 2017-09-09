@@ -34,7 +34,7 @@ var SongDetailsComponent = (function () {
         core_1.Component({
             selector: 'song-details',
             styleUrls: ['./app/components/song/song-details/song-details.component.css'],
-            templateUrl: './app/components/song/song-details/song-details.component.html'
+            templateUrl: './app/components/song/song-details/song-details.component.html',
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, http_1.Http])
     ], SongDetailsComponent);

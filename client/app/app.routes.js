@@ -1,9 +1,10 @@
 "use strict";
-var home_component_1 = require('./components/home/home.component');
-var song_component_1 = require('./components/song/song.component');
-var artist_component_1 = require('./components/artist/artist.component');
-var album_component_1 = require('./components/album/album.component');
-var about_component_1 = require('./components/about/about.component');
+Object.defineProperty(exports, "__esModule", { value: true });
+var home_component_1 = require("./components/home/home.component");
+var song_component_1 = require("./components/song/song.component");
+var artist_component_1 = require("./components/artist/artist.component");
+var album_component_1 = require("./components/album/album.component");
+var about_component_1 = require("./components/about/about.component");
 var chat_component_1 = require("./components/chat/chat.component");
 var song_details_component_1 = require("./components/song/song-details/song-details.component");
 var artist_details_component_1 = require("./components/artist/artist-details/artist-details.component");
