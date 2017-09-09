@@ -7,10 +7,11 @@
         <div class="col-md-10">
             <div class="ListActionBtnPos">
                 <a [routerLink]="['/song-details', item._id]" class="ListActionBtn glyphicon glyphicon-info-sign"></a>
+                <a [routerLink]="['/song-edit', item._id]" class="ListActionBtn glyphicon glyphicon-pencil"></a>
             </div>
             <h3 class="ListTitle">{{item.name}}</h3>
             <span>
-                {{item.name}} is a song by {{item.artist}}, its main genre is {{item.genre}}
+                {{item.name}}, its main genre is {{item.genre}}
             </span>
         </div>
     </div>

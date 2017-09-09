@@ -1,57 +1,82 @@
 <div *ngIf="song">
-    <div class="row">
+
+    <div class="row editigrows">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="centerAlignment">
+
+                <img *ngIf="song.picture" class="imgTitle" src="{{song.picture}}"/>
+
+            </div>
+            <div class="headerTitle colorD active" [ngClass]="{'headerTitle': song.picture, 'headerTitleNoPic': !song.picture}">
+                <div class="actionBtnTitlePos">
+                    <a title="Back to List" [routerLink]="['/song']"
+                       class="actionBtnTitle glyphicon glyphicon-arrow editigrows-left"></a>
+                </div>
+                Editing {{song.name}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row editigrows">
         <div class="col-md-offset-2 col-md-4">
             <label>Name:</label>
         </div>
         <div class="col-md-4">
-            <input type="text" placeholder="song name" [(ngModel)]="song.name" name="name">
+            <input class="form-control" type="text" placeholder="song name" [(ngModel)]="song.name" required name="name">
         </div>
     </div>
-    <div class="row">
+    <div class="row editigrows">
         <div class="col-md-offset-2 col-md-4">
             <label>Artist</label>
         </div>
         <div class="col-md-4">
-            <select [(ngModel)]="song.artist"  name="artist">
+            <select class="form-control" [(ngModel)]="song.artist.name"  name="artist">
                 <option *ngFor="let artist of artistsList" (click)="selectArtistItem(artist._id)">
                     {{artist.name}}
                 </option>
             </select>
         </div>
     </div>
-    <div class="row">
+    <div class="row editigrows">
         <div class="col-md-offset-2 col-md-4">
             <label>Album</label>
         </div>
         <div class="col-md-4">
-            <select [(ngModel)]="song.album">
+            <select class="form-control" [(ngModel)]="song.album.name">
                 <option *ngFor="let album of albumsList" (click)="selectAlbumItem(album._id)">
                     {{album.name}}
                 </option>
             </select>
         </div>
     </div>
-    <div class="row">
+    <div class="row editigrows">
         <div class="col-md-offset-2 col-md-4">
             <label>Picture</label>
         </div>
         <div class="col-md-4">
             <img *ngIf="song.picture" class="picPreview" src="{{song.picture}}"/>
-            <input type="file" id="picture" name="picture"/>
+            <input type="file" id="picture" name="picture" (change)="pictureChange($event)"/>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row editigrows">
         <div class="col-md-offset-2 col-md-4">
             <label>Genre</label>
         </div>
         <div class="col-md-4">
-            <select [(ngModel)]="song.genre">
+            <select class="form-control" [(ngModel)]="song.genre">
                 <option *ngFor="let genre of genresList" (click)="selectGenreItem(genre)">
-                    {{genre.name}}
+                    {{genre}}
                 </option>
             </select>
         </div>
+    </div>
+
+    <div class="row editigrows saveBtnPos">
+        <button class="btn btn-primary" (click)="saveSong()" >
+            <span class="saveSideBtnStyle glyphicon glyphicon-floppy-disk"></span>
+            Save
+        </button>
     </div>
 </div>
 

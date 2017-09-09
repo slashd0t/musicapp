@@ -31,15 +31,13 @@ export class SongDetailsComponent implements OnInit, OnDestroy{
 
             if (this.id) {
 
-                this.searchParams = 'model=Songs&id=' + this.id;
+                this.searchParams = 'id=' + this.id;
                 // Http request example
-                http.get('/getById', {
+                http.get('/getFullDetailSong', {
                     search: this.searchParams
-                    //model: 'Songs',
-                    // n: 10
                 }).subscribe(data => {
                     // Read the result field from the JSON response.
-                    this.song = eval(data._body)[0];
+                    this.song = JSON.parse(data._body);
 
                 })
             }

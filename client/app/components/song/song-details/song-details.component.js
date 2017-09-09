@@ -19,13 +19,13 @@ var SongDetailsComponent = (function () {
         this.sub = this.route.params.subscribe(function (params) {
             _this.id = params['id']; // (+) converts string 'id' to a number
             if (_this.id) {
-                _this.searchParams = 'model=Songs&id=' + _this.id;
+                _this.searchParams = 'id=' + _this.id;
                 // Http request example
-                http.get('/getById', {
+                http.get('/getFullDetailSong', {
                     search: _this.searchParams
                 }).subscribe(function (data) {
                     // Read the result field from the JSON response.
-                    _this.song = eval(data._body)[0];
+                    _this.song = JSON.parse(data._body);
                 });
             }
         });

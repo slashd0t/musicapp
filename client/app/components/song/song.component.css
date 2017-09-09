@@ -70,8 +70,8 @@
 }
 
 .songImageStyle {
-    max-height: 150px;
-    max-width: 150px;
+    max-height: 120px;
+    max-width: 120px;
     border: 1px solid white;
     border-radius: 5px;
 }

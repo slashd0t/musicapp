@@ -6,7 +6,7 @@
                 <img *ngIf="song.picture" class="imgTitle" src="{{song.picture}}"/>
 
             </div>
-            <div class="headerTitle colorD active">
+            <div class="headerTitle colorD active" [ngClass]="{'headerTitle': song.picture, 'headerTitleNoPic': !song.picture}">
                 <div class="actionBtnTitlePos">
                     <a title="Back to List" [routerLink]="['/song']"
                        class="actionBtnTitle glyphicon glyphicon-arrow-left"></a>
@@ -19,10 +19,41 @@
     </div>
     <div class="row">
         <div class="col-md-10 col-md-offset-1 MultipleColumns">
-            <!--<label> Artist </label> <a href='@Url.Action("Details", "Artists", new { id = Model.artistId })'>@Html.DisplayFor(modelItem => Model.artist.firstName) @Html.DisplayFor(modelItem => Model.artist.lastName)</a> <br />-->
-            <!--<label> Album </label> <a href='@Url.Action("Details", "Albums", new { id = Model.albumId })'>@Html.DisplayFor(modelItem => Model.album.AlbumName)</a><br />-->
-            <!--<label> Published on </label> @Html.DisplayFor(modelItem => Model.publishDate)<br />-->
-            <!--<label> Genre </label> @Html.DisplayFor(modelItem => Model.genre)<br />-->
+
+            <div class="row">
+                <div class="col-md-offset-2 col-md-4">
+                    <label>Artist</label>
+                </div>
+                <div class="col-md-4">
+                    <span>{{song.artist.name}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-4">
+                    <label>Album</label>
+                </div>
+                <div class="col-md-4">
+                    <span>{{song.album.name}}</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-offset-2 col-md-4">
+                    <label>Genre</label>
+                </div>
+                <div class="col-md-4">
+                    <span>{{song.genre}}</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-offset-2 col-md-4">
+                    <label>Number Of Views</label>
+                </div>
+                <div class="col-md-4">
+                    <span>{{song.views}}</span>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
