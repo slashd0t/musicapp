@@ -10,8 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require("@angular/http");
-var SongCreateComponent = (function () {
-    function SongCreateComponent(http) {
+var AlbumCreateComponent = (function () {
+    function AlbumCreateComponent(http) {
         var _this = this;
         this.http = http;
         this.pictureChange = function (event) {
@@ -20,38 +20,33 @@ var SongCreateComponent = (function () {
             var file = inputValue.files[0];
             var myReader = new FileReader();
             myReader.onloadend = function (e) {
-                _this.song.picture = myReader.result;
+                _this.album.picture = myReader.result;
             };
             myReader.readAsDataURL(file);
         };
-        this.saveSong = function () {
-            if (this.song.name.replace(" ", "") == "") {
-                alert("Song must have a name");
+        this.saveAlbum = function () {
+            if (this.album.name.replace(" ", "") == "") {
+                alert("Album must have a name");
             }
-            else if (!this.song.artist) {
-                alert("Song must have an artist");
-            }
-            else if (!this.song.album) {
-                alert("Song must have an album");
+            else if (!this.album.artist) {
+                alert("Album must have an artist");
             }
             else {
                 // Http request example
                 this.innerHttp.put('/insert', {
-                    model: 'Songs',
-                    model_data: this.song
+                    model: 'Albums',
+                    model_data: this.album
                 }).subscribe(function (data) {
                     // Read the result field from the JSON response.
                     alert(data._body);
                 });
             }
         };
-        this.song = {
+        this.album = {
             name: " ",
             artist: null,
-            album: null,
             date: " ",
             picture: "",
-            genre: null,
             views: 0
         };
         this.innerHttp = http;
@@ -60,33 +55,19 @@ var SongCreateComponent = (function () {
         }).subscribe(function (data) {
             // Read the result field from the JSON response.
             _this.artistsList = JSON.parse(data._body);
-            _this.song.artist = _this.artistsList[0]._id,
+            _this.album.artist = _this.artistsList[0]._id,
                 console.log("artistsList: " + _this.artistsList);
         });
-        http.get('/getAll', {
-            search: 'model=Albums'
-        }).subscribe(function (data) {
-            // Read the result field from the JSON response.
-            _this.albumsList = JSON.parse(data._body);
-            _this.song.album = _this.albumsList[0]._id;
-            console.log("albumsList: " + _this.albumsList);
-        });
-        http.get('/getAllGenres').subscribe(function (data) {
-            // Read the result field from the JSON response.
-            _this.genresList = JSON.parse(data._body);
-            console.log("GENRES: " + _this.genresList);
-            _this.song.genre = _this.genresList[0];
-        });
     }
-    SongCreateComponent = __decorate([
+    AlbumCreateComponent = __decorate([
         core_1.Component({
-            selector: 'song-create',
-            styleUrls: ['./app/components/song/song.component.css'],
-            templateUrl: './app/components/song/song-create/song-create.component.html'
+            selector: 'album-create',
+            styleUrls: ['./app/components/album/album.component.css'],
+            templateUrl: './app/components/album/album-create/album-create.component.html'
         }), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], SongCreateComponent);
-    return SongCreateComponent;
+    ], AlbumCreateComponent);
+    return AlbumCreateComponent;
 }());
-exports.SongCreateComponent = SongCreateComponent;
-//# sourceMappingURL=song-create.component.js.map
+exports.AlbumCreateComponent = AlbumCreateComponent;
+//# sourceMappingURL=album-create.component.js.map

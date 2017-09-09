@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var http_1 = require("@angular/http");
-var SongEditComponent = (function () {
-    function SongEditComponent(route, http) {
+var AlbumEditComponent = (function () {
+    function AlbumEditComponent(route, http) {
         var _this = this;
         this.route = route;
         this.http = http;
@@ -22,22 +22,22 @@ var SongEditComponent = (function () {
             var file = inputValue.files[0];
             var myReader = new FileReader();
             myReader.onloadend = function (e) {
-                _this.song.picture = myReader.result;
+                _this.album.picture = myReader.result;
             };
             myReader.readAsDataURL(file);
         };
-        this.saveSong = function () {
-            if (this.song.name.replace(" ", "") == "") {
-                alert("Song must have a name");
+        this.saveAlbum = function () {
+            if (this.album.name.replace(" ", "") == "") {
+                alert("Album must have a name");
             }
             else {
-                this.nonIdSong = JSON.parse(JSON.stringify(this.song));
-                delete this.nonIdSong._id;
+                this.nonIdAlbum = JSON.parse(JSON.stringify(this.album));
+                delete this.nonIdAlbum._id;
                 // Http request example
                 this.innerHttp.put('/update', {
-                    model: 'Songs',
-                    id: this.song._id,
-                    model_data: this.nonIdSong
+                    model: 'Albums',
+                    id: this.album._id,
+                    model_data: this.nonIdAlbum
                 }).subscribe(function (data) {
                     // Read the result field from the JSON response.
                     alert(data._body);
@@ -46,17 +46,15 @@ var SongEditComponent = (function () {
         };
         this.innerHttp = http;
         this.sub = this.route.params.subscribe(function (params) {
-            _this.id = params['id']; // (+) converts string 'id' to a number
+            _this.id = params['id'];
             if (_this.id) {
-                _this.searchParams = 'id=' + _this.id;
+                _this.searchParams = 'model=Albums&id=' + _this.id;
                 // Http request example
-                http.get('/getFullDetailSong', {
+                http.get('/getById', {
                     search: _this.searchParams
                 }).subscribe(function (data) {
                     // Read the result field from the JSON response.
-                    _this.song = JSON.parse(data._body);
-                    _this.song.album = _this.song.album ? _this.song.album._id : null;
-                    _this.song.artist = _this.song.artist ? _this.song.artist._id : null;
+                    _this.album = JSON.parse(data._body)[0];
                 });
                 http.get('/getAll', {
                     search: 'model=Artists'
@@ -65,30 +63,18 @@ var SongEditComponent = (function () {
                     _this.artistsList = JSON.parse(data._body);
                     console.log("artistsList: " + _this.artistsList);
                 });
-                http.get('/getAll', {
-                    search: 'model=Albums'
-                }).subscribe(function (data) {
-                    // Read the result field from the JSON response.
-                    _this.albumsList = JSON.parse(data._body);
-                    console.log("albumsList: " + _this.albumsList);
-                });
-                http.get('/getAllGenres').subscribe(function (data) {
-                    // Read the result field from the JSON response.
-                    _this.genresList = JSON.parse(data._body);
-                    console.log("GENRES: " + _this.genresList);
-                });
             }
         });
     }
-    SongEditComponent = __decorate([
+    AlbumEditComponent = __decorate([
         core_1.Component({
-            selector: 'song-edit',
-            styleUrls: ['./app/components/song/song.component.css'],
-            templateUrl: './app/components/song/song-edit/song-edit.component.html'
+            selector: 'album-edit',
+            styleUrls: ['./app/components/album/album.component.css'],
+            templateUrl: './app/components/album/album-edit/album-edit.component.html'
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, http_1.Http])
-    ], SongEditComponent);
-    return SongEditComponent;
+    ], AlbumEditComponent);
+    return AlbumEditComponent;
 }());
-exports.SongEditComponent = SongEditComponent;
-//# sourceMappingURL=song-edit.component.js.map
+exports.AlbumEditComponent = AlbumEditComponent;
+//# sourceMappingURL=album-edit.component.js.map

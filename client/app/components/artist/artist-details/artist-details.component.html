@@ -10,7 +10,7 @@
                 <div class="actionBtnTitlePos">
                     <a title="Back to List" [routerLink]="['/artist']"
                        class="actionBtnTitle glyphicon glyphicon-arrow-left"></a>
-                    <a title="Edit Artist" [routerLink]="['/artist']"
+                    <a title="Edit Artist" [routerLink]="['/artist-edit', artist._id]"
                        class="actionBtnTitle glyphicon glyphicon-pencil"></a>
                 </div>
                 {{artist.name}}

@@ -6,11 +6,11 @@
                 <img *ngIf="album.picture" class="imgTitle" [src]="album.picture"/>
 
             </div>
-            <div class="headerTitle colorC active">
+            <div class="headerTitle colorC active" [ngClass]="{'headerTitle': album.picture, 'headerTitleNoPic': !album.picture}">
                 <div class="actionBtnTitlePos">
                     <a title="Back to List" [routerLink]="['/album']"
                        class="actionBtnTitle glyphicon glyphicon-arrow-left"></a>
-                    <a title="Edit Artist" [routerLink]="['/album']"
+                    <a title="Edit album" [routerLink]="['/album-edit', album._id]"
                        class="actionBtnTitle glyphicon glyphicon-pencil"></a>
                 </div>
                 {{album.name}}

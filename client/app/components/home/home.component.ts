@@ -8,7 +8,10 @@ import { Http } from '@angular/http';
 })
 export class HomeComponent {
 
-  private MostViewedSongs = [];
+  private songsList: any;
+  private artistsList: any;
+  private albumsList: any;
+
   // // Http request example
   // constructor(http: Http) {
   //   http.put('/update', {
@@ -32,11 +35,25 @@ export class HomeComponent {
   constructor(http: Http) {
     http.get('/getNMostViewed', {
       search: 'model=Songs&n=10'
-      //model: 'Songs',
-      // n: 10
-    }).subscribe(data => {
-      // Read the result field from the JSON response.
 
+    }).subscribe(data => {
+      this.songsList = data.json();
+      console.log(data.json());
+    });
+
+    http.get('/getNMostViewed', {
+      search: 'model=Artists&n=10'
+
+    }).subscribe(data => {
+      this.artistsList = data.json();
+      console.log(data.json());
+    });
+
+    http.get('/getNMostViewed', {
+      search: 'model=Albums&n=10'
+
+    }).subscribe(data => {
+      this.albumsList = data.json();
       console.log(data.json());
     });
   }

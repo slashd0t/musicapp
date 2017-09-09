@@ -7,27 +7,36 @@
 </div>
 
 <div class="row">
-  <section class="col-md-4">
+  <section class="col-md-4" *ngIf="artistsList">
     <h2>Most viewed Artists</h2>
     <ol>
+      <li *ngFor="let item of artistsList">
+        {{item.name}}
+      </li>
       <!--@foreach (var item in @ViewBag.TopArtists)-->
       <!--{-->
       <!--<li>@item.firstName @item.lastName (@item.numOfViews)</li>-->
       <!--}-->
     </ol>
   </section>
-  <section class="col-md-4">
+  <section class="col-md-4" *ngIf="albumsList">
     <h2>Most viewed Albums</h2>
     <ol>
+      <li *ngFor="let item of albumsList">
+        {{item.name}}
+      </li>
       <!--@foreach (var item in @ViewBag.TopAlbums)-->
       <!--{-->
       <!--<li>@item.AlbumName (@item.numOfViews)</li>-->
       <!--}-->
     </ol>
   </section>
-  <section class="col-md-4">
+  <section class="col-md-4" *ngIf="songsList">
     <h2>Most viewed Songs</h2>
     <ol>
+      <li *ngFor="let item of songsList">
+        {{item.name}}
+      </li>
       <!--@foreach (var item in @ViewBag.TopSongs)-->
       <!--{-->
       <!--<li>@item.songName (@item.numOfViews)</li>-->

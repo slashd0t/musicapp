@@ -1,0 +1,62 @@
+<div *ngIf="album">
+
+    <div class="row editigrows">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="centerAlignment">
+
+                <img *ngIf="album.picture" class="imgTitle" src="{{album.picture}}"/>
+
+            </div>
+            <div class="headerTitle colorC active" [ngClass]="{'headerTitle': album.picture, 'headerTitleNoPic': !album.picture}">
+                <div class="actionBtnTitlePos">
+                    <a title="Back to List" [routerLink]="['/album']"
+                       class="actionBtnTitle glyphicon glyphicon-arrow editigrows-left"></a>
+                </div>
+                Editing {{album.name}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row editigrows">
+        <div class="col-md-offset-2 col-md-4">
+            <label>Name:</label>
+        </div>
+        <div class="col-md-4">
+            <input class="form-control" type="text" placeholder="album name" [(ngModel)]="album.name" required name="name">
+        </div>
+    </div>
+
+    <div class="row editigrows">
+        <div class="col-md-offset-2 col-md-4">
+            <label>Artist</label>
+        </div>
+        <div class="col-md-4">
+            <select class="form-control" [(ngModel)]="album.artist"  name="artist">
+                <option *ngFor="let artist of artistsList" [ngValue]="artist._id" (click)="selectArtistItem(artist._id)">
+                    {{artist.name}}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row editigrows">
+        <div class="col-md-offset-2 col-md-4">
+            <label>Picture</label>
+        </div>
+        <div class="col-md-4">
+            <img *ngIf="album.picture" class="picPreview" src="{{album.picture}}"/>
+            <input type="file" id="picture" name="picture" (change)="pictureChange($event)"/>
+        </div>
+    </div>
+
+
+    <div class="row editigrows saveBtnPos">
+        <button class="btn btn-primary" (click)="saveAlbum()" >
+            <span class="saveSideBtnStyle glyphicon glyphicon-floppy-disk"></span>
+            Save
+        </button>
+    </div>
+</div>
+
+
+<!--"views" : 0-->

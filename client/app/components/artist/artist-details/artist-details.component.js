@@ -8,9 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var http_1 = require("@angular/http");
 var ArtistDetailsComponent = (function () {
     function ArtistDetailsComponent(route, http) {
@@ -24,8 +23,6 @@ var ArtistDetailsComponent = (function () {
                 // Http request example
                 http.get('/getById', {
                     search: _this.searchParams
-                    //model: 'Songs',
-                    // n: 10
                 }).subscribe(function (data) {
                     // Read the result field from the JSON response.
                     _this.artist = eval(data._body)[0];
@@ -33,16 +30,15 @@ var ArtistDetailsComponent = (function () {
             }
         });
     }
+    ArtistDetailsComponent = __decorate([
+        core_1.Component({
+            selector: 'artist-details',
+            styleUrls: ['./app/components/artist/artist-details/artist-details.component.css'],
+            templateUrl: './app/components/artist/artist-details/artist-details.component.html'
+        }), 
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, http_1.Http])
+    ], ArtistDetailsComponent);
     return ArtistDetailsComponent;
 }());
-ArtistDetailsComponent = __decorate([
-    core_1.Component({
-        selector: 'artist-details',
-        styleUrls: ['./app/components/artist/artist-details/artist-details.component.css'],
-        templateUrl: './app/components/artist/artist-details/artist-details.component.html'
-    }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        http_1.Http])
-], ArtistDetailsComponent);
 exports.ArtistDetailsComponent = ArtistDetailsComponent;
 //# sourceMappingURL=artist-details.component.js.map
