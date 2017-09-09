@@ -32,9 +32,8 @@ var SongEditComponent = (function () {
     }
     SongEditComponent = __decorate([
         core_1.Component({
-            selector: 'song-details',
-            // styleUrls: ['./app/components/song/song-edit/song-details.component.css']
-            templateUrl: './app/components/song/song-edit/song-edit.component.html',
+            selector: 'song-edit',
+            templateUrl: './app/components/song/song-edit/song-edit.component.html'
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, http_1.Http])
     ], SongEditComponent);

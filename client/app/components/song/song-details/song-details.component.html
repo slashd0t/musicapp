@@ -10,7 +10,7 @@
                 <div class="actionBtnTitlePos">
                     <a title="Back to List" [routerLink]="['/song']"
                        class="actionBtnTitle glyphicon glyphicon-arrow-left"></a>
-                    <a title="Edit Song" [routerLink]="['/song-edit']"
+                    <a title="Edit Song" [routerLink]="['/song-edit', song._id]"
                        class="actionBtnTitle glyphicon glyphicon-pencil"></a>
                 </div>
                 {{song.name}}
