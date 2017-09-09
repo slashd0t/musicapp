@@ -1,20 +1,23 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, NgModule} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {Http} from "@angular/http";
+import {FormsModule} from '@angular/forms';
 
 @Component({
-    selector: 'song-details',
-    // styleUrls: ['./app/components/song/song-edit/song-details.component.css']
-    templateUrl: './app/components/song/song-edit/song-edit.component.html',
+    selector: 'song-edit',
+    templateUrl: './app/components/song/song-edit/song-edit.component.html'
 })
 export class SongEditComponent {
-
     private id: string;
-    private song: any;
+    song: any;
+    private sub: any;
+    private artistsList: any;
+    private albumsList: any;
+    private genresList: any;
     private searchParams: string;
 
-    constructor( private route: ActivatedRoute,
-                 private http: Http) {
+    constructor(private route: ActivatedRoute,
+                private http: Http) {
 
         this.sub = this.route.params.subscribe(params => {
             this.id = params['id']; // (+) converts string 'id' to a number
@@ -36,9 +39,6 @@ export class SongEditComponent {
             }
         });
     }
-
-
-
 }
 
 // private SongsList = [

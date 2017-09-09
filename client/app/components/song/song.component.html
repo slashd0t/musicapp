@@ -2,7 +2,18 @@
     <div class="col-md-12">
         <aside style="font-size: large">
             Already have a song stuck in your head? let us help you find it!
-            <p *ngIf="!searchFilters[0] && !searchFilters[1] && !searchFilters[2]"> Choose the filters you want to see </p>
+            <p *ngIf="searchFilters[0] == '' && searchFilters[1] == '' && searchFilters[2] == '' "> Choose the filters you want to see </p>
+            <p *ngIf='searchFilters[0] != "" || searchFilters[1] != "" || searchFilters[2] != ""'>
+                Showing songs
+
+                <span *ngIf="searchFilters[0] != ''"> of the artist: {{FilteredArtist.name}}</span>
+
+                <span *ngIf="searchFilters[1] != ''"> from the album: {{FilteredAlbum.name}}</span>
+
+                <span *ngIf="searchFilters[2] != ''"> from the genre: {{searchFilters[2]}}</span>
+
+                <button class="btn btn-primary glyphicon glyphicon-trash" (click)="resetFilters()"></button>
+            </p>
 
             <div class="searchArea row">
                 <div class="col-md-3">
@@ -25,12 +36,6 @@
                 <div class="col-md-3" >
                     <a (click)="setFilter(genre,2)" *ngFor="let genre of GenreList">{{genre}} <br/></a>
                 </div>
-                <!--<div class="col-md-3">-->
-                    <!--@foreach (var genre in @ViewBag.Genres)-->
-                    <!--{-->
-                    <!--<a href='@Url.Action("setFilter", new { value = genre, pos = 2 })'>@genre</a><br />-->
-                    <!--}-->
-                <!--</div>-->
             </div>
 
         </aside>

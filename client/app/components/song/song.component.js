@@ -38,11 +38,73 @@ var SongComponent = (function () {
             // Read the result field from the JSON response.
             _this.GenreList = eval(data._body);
         });
+        this.http = http;
     }
     SongComponent.prototype.setFilter = function (value, pos) {
         this.searchFilters[pos] = value;
+        if (pos == 0) {
+            for (var i = 0; i < this.ArtistsList.length; i++) {
+                if (this.ArtistsList[i]._id = value) {
+                    this.FilteredArtist = this.ArtistsList[i];
+                }
+            }
+        }
+        else if (pos == 1) {
+            for (var i = 0; i < this.AlbumsList.length; i++) {
+                if (this.AlbumsList[i]._id = value) {
+                    this.FilteredAlbum = this.AlbumsList[i];
+                }
+            }
+        }
+        this.getRelaventSongs(this.http);
     };
-    SongComponent.prototype.getRelaventSongs = function () {
+    SongComponent.prototype.resetFilters = function () {
+        this.searchFilters = ["", "", ""];
+        this.getRelaventSongs(this.http);
+    };
+    SongComponent.prototype.getRelaventSongs = function (http) {
+        var _this = this;
+        var searchQuery = "";
+        if (this.searchFilters[0] == "" && this.searchFilters[1] == "" && this.searchFilters[2] == "") {
+            http.get('/getAll', {
+                search: 'model=Songs'
+            }).subscribe(function (data) {
+                // Read the result field from the JSON response.
+                _this.SongsList = eval(data._body);
+            });
+        }
+        else {
+            if (this.searchFilters[0] != "") {
+                if (searchQuery == "") {
+                    searchQuery = searchQuery + 'artist=' + this.searchFilters[0];
+                }
+                else {
+                    searchQuery = searchQuery + '&artist=' + this.searchFilters[0];
+                }
+            }
+            if (this.searchFilters[1] != "") {
+                if (searchQuery == "") {
+                    searchQuery = searchQuery + 'album=' + this.searchFilters[1];
+                }
+                else {
+                    searchQuery = searchQuery + '&album=' + this.searchFilters[1];
+                }
+            }
+            if (this.searchFilters[2] != "") {
+                if (searchQuery == "") {
+                    searchQuery = searchQuery + 'genre=' + this.searchFilters[2];
+                }
+                else {
+                    searchQuery = searchQuery + '&genre=' + this.searchFilters[2];
+                }
+            }
+            http.get('/getSongs', {
+                search: searchQuery
+            }).subscribe(function (data) {
+                // Read the result field from the JSON response.
+                _this.SongsList = eval(data._body);
+            });
+        }
     };
     return SongComponent;
 }());
