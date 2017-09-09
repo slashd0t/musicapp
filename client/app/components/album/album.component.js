@@ -19,7 +19,7 @@ var AlbumComponent = (function () {
             search: 'model=Albums'
         }).subscribe(function (data) {
             // Read the result field from the JSON response.
-            _this.albumsList = eval(data._body);
+            _this.albumsList = JSON.parse(data._body);
         });
     }
     return AlbumComponent;

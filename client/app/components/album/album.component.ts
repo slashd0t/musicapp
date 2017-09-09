@@ -16,7 +16,8 @@ export class AlbumComponent {
             search: 'model=Albums'
         }).subscribe(data => {
             // Read the result field from the JSON response.
-             this.albumsList = eval(data._body);
+
+            this.albumsList = JSON.parse(data._body);
         });
     }
 }

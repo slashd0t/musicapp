@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Http} from "@angular/http";
 
@@ -7,7 +7,7 @@ import {Http} from "@angular/http";
     styleUrls: ['./app/components/album/album-details/album-details.component.css'],
     templateUrl: './app/components/album/album-details/album-details.component.html'
 })
-export class AlbumDetailsComponent implements OnInit, OnDestroy{
+export class AlbumDetailsComponent implements OnInit, OnDestroy, AfterViewInit{
 
     private id: string;
     private album: any;
@@ -36,15 +36,62 @@ export class AlbumDetailsComponent implements OnInit, OnDestroy{
                         search: this.searchParams
                     }).subscribe(data => {
 
-                    this.album.artistName = eval(data._body)[0].name;
+                    this.album.artistName = JSON.parse(data._body)[0].name;
+
+                        // let canvas = document.getElementById("canvas");
+                        //
+                        // let pictures = [];
+                        //
+                        // for(let i = 0; i < this.album.songs.length; i++){
+                        //     pictures.push(this.album.songs[i].picture)
+                        // }
+                        //
+                        //
+                        // let imagesCount = this.album.songs.length;
+                        // imagesCount = parseInt(imagesCount);
+                        // var currImage = 0;
+                        //
+                        // imageAnimationFunc();
+                        //
+                        // function imageAnimationFunc() {
+                        //     if (currImage >= imagesCount) currImage = 0;
+                        //
+                        //     canvas.drawImage({
+                        //         layer: true,
+                        //         name: "image" + currImage,
+                        //         source: "data:image/png;base64," + pictures[currImage],
+                        //         x: 0,
+                        //         y: 200,
+                        //         height: 200,
+                        //         width: 200,
+                        //         fromCenter: false
+                        //     });
+                        //     canvas.animateLayer("image" + currImage, {
+                        //         x: 600,
+                        //         y: 200
+                        //     }, 5000, function () {
+                        //         canvas.removeLayer("image" + currImage).drawLayers();
+                        //         currImage++;
+                        //         imageAnimationFunc();
+                        //     });
+                        //
+                         }
                 })
             }
 
         });
     }
-    
+
+    // ngAfterViewInit(){
+    //
+    // }
+
   }
+
+
 }
+
+
 
 
 // private SongsList = [

@@ -19,7 +19,7 @@ var ArtistComponent = (function () {
             search: 'model=Artists'
         }).subscribe(function (data) {
             // Read the result field from the JSON response.
-            _this.artistsList = eval(data._body);
+            _this.artistsList = JSON.parse(data._body);
         });
     }
     return ArtistComponent;
