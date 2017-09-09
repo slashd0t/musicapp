@@ -8,10 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var chat_service_1 = require("./chat.service");
-var ChatComponent = /** @class */ (function () {
+var core_1 = require('@angular/core');
+var chat_service_1 = require('./chat.service');
+var ChatComponent = (function () {
     function ChatComponent(chatService) {
         this.chatService = chatService;
         this.messages = [];
@@ -39,8 +38,8 @@ var ChatComponent = /** @class */ (function () {
             styleUrls: ['./app/components/chat/chat.component.css'],
             templateUrl: './app/components/chat/chat.component.html',
             providers: [chat_service_1.ChatService]
-        }),
-        __metadata("design:paramtypes", [chat_service_1.ChatService])
+        }), 
+        __metadata('design:paramtypes', [chat_service_1.ChatService])
     ], ChatComponent);
     return ChatComponent;
 }());

@@ -8,11 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var http_1 = require("@angular/http");
-var ArtistDetailsComponent = /** @class */ (function () {
+var ArtistDetailsComponent = (function () {
     function ArtistDetailsComponent(route, http) {
         var _this = this;
         this.route = route;
@@ -24,8 +23,6 @@ var ArtistDetailsComponent = /** @class */ (function () {
                 // Http request example
                 http.get('/getById', {
                     search: _this.searchParams
-                    //model: 'Songs',
-                    // n: 10
                 }).subscribe(function (data) {
                     // Read the result field from the JSON response.
                     _this.artist = eval(data._body)[0];
@@ -38,9 +35,8 @@ var ArtistDetailsComponent = /** @class */ (function () {
             selector: 'artist-details',
             styleUrls: ['./app/components/artist/artist-details/artist-details.component.css'],
             templateUrl: './app/components/artist/artist-details/artist-details.component.html'
-        }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute,
-            http_1.Http])
+        }), 
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, http_1.Http])
     ], ArtistDetailsComponent);
     return ArtistDetailsComponent;
 }());

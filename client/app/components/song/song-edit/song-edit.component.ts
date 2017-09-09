@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 
 @Component({
     selector: 'song-edit',
-    styleUrls: ['./app/components/song/song-edit/song-edit.component.css'],
+    styleUrls: ['./app/components/song/song.component.css'],
     templateUrl: './app/components/song/song-edit/song-edit.component.html'
 })
 export class SongEditComponent {
@@ -82,7 +82,7 @@ export class SongEditComponent {
 
     private saveSong = function () {
 
-        if (this.song.name == ""){
+        if (this.song.name.replace(" ", "") == "") {
             alert("Song must have a name");
         }
         else {

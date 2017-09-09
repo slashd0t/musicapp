@@ -1,3 +1,11 @@
+.backgroudSearch{
+    background: #fcfcfc;
+    border: dashed 1px;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 .listInfo {
     background: #eaeaea;
     padding: 10px;
@@ -74,4 +82,177 @@
     max-width: 120px;
     border: 1px solid white;
     border-radius: 5px;
+}
+
+.listImg {
+    max-width: 100%;
+    max-height: 100%;
+    border: 5px white solid;
+}
+
+.listInfo {
+    background: #eaeaea;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 0;
+    cursor:pointer;
+}
+
+.ListTitle {
+    margin: 5px 0;
+}
+
+.imgTitle {
+    width: 150px;
+    height: 150px;
+    border: 5px white solid;
+    border-radius: 50%;
+    box-shadow: 0px 0px 7px grey;
+}
+
+.centerAlignment {
+    text-align: -webkit-center;
+}
+
+.headerTitle {
+    padding: 60px 10px 10px 10px;
+    margin: -50px 0 10px 0;
+    text-align: -webkit-center;
+    font-size: x-large;
+    font-weight: 700;
+    border-radius: 50px 50px 0 0;
+}
+
+.headerTitleNoPic {
+    padding: 60px 10px 10px 10px;
+    margin: 0px 0 10px 0;
+    text-align: -webkit-center;
+    font-size: x-large;
+    font-weight: 700;
+    border-radius: 50px 50px 0 0;
+}
+
+.saveBtnPos{
+    text-align: center;
+}
+
+.editigrows{
+    margin: 10px 0;
+}
+
+.MultipleColumns{
+    column-count: 2;
+    margin-bottom: 10px;
+}
+
+.actionBtnTitle {
+    margin-left: 5px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: medium;
+    cursor: pointer;
+    text-shadow: 1px 1px grey;
+}
+
+.actionBtnTitle:hover {
+    color: white;
+}
+
+.actionBtnTitlePos {
+    float: left;
+    margin-top: -50px;
+    margin-left: 10px;
+}
+
+.ListActionBtn {
+    color: #6e6e6e;
+    text-shadow: 1px 1px 1px #ffffff;
+    font-size: large;
+    margin-left:5px;
+}
+
+.ListActionBtn:hover {
+    color: black;
+}
+
+.ListActionBtnPos {
+    float:right;
+}
+
+.titleA {
+    border-left: solid 10px #341e48;
+    padding-left: 5px;
+}
+
+.titleB {
+    border-left: solid 10px #274092;
+    padding-left: 5px;
+}
+
+.titleC {
+    border-left: solid 10px #257e7f;
+    padding-left: 5px;
+}
+
+.titleD {
+    border-left: solid 10px #39a44d;
+    padding-left: 5px;
+}
+
+.titleE {
+    border-left: solid 10px #67ac18;
+    padding-left: 5px;
+}
+
+.titleF {
+    border-left: solid 10px #afa713;
+    padding-left: 5px;
+}
+
+.titleG {
+    border-left: solid 10px #c78218;
+    padding-left: 5px;
+}
+
+
+.colorA:before,
+.colorA.active {
+    background: #341e48 !important;
+    color: white !important;
+}
+
+.colorB:before,
+.colorB.active {
+    background: #274092 !important;
+    color: white !important;
+}
+
+
+.colorC:before,
+.colorC.active {
+    background: #257e7f !important;
+    color: white !important;
+}
+
+.colorD:before,
+.colorD.active {
+    background: #39a44d !important;
+    color: white !important;
+}
+
+.colorE:before,
+.colorE.active {
+    background: #67ac18 !important;
+    color: white !important;
+}
+
+
+.colorF:before,
+.colorF.active {
+    background: #afa713 !important;
+    color: white !important;
+}
+.colorG:before,
+.colorG.active {
+    background: #c78218 !important;
+    color: white !important;
 }

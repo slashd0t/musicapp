@@ -11,6 +11,7 @@ import {ArtistDetailsComponent} from "./components/artist/artist-details/artist-
 import {AlbumDetailsComponent} from "./components/album/album-details/album-details.component";
 import {StatisticsComponent} from "./components/statistics/statistics.component";
 import {SongEditComponent} from "./components/song/song-edit/song-edit.component";
+import {SongCreateComponent} from "./components/song/song-create/song-create.component";
 
 export const rootRouterConfig: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,6 +19,7 @@ export const rootRouterConfig: Routes = [
     { path: 'song', component: SongComponent },
     { path: 'song-details/:id', component: SongDetailsComponent },
     { path: 'song-edit/:id', component: SongEditComponent },
+    { path: 'song-create', component: SongCreateComponent },
     { path: 'artist-details/:id', component: ArtistDetailsComponent },
     { path: 'album-details/:id', component: AlbumDetailsComponent },
     { path: 'artist', component: ArtistComponent },

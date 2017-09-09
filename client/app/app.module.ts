@@ -20,6 +20,7 @@ import {StatisticsComponent} from "./components/statistics/statistics.component"
 import {ArtistDetailsComponent} from "./components/artist/artist-details/artist-details.component";
 import {AlbumDetailsComponent} from "./components/album/album-details/album-details.component";
 import {SongEditComponent} from "./components/song/song-edit/song-edit.component";
+import {SongCreateComponent} from "./components/song/song-create/song-create.component";
 
 @NgModule({
   imports:      [
@@ -34,6 +35,7 @@ import {SongEditComponent} from "./components/song/song-edit/song-edit.component
       HomeComponent,
       SongComponent,
       SongDetailsComponent,
+      SongCreateComponent,
       SongEditComponent,
       ArtistComponent,
       ArtistDetailsComponent,

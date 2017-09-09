@@ -8,14 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-var d3 = require("d3-selection");
-var d3Scale = require("d3-scale");
-var d3Array = require("d3-array");
-var d3Axis = require("d3-axis");
-var AboutComponent = /** @class */ (function () {
+var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+var d3 = require('d3-selection');
+var d3Scale = require('d3-scale');
+var d3Array = require('d3-array');
+var d3Axis = require('d3-axis');
+var AboutComponent = (function () {
     function AboutComponent(http) {
         this.http = http;
         this.STATISTICS = [];
@@ -80,8 +79,8 @@ var AboutComponent = /** @class */ (function () {
             selector: 'about',
             styleUrls: ['./app/components/about/about.component.css'],
             templateUrl: './app/components/about/about.component.html'
-        }),
-        __metadata("design:paramtypes", [http_1.Http])
+        }), 
+        __metadata('design:paramtypes', [http_1.Http])
     ], AboutComponent);
     return AboutComponent;
 }());

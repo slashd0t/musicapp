@@ -1,5 +1,8 @@
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 ">
+        <a [routerLink]="['/song-create']"><span class="glyphicon glyphicon-plus"></span> Add a new song</a>
+    </div>
+    <div class="col-md-12 backgroudSearch">
         <aside style="font-size: large">
             Already have a song stuck in your head? let us help you find it!
             <p *ngIf="searchFilters[0] == '' && searchFilters[1] == '' && searchFilters[2] == '' "> Choose the filters you want to see </p>

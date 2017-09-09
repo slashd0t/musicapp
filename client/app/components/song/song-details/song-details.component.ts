@@ -4,22 +4,13 @@ import {Http} from "@angular/http";
 
 @Component({
     selector: 'song-details',
-    styleUrls: ['./app/components/song/song-details/song-details.component.css'],
+    styleUrls: ['./app/components/song/song.component.css'],
     templateUrl: './app/components/song/song-details/song-details.component.html',
 })
 export class SongDetailsComponent{
 
     private id: string;
     private song: any;
-    // private song: {
-    //     name : " ",
-    //     artist : 0,
-    //     album : 0,
-    //     date :  " ",
-    //     picture : "",
-    //     genre : " ",
-    //     views : 0
-    // };
     private searchParams: string;
 
     constructor( private route: ActivatedRoute,

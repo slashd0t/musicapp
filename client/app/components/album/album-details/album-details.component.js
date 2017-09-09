@@ -8,11 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var http_1 = require("@angular/http");
-var AlbumDetailsComponent = /** @class */ (function () {
+var AlbumDetailsComponent = (function () {
     function AlbumDetailsComponent(route, http) {
         var _this = this;
         this.route = route;
@@ -24,8 +23,6 @@ var AlbumDetailsComponent = /** @class */ (function () {
                 // Http request example
                 http.get('/getById', {
                     search: _this.searchParams
-                    //model: 'Songs',
-                    // n: 10
                 }).subscribe(function (data) {
                     // Read the result field from the JSON response.
                     _this.album = eval(data._body)[0];
@@ -38,9 +35,8 @@ var AlbumDetailsComponent = /** @class */ (function () {
             selector: 'album-details',
             styleUrls: ['./app/components/album/album-details/album-details.component.css'],
             templateUrl: './app/components/album/album-details/album-details.component.html'
-        }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute,
-            http_1.Http])
+        }), 
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, http_1.Http])
     ], AlbumDetailsComponent);
     return AlbumDetailsComponent;
 }());

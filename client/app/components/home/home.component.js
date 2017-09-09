@@ -8,10 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-var HomeComponent = /** @class */ (function () {
+var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+var HomeComponent = (function () {
     // // Http request example
     // constructor(http: Http) {
     //   http.put('/update', {
@@ -33,8 +32,6 @@ var HomeComponent = /** @class */ (function () {
         this.MostViewedSongs = [];
         http.get('/getNMostViewed', {
             search: 'model=Songs&n=10'
-            //model: 'Songs',
-            // n: 10
         }).subscribe(function (data) {
             // Read the result field from the JSON response.
             console.log(data.json());
@@ -45,8 +42,8 @@ var HomeComponent = /** @class */ (function () {
             selector: 'home',
             styleUrls: ['./app/components/home/home.component.css'],
             templateUrl: './app/components/home/home.component.html'
-        }),
-        __metadata("design:paramtypes", [http_1.Http])
+        }), 
+        __metadata('design:paramtypes', [http_1.Http])
     ], HomeComponent);
     return HomeComponent;
 }());

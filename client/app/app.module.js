@@ -29,6 +29,7 @@ var statistics_component_1 = require("./components/statistics/statistics.compone
 var artist_details_component_1 = require("./components/artist/artist-details/artist-details.component");
 var album_details_component_1 = require("./components/album/album-details/album-details.component");
 var song_edit_component_1 = require("./components/song/song-edit/song-edit.component");
+var song_create_component_1 = require("./components/song/song-create/song-create.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -45,6 +46,7 @@ var AppModule = (function () {
                 home_component_1.HomeComponent,
                 song_component_1.SongComponent,
                 song_details_component_1.SongDetailsComponent,
+                song_create_component_1.SongCreateComponent,
                 song_edit_component_1.SongEditComponent,
                 artist_component_1.ArtistComponent,
                 artist_details_component_1.ArtistDetailsComponent,
