@@ -10,15 +10,15 @@ var core_1 = require("@angular/core");
 var ListItemComponent = /** @class */ (function () {
     function ListItemComponent() {
     }
-    ListItemComponent = __decorate([
-        core_1.Component({
-            selector: 'item-list',
-            styleUrls: ['./app/components/items/item-list.component.css'],
-            templateUrl: './app/components/items/item-list.component.html',
-            inputs: ["items"]
-        })
-    ], ListItemComponent);
     return ListItemComponent;
 }());
+ListItemComponent = __decorate([
+    core_1.Component({
+        selector: 'item-list',
+        styleUrls: ['./app/components/items/item-list.component.css'],
+        templateUrl: './app/components/items/item-list.component.html',
+        inputs: ["items"]
+    })
+], ListItemComponent);
 exports.ListItemComponent = ListItemComponent;
 //# sourceMappingURL=item-list.component.js.map
