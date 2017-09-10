@@ -61,7 +61,7 @@ export class AlbumDetailsComponent implements OnInit, OnDestroy, AfterViewInit{
                         //         name: "image" + currImage,
                         //         source: "data:image/png;base64," + pictures[currImage],
                         //         x: 0,
-                        //         y: 200,
+                        //         y: 200, 
                         //         height: 200,
                         //         width: 200,
                         //         fromCenter: false
