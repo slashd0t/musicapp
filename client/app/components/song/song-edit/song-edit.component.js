@@ -82,16 +82,16 @@ var SongEditComponent = (function () {
             }
         });
     }
+    SongEditComponent = __decorate([
+        core_1.Component({
+            selector: 'song-edit',
+            styleUrls: ['./app/components/song/song.component.css'],
+            templateUrl: './app/components/song/song-edit/song-edit.component.html'
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            http_1.Http])
+    ], SongEditComponent);
     return SongEditComponent;
 }());
-SongEditComponent = __decorate([
-    core_1.Component({
-        selector: 'song-edit',
-        styleUrls: ['./app/components/song/song.component.css'],
-        templateUrl: './app/components/song/song-edit/song-edit.component.html'
-    }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        http_1.Http])
-], SongEditComponent);
 exports.SongEditComponent = SongEditComponent;
 //# sourceMappingURL=song-edit.component.js.map

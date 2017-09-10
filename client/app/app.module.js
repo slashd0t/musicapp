@@ -35,40 +35,40 @@ var artist_edit_component_1 = require("./components/artist/artist-edit/artist-ed
 var AppModule = (function () {
     function AppModule() {
     }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                platform_browser_1.BrowserModule,
+                http_1.HttpModule,
+                forms_1.FormsModule,
+                router_1.RouterModule.forRoot(app_routes_1.rootRouterConfig, { useHash: false }),
+                ngx_facebook_1.FacebookModule.forRoot()
+            ],
+            declarations: [
+                app_component_1.AppComponent,
+                home_component_1.HomeComponent,
+                song_component_1.SongComponent,
+                song_details_component_1.SongDetailsComponent,
+                song_create_component_1.SongCreateComponent,
+                song_edit_component_1.SongEditComponent,
+                artist_component_1.ArtistComponent,
+                artist_details_component_1.ArtistDetailsComponent,
+                artist_create_component_1.ArtistCreateComponent,
+                artist_edit_component_1.ArtistEditComponent,
+                album_component_1.AlbumComponent,
+                album_details_component_1.AlbumDetailsComponent,
+                album_edit_component_1.AlbumEditComponent,
+                album_create_component_1.AlbumCreateComponent,
+                chat_component_1.ChatComponent,
+                statistics_component_1.StatisticsComponent,
+                about_component_1.AboutComponent,
+                navbar_component_1.NavbarComponent,
+                item_list_component_1.ListItemComponent
+            ],
+            bootstrap: [app_component_1.AppComponent]
+        })
+    ], AppModule);
     return AppModule;
 }());
-AppModule = __decorate([
-    core_1.NgModule({
-        imports: [
-            platform_browser_1.BrowserModule,
-            http_1.HttpModule,
-            forms_1.FormsModule,
-            router_1.RouterModule.forRoot(app_routes_1.rootRouterConfig, { useHash: false }),
-            ngx_facebook_1.FacebookModule.forRoot()
-        ],
-        declarations: [
-            app_component_1.AppComponent,
-            home_component_1.HomeComponent,
-            song_component_1.SongComponent,
-            song_details_component_1.SongDetailsComponent,
-            song_create_component_1.SongCreateComponent,
-            song_edit_component_1.SongEditComponent,
-            artist_component_1.ArtistComponent,
-            artist_details_component_1.ArtistDetailsComponent,
-            artist_create_component_1.ArtistCreateComponent,
-            artist_edit_component_1.ArtistEditComponent,
-            album_component_1.AlbumComponent,
-            album_details_component_1.AlbumDetailsComponent,
-            album_edit_component_1.AlbumEditComponent,
-            album_create_component_1.AlbumCreateComponent,
-            chat_component_1.ChatComponent,
-            statistics_component_1.StatisticsComponent,
-            about_component_1.AboutComponent,
-            navbar_component_1.NavbarComponent,
-            item_list_component_1.ListItemComponent
-        ],
-        bootstrap: [app_component_1.AppComponent]
-    })
-], AppModule);
 exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map

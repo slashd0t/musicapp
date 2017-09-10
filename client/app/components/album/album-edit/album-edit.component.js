@@ -67,16 +67,16 @@ var AlbumEditComponent = (function () {
             }
         });
     }
+    AlbumEditComponent = __decorate([
+        core_1.Component({
+            selector: 'album-edit',
+            styleUrls: ['./app/components/album/album.component.css'],
+            templateUrl: './app/components/album/album-edit/album-edit.component.html'
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            http_1.Http])
+    ], AlbumEditComponent);
     return AlbumEditComponent;
 }());
-AlbumEditComponent = __decorate([
-    core_1.Component({
-        selector: 'album-edit',
-        styleUrls: ['./app/components/album/album.component.css'],
-        templateUrl: './app/components/album/album-edit/album-edit.component.html'
-    }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        http_1.Http])
-], AlbumEditComponent);
 exports.AlbumEditComponent = AlbumEditComponent;
 //# sourceMappingURL=album-edit.component.js.map

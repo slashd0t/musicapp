@@ -60,15 +60,15 @@ var AlbumCreateComponent = (function () {
                 console.log("artistsList: " + _this.artistsList);
         });
     }
+    AlbumCreateComponent = __decorate([
+        core_1.Component({
+            selector: 'album-create',
+            styleUrls: ['./app/components/album/album.component.css'],
+            templateUrl: './app/components/album/album-create/album-create.component.html'
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], AlbumCreateComponent);
     return AlbumCreateComponent;
 }());
-AlbumCreateComponent = __decorate([
-    core_1.Component({
-        selector: 'album-create',
-        styleUrls: ['./app/components/album/album.component.css'],
-        templateUrl: './app/components/album/album-create/album-create.component.html'
-    }),
-    __metadata("design:paramtypes", [http_1.Http])
-], AlbumCreateComponent);
 exports.AlbumCreateComponent = AlbumCreateComponent;
 //# sourceMappingURL=album-create.component.js.map

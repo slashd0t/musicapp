@@ -60,16 +60,16 @@ var ArtistEditComponent = (function () {
             }
         });
     }
+    ArtistEditComponent = __decorate([
+        core_1.Component({
+            selector: 'artist-edit',
+            styleUrls: ['./app/components/artist/artist.component.css'],
+            templateUrl: './app/components/artist/artist-edit/artist-edit.component.html'
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            http_1.Http])
+    ], ArtistEditComponent);
     return ArtistEditComponent;
 }());
-ArtistEditComponent = __decorate([
-    core_1.Component({
-        selector: 'artist-edit',
-        styleUrls: ['./app/components/artist/artist.component.css'],
-        templateUrl: './app/components/artist/artist-edit/artist-edit.component.html'
-    }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        http_1.Http])
-], ArtistEditComponent);
 exports.ArtistEditComponent = ArtistEditComponent;
 //# sourceMappingURL=artist-edit.component.js.map
