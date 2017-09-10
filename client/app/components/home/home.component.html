@@ -26,10 +26,6 @@
             <li *ngFor="let item of artistsList">
                 {{item.name}}
             </li>
-            <!--@foreach (var item in @ViewBag.TopArtists)-->
-            <!--{-->
-            <!--<li>@item.firstName @item.lastName (@item.numOfViews)</li>-->
-            <!--}-->
         </ol>
     </section>
     <section class="col-md-4" *ngIf="albumsList">
@@ -38,10 +34,6 @@
             <li *ngFor="let item of albumsList">
                 {{item.name}}
             </li>
-            <!--@foreach (var item in @ViewBag.TopAlbums)-->
-            <!--{-->
-            <!--<li>@item.AlbumName (@item.numOfViews)</li>-->
-            <!--}-->
         </ol>
     </section>
     <section class="col-md-4" *ngIf="songsList">
@@ -50,12 +42,12 @@
             <li *ngFor="let item of songsList">
                 {{item.name}}
             </li>
-            <!--@foreach (var item in @ViewBag.TopSongs)-->
-            <!--{-->
-            <!--<li>@item.songName (@item.numOfViews)</li>-->
-            <!--}-->
+
         </ol>
     </section>
-
-
 </div>
+
+
+<footer class="footerStyle">
+    Created by Harel Gelberg, Idan Ben Moshe, Raz Ingber, Maayan Fael
+</footer>

@@ -79,15 +79,15 @@ var SongCreateComponent = (function () {
             _this.song.genre = _this.genresList[0];
         });
     }
+    SongCreateComponent = __decorate([
+        core_1.Component({
+            selector: 'song-create',
+            styleUrls: ['./app/components/song/song.component.css'],
+            templateUrl: './app/components/song/song-create/song-create.component.html'
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], SongCreateComponent);
     return SongCreateComponent;
 }());
-SongCreateComponent = __decorate([
-    core_1.Component({
-        selector: 'song-create',
-        styleUrls: ['./app/components/song/song.component.css'],
-        templateUrl: './app/components/song/song-create/song-create.component.html'
-    }),
-    __metadata("design:paramtypes", [http_1.Http])
-], SongCreateComponent);
 exports.SongCreateComponent = SongCreateComponent;
 //# sourceMappingURL=song-create.component.js.map

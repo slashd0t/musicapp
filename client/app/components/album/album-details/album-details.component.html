@@ -7,7 +7,7 @@
 
 <div *ngIf="album">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <header class="col-md-10 col-md-offset-1">
             <div class="centerAlignment">
 
                 <img *ngIf="album.picture" class="imgTitle" [src]="album.picture"/>
@@ -22,7 +22,7 @@
                 </div>
                 {{album.name}}
             </div>
-        </div>
+        </header>
     </div>
 
     <div class="row">

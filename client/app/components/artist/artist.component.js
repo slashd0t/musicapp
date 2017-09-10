@@ -35,15 +35,15 @@ var ArtistComponent = (function () {
             _this.artistsList = JSON.parse(data._body);
         });
     }
+    ArtistComponent = __decorate([
+        core_1.Component({
+            selector: 'artist',
+            styleUrls: ['./app/components/artist/artist.component.css'],
+            templateUrl: './app/components/artist/artist.component.html'
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], ArtistComponent);
     return ArtistComponent;
 }());
-ArtistComponent = __decorate([
-    core_1.Component({
-        selector: 'artist',
-        styleUrls: ['./app/components/artist/artist.component.css'],
-        templateUrl: './app/components/artist/artist.component.html'
-    }),
-    __metadata("design:paramtypes", [http_1.Http])
-], ArtistComponent);
 exports.ArtistComponent = ArtistComponent;
 //# sourceMappingURL=artist.component.js.map

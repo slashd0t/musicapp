@@ -21,7 +21,6 @@ var artist_component_1 = require("./components/artist/artist.component");
 var album_component_1 = require("./components/album/album.component");
 var chat_component_1 = require("./components/chat/chat.component");
 var about_component_1 = require("./components/about/about.component");
-var item_list_component_1 = require("./components/items/item-list.component");
 var song_details_component_1 = require("./components/song/song-details/song-details.component");
 var statistics_component_1 = require("./components/statistics/statistics.component");
 var artist_details_component_1 = require("./components/artist/artist-details/artist-details.component");
@@ -68,7 +67,6 @@ AppModule = __decorate([
             statistics_component_1.StatisticsComponent,
             about_component_1.AboutComponent,
             navbar_component_1.NavbarComponent,
-            item_list_component_1.ListItemComponent,
             itunes_search_pipe_1.TruncateString
         ],
         providers: [

@@ -1,0 +1,16 @@
+.footerStyle {
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Inconsolata Regular'), local('Inconsolata-Regular'), url(https://fonts.gstatic.com/l/font?kit=7bMKuoy6Nh0ft0SHnIGMuReyBCOVmMhMoApVGrr7L7E&skey=20fa6569a31c71ee&v=v15) format('woff2');
+}
+
+.jumbotron{
+    font-family: "Inconsolata" ;
+}
