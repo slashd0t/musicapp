@@ -84,6 +84,8 @@ export class SongEditComponent {
 
     private saveSong = function () {
 
+        console.log(this.song);
+
         if (this.song.name.replace(" ", "") == "") {
             alert("Song must have a name");
         }

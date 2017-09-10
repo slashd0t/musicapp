@@ -8,7 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var SongComponent = (function () {
     // Http request example
@@ -16,6 +17,9 @@ var SongComponent = (function () {
         var _this = this;
         this.searchFilters = ["", "", ""];
         this.deleteSong = function (id) {
+            this.http.put('/remove', { model: 'Songs', id: id }).subscribe(function (data) {
+                alert(data._body);
+            });
         };
         http.get('/getAll', {
             search: 'model=Songs'
@@ -112,8 +116,8 @@ var SongComponent = (function () {
             selector: 'song',
             styleUrls: ['./app/components/song/song.component.css'],
             templateUrl: './app/components/song/song.component.html'
-        }), 
-        __metadata('design:paramtypes', [http_1.Http])
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
     ], SongComponent);
     return SongComponent;
 }());

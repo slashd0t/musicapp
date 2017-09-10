@@ -8,8 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
 var AlbumEditComponent = (function () {
     function AlbumEditComponent(route, http) {
@@ -71,8 +72,9 @@ var AlbumEditComponent = (function () {
             selector: 'album-edit',
             styleUrls: ['./app/components/album/album.component.css'],
             templateUrl: './app/components/album/album-edit/album-edit.component.html'
-        }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, http_1.Http])
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            http_1.Http])
     ], AlbumEditComponent);
     return AlbumEditComponent;
 }());

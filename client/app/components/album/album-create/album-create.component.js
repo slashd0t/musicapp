@@ -8,7 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var AlbumCreateComponent = (function () {
     function AlbumCreateComponent(http) {
@@ -64,8 +65,8 @@ var AlbumCreateComponent = (function () {
             selector: 'album-create',
             styleUrls: ['./app/components/album/album.component.css'],
             templateUrl: './app/components/album/album-create/album-create.component.html'
-        }), 
-        __metadata('design:paramtypes', [http_1.Http])
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
     ], AlbumCreateComponent);
     return AlbumCreateComponent;
 }());

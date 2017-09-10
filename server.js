@@ -31,8 +31,13 @@ app.engine('html', require('ejs').renderFile);
 app.use(express.static(path.join(__dirname, 'client')));
 
 // Body Parser MW
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(bodyParser.json({
+    limit: '50mb'
+}));
+app.use(bodyParser.urlencoded({
+    limit: '50mb',
+    extended: true
+}));
 app.use(bodyParser());
 
 app.use('/', index);
@@ -278,16 +283,32 @@ app.put('/insert', (req, res) => {
 app.put('/update', (req, res) => {
     validateTemplate(req.body, ['model', 'id'], (err, query) => {
         sendIncaseOfError(err, res);
-        Schemas[query.model].findOneAndUpdate(
-            query.id, query.model_data, {
+
+        Schemas[query.model].findOneAndUpdate({
+                _id: query.id
+            }, query.model_data, {
                 upsert: true
             },
             function (err, doc) {
                 sendIncaseOfError(err, res);
-                return res.send("succesfully saved");
-            });
+                res.send("succesfully saved");
+            }
+        );
     });
 });
+
+app.put('/remove', (req, res) => {
+    validateTemplate(req.body, ['model', 'id'], (err, query) => {
+        sendIncaseOfError(err, res);
+
+        Schemas[query.model].remove({
+            _id: query.id
+        }, function (err, data) {
+            sendIncaseOfError(err, res);
+            res.send("succesfully removed");
+        });
+    });
+})
 
 /********** Useful Functions **********/
 
