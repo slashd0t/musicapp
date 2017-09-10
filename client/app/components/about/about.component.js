@@ -11,16 +11,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var ngx_facebook_1 = require("ngx-facebook");
 var d3 = require("d3-selection");
 var d3Scale = require("d3-scale");
 var d3Array = require("d3-array");
 var d3Axis = require("d3-axis");
 var AboutComponent = (function () {
-    function AboutComponent(http) {
+    function AboutComponent(http, fb) {
         this.http = http;
+        this.fb = fb;
         this.STATISTICS = [];
         this.margin = { top: 20, right: 20, bottom: 30, left: 40 };
+        fb.init({
+            appId: '167814953770444',
+            xfbml: true,
+            version: 'v2.10'
+        });
     }
+    AboutComponent.prototype.share = function (url) {
+        var params = {
+            method: 'share'
+        };
+        this.fb.ui(params)
+            .then(function (res) { return console.log(res); })
+            .catch(function (e) { return console.error(e); });
+    };
     AboutComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.http.get('/getNMostViewed', {
@@ -75,15 +90,15 @@ var AboutComponent = (function () {
             .attr("width", this.x.bandwidth())
             .attr("height", function (d) { return _this.height - _this.y(d.views); });
     };
-    AboutComponent = __decorate([
-        core_1.Component({
-            selector: 'about',
-            styleUrls: ['./app/components/about/about.component.css'],
-            templateUrl: './app/components/about/about.component.html'
-        }),
-        __metadata("design:paramtypes", [http_1.Http])
-    ], AboutComponent);
     return AboutComponent;
 }());
+AboutComponent = __decorate([
+    core_1.Component({
+        selector: 'about',
+        styleUrls: ['./app/components/about/about.component.css'],
+        templateUrl: './app/components/about/about.component.html'
+    }),
+    __metadata("design:paramtypes", [http_1.Http, ngx_facebook_1.FacebookService])
+], AboutComponent);
 exports.AboutComponent = AboutComponent;
 //# sourceMappingURL=about.component.js.map

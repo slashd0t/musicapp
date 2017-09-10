@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
+import { FacebookService, UIParams, UIResponse } from 'ngx-facebook';
 
 import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
@@ -25,8 +26,24 @@ export class AboutComponent implements OnInit {
   private svg: any;
   private g: any;
 
-  constructor(private http: Http) {
-    
+  constructor(private http: Http, private fb: FacebookService) {
+    fb.init({
+      appId: '167814953770444',
+      xfbml: true,
+      version: 'v2.10'
+    });
+  }
+
+  share(url: string) {
+
+    let params: UIParams = {
+      method: 'share'
+    };
+
+    this.fb.ui(params)
+      .then((res: UIResponse) => console.log(res))
+      .catch((e: any) => console.error(e));
+
   }
 
   ngOnInit() {
@@ -34,7 +51,7 @@ export class AboutComponent implements OnInit {
       search: 'model=Songs&n=5'
     }).subscribe(data => {
       // Read the result field from the JSON response.
-      
+
       this.STATISTICS = data.json();
       this.initSvg();
       this.initAxis();
@@ -42,7 +59,7 @@ export class AboutComponent implements OnInit {
       this.drawBars();
       console.log(data.json());
     });
-    
+
   }
 
   private initSvg() {
