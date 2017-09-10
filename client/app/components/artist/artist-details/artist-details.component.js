@@ -33,16 +33,16 @@ var ArtistDetailsComponent = (function () {
             }
         });
     }
-    ArtistDetailsComponent = __decorate([
-        core_1.Component({
-            selector: 'artist-details',
-            styleUrls: ['./app/components/artist/artist-details/artist-details.component.css'],
-            templateUrl: './app/components/artist/artist-details/artist-details.component.html'
-        }),
-        __metadata("design:paramtypes", [router_1.ActivatedRoute,
-            http_1.Http])
-    ], ArtistDetailsComponent);
     return ArtistDetailsComponent;
 }());
+ArtistDetailsComponent = __decorate([
+    core_1.Component({
+        selector: 'artist-details',
+        styleUrls: ['./app/components/artist/artist-details/artist-details.component.css'],
+        templateUrl: './app/components/artist/artist-details/artist-details.component.html'
+    }),
+    __metadata("design:paramtypes", [router_1.ActivatedRoute,
+        http_1.Http])
+], ArtistDetailsComponent);
 exports.ArtistDetailsComponent = ArtistDetailsComponent;
 //# sourceMappingURL=artist-details.component.js.map

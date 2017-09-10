@@ -7,18 +7,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ListItemComponent = (function () {
-    function ListItemComponent() {
+var TruncateString = (function () {
+    function TruncateString() {
     }
-    return ListItemComponent;
+    TruncateString.prototype.transform = function (value) {
+        // Set the limit for the app title
+        var limit = 30;
+        if (value.length < limit) {
+            return value;
+        }
+        return value.substring(0, limit) + '...';
+    };
+    return TruncateString;
 }());
-ListItemComponent = __decorate([
-    core_1.Component({
-        selector: 'item-list',
-        styleUrls: ['./app/components/items/item-list.component.css'],
-        templateUrl: './app/components/items/item-list.component.html',
-        inputs: ["items"]
+TruncateString = __decorate([
+    core_1.Pipe({
+        name: 'truncate'
     })
-], ListItemComponent);
-exports.ListItemComponent = ListItemComponent;
-//# sourceMappingURL=item-list.component.js.map
+], TruncateString);
+exports.TruncateString = TruncateString;
+//# sourceMappingURL=itunes-search.pipe.js.map

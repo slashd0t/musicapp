@@ -32,6 +32,8 @@ var album_create_component_1 = require("./components/album/album-create/album-cr
 var album_edit_component_1 = require("./components/album/album-edit/album-edit.component");
 var artist_create_component_1 = require("./components/artist/artist-create/artist-create.component");
 var artist_edit_component_1 = require("./components/artist/artist-edit/artist-edit.component");
+var itunes_search_service_1 = require("./services/itunes-search.service");
+var itunes_search_pipe_1 = require("./services/itunes-search.pipe");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -43,6 +45,7 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             http_1.HttpModule,
             forms_1.FormsModule,
+            http_1.JsonpModule,
             router_1.RouterModule.forRoot(app_routes_1.rootRouterConfig, { useHash: false }),
             ngx_facebook_1.FacebookModule.forRoot()
         ],
@@ -65,7 +68,11 @@ AppModule = __decorate([
             statistics_component_1.StatisticsComponent,
             about_component_1.AboutComponent,
             navbar_component_1.NavbarComponent,
-            item_list_component_1.ListItemComponent
+            item_list_component_1.ListItemComponent,
+            itunes_search_pipe_1.TruncateString
+        ],
+        providers: [
+            itunes_search_service_1.ItunesSearchService
         ],
         bootstrap: [app_component_1.AppComponent]
     })

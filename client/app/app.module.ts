@@ -1,8 +1,9 @@
 import { NgModule }      from '@angular/core';
+import { JSONP_PROVIDERS } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { rootRouterConfig } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpModule} from '@angular/http';
+import {HttpModule, JsonpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import { FacebookModule } from 'ngx-facebook';
 import {AppComponent} from './app.component';
@@ -25,12 +26,15 @@ import {AlbumCreateComponent} from "./components/album/album-create/album-create
 import {AlbumEditComponent} from "./components/album/album-edit/album-edit.component";
 import {ArtistCreateComponent} from "./components/artist/artist-create/artist-create.component";
 import {ArtistEditComponent} from "./components/artist/artist-edit/artist-edit.component";
+import {ItunesSearchService} from "./services/itunes-search.service";
+import {TruncateString} from "./services/itunes-search.pipe";
 
 @NgModule({
   imports:      [
       BrowserModule,
       HttpModule,
       FormsModule,
+      JsonpModule,
       RouterModule.forRoot(rootRouterConfig, { useHash: false }),
       FacebookModule.forRoot()
   ],
@@ -53,8 +57,11 @@ import {ArtistEditComponent} from "./components/artist/artist-edit/artist-edit.c
       StatisticsComponent,
       AboutComponent,
       NavbarComponent,
-      ListItemComponent
+      ListItemComponent,
+      TruncateString
   ],
+  providers: [
+      ItunesSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,6 +7,12 @@
 
             </div>
             <div class="headerTitle colorD active" [ngClass]="{'headerTitle': song.picture, 'headerTitleNoPic': !song.picture}">
+                <div class="actionBtnTitlePosOther" *ngIf="itunesItem">
+                    <a title="Go To Itunes Page" target="_blank" href="{{itunesItem.trackViewUrl}}"
+                       class="actionBtnTitle glyphicon glyphicon-apple"></a>
+                    <a title="Go To Itunes Page" target="_blank" href="{{itunesItem.previewUrl}}"
+                       class="actionBtnTitle glyphicon glyphicon-headphones"></a>
+                </div>
                 <div class="actionBtnTitlePos">
                     <a title="Back to List" [routerLink]="['/song']"
                        class="actionBtnTitle glyphicon glyphicon-arrow-left"></a>
