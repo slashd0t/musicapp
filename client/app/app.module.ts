@@ -4,7 +4,7 @@ import { rootRouterConfig } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
-// import { FacebookModule } from 'ngx-facebook';
+import { FacebookModule } from 'ngx-facebook';
 import {AppComponent} from './app.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -32,7 +32,7 @@ import {ArtistEditComponent} from "./components/artist/artist-edit/artist-edit.c
       HttpModule,
       FormsModule,
       RouterModule.forRoot(rootRouterConfig, { useHash: false }),
-    //   FacebookModule.forRoot()
+      FacebookModule.forRoot()
   ],
   declarations: [
       AppComponent,
