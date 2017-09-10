@@ -28,6 +28,10 @@ var artist_details_component_1 = require("./components/artist/artist-details/art
 var album_details_component_1 = require("./components/album/album-details/album-details.component");
 var song_edit_component_1 = require("./components/song/song-edit/song-edit.component");
 var song_create_component_1 = require("./components/song/song-create/song-create.component");
+var album_create_component_1 = require("./components/album/album-create/album-create.component");
+var album_edit_component_1 = require("./components/album/album-edit/album-edit.component");
+var artist_create_component_1 = require("./components/artist/artist-create/artist-create.component");
+var artist_edit_component_1 = require("./components/artist/artist-edit/artist-edit.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -50,8 +54,12 @@ AppModule = __decorate([
             song_edit_component_1.SongEditComponent,
             artist_component_1.ArtistComponent,
             artist_details_component_1.ArtistDetailsComponent,
+            artist_create_component_1.ArtistCreateComponent,
+            artist_edit_component_1.ArtistEditComponent,
             album_component_1.AlbumComponent,
             album_details_component_1.AlbumDetailsComponent,
+            album_edit_component_1.AlbumEditComponent,
+            album_create_component_1.AlbumCreateComponent,
             chat_component_1.ChatComponent,
             statistics_component_1.StatisticsComponent,
             about_component_1.AboutComponent,

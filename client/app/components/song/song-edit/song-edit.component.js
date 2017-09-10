@@ -27,19 +27,12 @@ var SongEditComponent = (function () {
             };
             myReader.readAsDataURL(file);
         };
-        // private selectAlbumItem = function (item) {
-        //     this.song.album = item;
-        // }
-        //
-        // private selectArtistItem = function (item) {
-        //     this.song.artist = item;
-        // }
         this.saveSong = function () {
+            console.log(this.song);
             if (this.song.name.replace(" ", "") == "") {
                 alert("Song must have a name");
             }
             else {
-                this.searchParams = 'model=Artists&id=' + this.id;
                 this.nonIdSong = JSON.parse(JSON.stringify(this.song));
                 delete this.nonIdSong._id;
                 // Http request example
@@ -64,8 +57,8 @@ var SongEditComponent = (function () {
                 }).subscribe(function (data) {
                     // Read the result field from the JSON response.
                     _this.song = JSON.parse(data._body);
-                    _this.song.album = _this.song.album._id;
-                    _this.song.artist = _this.song.artist._id;
+                    _this.song.album = _this.song.album ? _this.song.album._id : null;
+                    _this.song.artist = _this.song.artist ? _this.song.artist._id : null;
                 });
                 http.get('/getAll', {
                     search: 'model=Artists'

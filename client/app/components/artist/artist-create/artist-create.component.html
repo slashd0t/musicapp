@@ -1,0 +1,59 @@
+<div *ngIf="artist">
+
+    <div class="row editigrows">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="centerAlignment">
+
+                <img *ngIf="artist.picture" class="imgTitle" src="{{artist.picture}}"/>
+
+            </div>
+            <div class="headerTitle colorB active" [ngClass]="{'headerTitle': artist.picture, 'headerTitleNoPic': !artist.picture}">
+                <div class="actionBtnTitlePos">
+                    <a title="Back to List" [routerLink]="['/artist']"
+                       class="actionBtnTitle glyphicon glyphicon-arrow editigrows-left"></a>
+                </div>
+                Editing {{artist.name}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row editigrows">
+        <div class="col-md-offset-2 col-md-4">
+            <label>Name:</label>
+        </div>
+        <div class="col-md-4">
+            <input class="form-control" type="text" placeholder="artist name" [(ngModel)]="artist.name" required name="name">
+        </div>
+
+
+    <div class="row editigrows">
+        <div class="col-md-offset-2 col-md-4">
+            <label>Biography</label>
+        </div>
+        <div class="col-md-4">
+            <input class="form-control" type="text" placeholder="artist bio" [(ngModel)]="artist.biography" required name="name">
+
+        </div>
+    </div>
+
+    <div class="row editigrows">
+        <div class="col-md-offset-2 col-md-4">
+            <label>Picture</label>
+        </div>
+        <div class="col-md-4">
+            <img *ngIf="artist.picture" class="picPreview" src="{{artist.picture}}"/>
+            <input type="file" id="picture" name="picture" (change)="pictureChange($event)"/>
+        </div>
+    </div>
+
+
+    <div class="row editigrows saveBtnPos">
+        <button class="btn btn-primary" (click)="saveArtist()" >
+            <span class="saveSideBtnStyle glyphicon glyphicon-floppy-disk"></span>
+            Save
+        </button>
+    </div>
+</div>
+
+
+<!--"views" : 0-->

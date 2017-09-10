@@ -30,8 +30,8 @@
             <label>Artist</label>
         </div>
         <div class="col-md-4">
-            <select class="form-control" [(ngModel)]="song.artist.name"  name="artist">
-                <option *ngFor="let artist of artistsList" (click)="selectArtistItem(artist._id)">
+            <select class="form-control" [(ngModel)]="song.artist"  name="artist">
+                <option *ngFor="let artist of artistsList" [ngValue]="artist._id" (click)="selectArtistItem(artist._id)">
                     {{artist.name}}
                 </option>
             </select>
@@ -42,8 +42,8 @@
             <label>Album</label>
         </div>
         <div class="col-md-4">
-            <select class="form-control" [(ngModel)]="song.album.name">
-                <option *ngFor="let album of albumsList" (click)="selectAlbumItem(album._id)">
+            <select class="form-control" [(ngModel)]="song.album" >
+                <option *ngFor="let album of albumsList" [ngValue]="album._id" (click)="selectAlbumItem(album._id)">
                     {{album.name}}
                 </option>
             </select>

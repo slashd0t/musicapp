@@ -30,13 +30,23 @@ var HomeComponent = (function () {
     //params.set('n', 10);
     // Http request example
     function HomeComponent(http) {
-        this.MostViewedSongs = [];
+        var _this = this;
         http.get('/getNMostViewed', {
             search: 'model=Songs&n=10'
-            //model: 'Songs',
-            // n: 10
         }).subscribe(function (data) {
-            // Read the result field from the JSON response.
+            _this.songsList = data.json();
+            console.log(data.json());
+        });
+        http.get('/getNMostViewed', {
+            search: 'model=Artists&n=10'
+        }).subscribe(function (data) {
+            _this.artistsList = data.json();
+            console.log(data.json());
+        });
+        http.get('/getNMostViewed', {
+            search: 'model=Albums&n=10'
+        }).subscribe(function (data) {
+            _this.albumsList = data.json();
             console.log(data.json());
         });
     }

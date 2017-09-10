@@ -34,8 +34,8 @@ export class SongEditComponent {
                 }).subscribe(data => {
                     // Read the result field from the JSON response.
                     this.song = JSON.parse(data._body);
-                    this.song.album = this.song.album._id;
-                    this.song.artist = this.song.artist._id;
+                    this.song.album = this.song.album ? this.song.album._id : null;
+                    this.song.artist = this.song.artist ? this.song.artist._id : null;
 
                 });
 
@@ -82,26 +82,17 @@ export class SongEditComponent {
 
     }
 
-    // private selectAlbumItem = function (item) {
-    //     this.song.album = item;
-    // }
-    //
-    // private selectArtistItem = function (item) {
-    //     this.song.artist = item;
-    // }
-
     private saveSong = function () {
+
+        console.log(this.song);
 
         if (this.song.name.replace(" ", "") == "") {
             alert("Song must have a name");
         }
         else {
 
-
-
-            this.searchParams = 'model=Artists&id=' + this.id;
-
             this.nonIdSong =  JSON.parse(JSON.stringify(this.song));
+
             delete this.nonIdSong._id;
 
             // Http request example

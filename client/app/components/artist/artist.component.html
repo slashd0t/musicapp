@@ -1,14 +1,19 @@
 <title>Artists</title>
+<div class="col-md-12 ">
+    <a [routerLink]="['/artist-create']"><span class="glyphicon glyphicon-plus"></span> Add a new artist</a>
+</div>
 
 <div *ngFor="let item of artistsList">
-    <div class="row listInfo" [routerLink]="['/artist-details', item._id]">
+    <div class="row listInfo">
         <div class="col-md-2" >
             <!--Will be an imade src-->
-            <img class="songImageStyle" src="{{item.picture}}"/>
+            <img class="ImageStyle" src="{{item.picture}}"/>
         </div>
         <div class="col-md-10">
             <div class="ListActionBtnPos">
+                <a [routerLink]="['/artist-edit', item._id]" class="ListActionBtn glyphicon glyphicon-pencil"></a>
                 <a [routerLink]="['/artist-details', item._id]" class="ListActionBtn glyphicon glyphicon-info-sign"></a>
+                <a (click)="delete(item._id)" class="ListActionBtn glyphicon glyphicon-remove"></a>
             </div>
             <h3 class="ListTitle">{{item.name}}</h3>
             <span>

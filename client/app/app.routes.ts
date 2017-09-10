@@ -12,6 +12,10 @@ import {AlbumDetailsComponent} from "./components/album/album-details/album-deta
 import {StatisticsComponent} from "./components/statistics/statistics.component";
 import {SongEditComponent} from "./components/song/song-edit/song-edit.component";
 import {SongCreateComponent} from "./components/song/song-create/song-create.component";
+import {ArtistEditComponent} from "./components/artist/artist-edit/artist-edit.component";
+import {AlbumEditComponent} from "./components/album/album-edit/album-edit.component";
+import {ArtistCreateComponent} from "./components/artist/artist-create/artist-create.component";
+import {AlbumCreateComponent} from "./components/album/album-create/album-create.component";
 
 export const rootRouterConfig: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,10 +24,14 @@ export const rootRouterConfig: Routes = [
     { path: 'song-details/:id', component: SongDetailsComponent },
     { path: 'song-edit/:id', component: SongEditComponent },
     { path: 'song-create', component: SongCreateComponent },
-    { path: 'artist-details/:id', component: ArtistDetailsComponent },
-    { path: 'album-details/:id', component: AlbumDetailsComponent },
-    { path: 'artist', component: ArtistComponent },
     { path: 'album', component: AlbumComponent },
+    { path: 'album-details/:id', component: AlbumDetailsComponent },
+    { path: 'album-edit/:id', component: AlbumEditComponent },
+    { path: 'album-create', component: AlbumCreateComponent },
+    { path: 'artist', component: ArtistComponent },
+    { path: 'artist-details/:id', component: ArtistDetailsComponent },
+    { path: 'artist-edit/:id', component: ArtistEditComponent },
+    { path: 'artist-create', component: ArtistCreateComponent },
     { path: 'chat', component: ChatComponent },
     { path: 'statistics', component: StatisticsComponent },
     { path: 'about', component: AboutComponent }

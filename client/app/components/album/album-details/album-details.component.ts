@@ -1,20 +1,26 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {Http} from "@angular/http";
+import {timeInterval} from "rxjs/operator/timeInterval";
+// declare var $:JQueryStatic;
 
 @Component({
     selector: 'album-details',
     styleUrls: ['./app/components/album/album-details/album-details.component.css'],
     templateUrl: './app/components/album/album-details/album-details.component.html'
 })
-export class AlbumDetailsComponent implements OnInit, OnDestroy, AfterViewInit{
+export class AlbumDetailsComponent implements AfterViewInit {
 
+
+    @ViewChild('myCanvas') canvasRef:ElementRef;
+    private canvas: any;
     private id: string;
     private album: any;
     private searchParams: string;
 
-    constructor( private route: ActivatedRoute,
-                 private http: Http) {
+    constructor(private route: ActivatedRoute,
+                private http: Http,
+                private elRef: ElementRef) {
 
         this.sub = this.route.params.subscribe(params => {
             this.id = params['id']; // (+) converts string 'id' to a number
@@ -30,68 +36,87 @@ export class AlbumDetailsComponent implements OnInit, OnDestroy, AfterViewInit{
                     // Read the result field from the JSON response.
                     this.album = JSON.parse(data._body);
 
+
                     this.searchParams = 'model=Artists&id=' + this.album.artist;
 
                     http.get('/getById', {
                         search: this.searchParams
                     }).subscribe(data => {
 
-                    this.album.artistName = JSON.parse(data._body)[0].name;
+                        this.album.artistName = JSON.parse(data._body)[0].name;
 
-                        // let canvas = document.getElementById("canvas");
-                        //
-                        // let pictures = [];
-                        //
-                        // for(let i = 0; i < this.album.songs.length; i++){
-                        //     pictures.push(this.album.songs[i].picture)
-                        // }
-                        //
-                        //
-                        // let imagesCount = this.album.songs.length;
-                        // imagesCount = parseInt(imagesCount);
-                        // var currImage = 0;
-                        //
-                        // imageAnimationFunc();
-                        //
-                        // function imageAnimationFunc() {
-                        //     if (currImage >= imagesCount) currImage = 0;
-                        //
-                        //     canvas.drawImage({
-                        //         layer: true,
-                        //         name: "image" + currImage,
-                        //         source: "data:image/png;base64," + pictures[currImage],
-                        //         x: 0,
-                        //         y: 200, 
-                        //         height: 200,
-                        //         width: 200,
-                        //         fromCenter: false
-                        //     });
-                        //     canvas.animateLayer("image" + currImage, {
-                        //         x: 600,
-                        //         y: 200
-                        //     }, 5000, function () {
-                        //         canvas.removeLayer("image" + currImage).drawLayers();
-                        //         currImage++;
-                        //         imageAnimationFunc();
-                        //     });
-                        //
-                         }
-                })
+                        this.InitCnavas();
+                    });
+                }
+
             }
-
         });
     }
 
-    // ngAfterViewInit(){
-    //
-    // }
+    private InitCnavas = function () {
 
-  }
+        debugger;
+        //this.canvas = $('#canvas');
+        //$(this.canvasRef.nativeElement)
+        this.canvas = this.canvasRef.nativeElement.getContext("2d");
+        let pictures = [];
+
+        for (let i = 0; i < this.album.songs.length; i++) {
+            debugger;
+            pictures.push(this.album.songs[i].picture)
+        }
+
+        let imagesCount = this.album.songs.length;
+        imagesCount = parseInt(imagesCount);
+        var currImage = 0;
+
+        imageAnimationFunc(this);
+
+        function imageAnimationFunc(elem) {
+            if (currImage >= imagesCount) currImage = 0;
+
+            var image = new Image(200, 200)
+            image.src = pictures[currImage];
+
+            // elem.canvas.drawImage(image,0,0);
+            elem.canvas.drawImage({
+                layer: true,
+                name: "image" + currImage,
+                source: "data:image/png;base64," + pictures[currImage],
+                x: 0,
+                y: 200,
+                height: 200,
+                width: 200,
+                fromCenter: false
+            });
+            // elem.canvas.animateLayer("image" + currImage, {
+            //     x: 600,
+            //     y: 200
+            // }, 5000, function () {
+            //     elem.canvas.removeLayer("image" + currImage).drawLayers();
+            //     currImage++;
+
+                imageAnimationFunc(elem);
+            // });
+
+
+        }
+
+    }
+    //
+    // ngAfterViewInit() {
+    //     // console.log("SmileyDirective ngAfterViewInit: size: ", this.size, ", color: ", this.color, ', this.canvas: ', this.canvas);\
+    //     debugger;
+    //     if(this.canvasRef) {
+    //         this.canvas = this.canvasRef.nativeElement;
+    //     }
+    //     else{
+    //
+    //     }
+    // }
 
 
 }
-
-
 
 
 // private SongsList = [

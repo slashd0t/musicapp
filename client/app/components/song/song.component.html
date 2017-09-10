@@ -47,7 +47,7 @@
 
 <div *ngFor="let item of SongsList">
 
-    <div class="row listInfo" [routerLink]="['/song-details', item._id]" >
+    <div class="row listInfo">
         <div class="col-md-2" >
             <!--Will be an imade src-->
             <img class="songImageStyle" src="{{item.picture}}"/>
@@ -56,6 +56,7 @@
             <div class="ListActionBtnPos">
                 <a [routerLink]="['/song-details', item._id]" class="ListActionBtn glyphicon glyphicon-info-sign"></a>
                 <a [routerLink]="['/song-edit', item._id]" class="ListActionBtn glyphicon glyphicon-pencil"></a>
+                <a (click)="deleteSong(item._id)" class="ListActionBtn glyphicon glyphicon-remove"></a>
             </div>
             <h3 class="ListTitle">{{item.name}}</h3>
             <span>

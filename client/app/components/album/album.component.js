@@ -15,6 +15,19 @@ var AlbumComponent = (function () {
     // Http request example
     function AlbumComponent(http) {
         var _this = this;
+        this.delete = function (id) {
+            var _this = this;
+            this.http.put('/remove', { model: 'Albums', id: id }).subscribe(function (data) {
+                alert(data._body);
+                _this.http.get('/getAll', {
+                    search: 'model=Albums'
+                }).subscribe(function (data) {
+                    // Read the result field from the JSON response.
+                    _this.albumsList = JSON.parse(data._body);
+                });
+            });
+        };
+        this.http = http;
         http.get('/getAll', {
             search: 'model=Albums'
         }).subscribe(function (data) {

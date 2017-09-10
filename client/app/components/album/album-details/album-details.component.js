@@ -12,11 +12,53 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
+// declare var $:JQueryStatic;
 var AlbumDetailsComponent = (function () {
-    function AlbumDetailsComponent(route, http) {
+    function AlbumDetailsComponent(route, http, elRef) {
         var _this = this;
         this.route = route;
         this.http = http;
+        this.elRef = elRef;
+        this.InitCnavas = function () {
+            debugger;
+            //this.canvas = $('#canvas');
+            //$(this.canvasRef.nativeElement)
+            this.canvas = this.canvasRef.nativeElement.getContext("2d");
+            var pictures = [];
+            for (var i = 0; i < this.album.songs.length; i++) {
+                debugger;
+                pictures.push(this.album.songs[i].picture);
+            }
+            var imagesCount = this.album.songs.length;
+            imagesCount = parseInt(imagesCount);
+            var currImage = 0;
+            imageAnimationFunc(this);
+            function imageAnimationFunc(elem) {
+                if (currImage >= imagesCount)
+                    currImage = 0;
+                var image = new Image(200, 200);
+                image.src = pictures[currImage];
+                // elem.canvas.drawImage(image,0,0);
+                elem.canvas.drawImage({
+                    layer: true,
+                    name: "image" + currImage,
+                    source: "data:image/png;base64," + pictures[currImage],
+                    x: 0,
+                    y: 200,
+                    height: 200,
+                    width: 200,
+                    fromCenter: false
+                });
+                // elem.canvas.animateLayer("image" + currImage, {
+                //     x: 600,
+                //     y: 200
+                // }, 5000, function () {
+                //     elem.canvas.removeLayer("image" + currImage).drawLayers();
+                //     currImage++;
+                imageAnimationFunc(elem);
+                // });
+            }
+        };
         this.sub = this.route.params.subscribe(function (params) {
             _this.id = params['id']; // (+) converts string 'id' to a number
             if (_this.id) {
@@ -32,43 +74,7 @@ var AlbumDetailsComponent = (function () {
                         search: _this.searchParams
                     }).subscribe(function (data) {
                         _this.album.artistName = JSON.parse(data._body)[0].name;
-                        // let canvas = document.getElementById("canvas");
-                        //
-                        // let pictures = [];
-                        //
-                        // for(let i = 0; i < this.album.songs.length; i++){
-                        //     pictures.push(this.album.songs[i].picture)
-                        // }
-                        //
-                        //
-                        // let imagesCount = this.album.songs.length;
-                        // imagesCount = parseInt(imagesCount);
-                        // var currImage = 0;
-                        //
-                        // imageAnimationFunc();
-                        //
-                        // function imageAnimationFunc() {
-                        //     if (currImage >= imagesCount) currImage = 0;
-                        //
-                        //     canvas.drawImage({
-                        //         layer: true,
-                        //         name: "image" + currImage,
-                        //         source: "data:image/png;base64," + pictures[currImage],
-                        //         x: 0,
-                        //         y: 200, 
-                        //         height: 200,
-                        //         width: 200,
-                        //         fromCenter: false
-                        //     });
-                        //     canvas.animateLayer("image" + currImage, {
-                        //         x: 600,
-                        //         y: 200
-                        //     }, 5000, function () {
-                        //         canvas.removeLayer("image" + currImage).drawLayers();
-                        //         currImage++;
-                        //         imageAnimationFunc();
-                        //     });
-                        //
+                        _this.InitCnavas();
                     });
                 });
             }
@@ -76,6 +82,10 @@ var AlbumDetailsComponent = (function () {
     }
     return AlbumDetailsComponent;
 }());
+__decorate([
+    core_1.ViewChild('myCanvas'),
+    __metadata("design:type", core_1.ElementRef)
+], AlbumDetailsComponent.prototype, "canvasRef", void 0);
 AlbumDetailsComponent = __decorate([
     core_1.Component({
         selector: 'album-details',
@@ -83,7 +93,8 @@ AlbumDetailsComponent = __decorate([
         templateUrl: './app/components/album/album-details/album-details.component.html'
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        http_1.Http])
+        http_1.Http,
+        core_1.ElementRef])
 ], AlbumDetailsComponent);
 exports.AlbumDetailsComponent = AlbumDetailsComponent;
 // private SongsList = [

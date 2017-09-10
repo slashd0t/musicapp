@@ -123,15 +123,15 @@ var StatisticsComponent = (function () {
             .attr("dy", "0.32em")
             .text(function (d) { return d; });
     };
+    StatisticsComponent = __decorate([
+        core_1.Component({
+            selector: 'statistics',
+            styleUrls: ['./app/components/statistics/statistics.component.css'],
+            templateUrl: './app/components/statistics/statistics.component.html'
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], StatisticsComponent);
     return StatisticsComponent;
 }());
-StatisticsComponent = __decorate([
-    core_1.Component({
-        selector: 'statistics',
-        styleUrls: ['./app/components/statistics/statistics.component.css'],
-        templateUrl: './app/components/statistics/statistics.component.html'
-    }),
-    __metadata("design:paramtypes", [http_1.Http])
-], StatisticsComponent);
 exports.StatisticsComponent = StatisticsComponent;
 //# sourceMappingURL=statistics.component.js.map

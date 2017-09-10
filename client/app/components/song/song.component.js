@@ -16,6 +16,13 @@ var SongComponent = (function () {
     function SongComponent(http) {
         var _this = this;
         this.searchFilters = ["", "", ""];
+        this.deleteSong = function (id) {
+            var _this = this;
+            this.http.put('/remove', { model: 'Songs', id: id }).subscribe(function (data) {
+                alert(data._body);
+                _this.getRelaventSongs(_this.http);
+            });
+        };
         http.get('/getAll', {
             search: 'model=Songs'
         }).subscribe(function (data) {
@@ -44,14 +51,14 @@ var SongComponent = (function () {
         this.searchFilters[pos] = value;
         if (pos == 0) {
             for (var i = 0; i < this.ArtistsList.length; i++) {
-                if (this.ArtistsList[i]._id = value) {
+                if (this.ArtistsList[i]._id == value) {
                     this.FilteredArtist = this.ArtistsList[i];
                 }
             }
         }
         else if (pos == 1) {
             for (var i = 0; i < this.AlbumsList.length; i++) {
-                if (this.AlbumsList[i]._id = value) {
+                if (this.AlbumsList[i]._id == value) {
                     this.FilteredAlbum = this.AlbumsList[i];
                 }
             }

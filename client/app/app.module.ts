@@ -21,6 +21,10 @@ import {ArtistDetailsComponent} from "./components/artist/artist-details/artist-
 import {AlbumDetailsComponent} from "./components/album/album-details/album-details.component";
 import {SongEditComponent} from "./components/song/song-edit/song-edit.component";
 import {SongCreateComponent} from "./components/song/song-create/song-create.component";
+import {AlbumCreateComponent} from "./components/album/album-create/album-create.component";
+import {AlbumEditComponent} from "./components/album/album-edit/album-edit.component";
+import {ArtistCreateComponent} from "./components/artist/artist-create/artist-create.component";
+import {ArtistEditComponent} from "./components/artist/artist-edit/artist-edit.component";
 
 @NgModule({
   imports:      [
@@ -39,8 +43,12 @@ import {SongCreateComponent} from "./components/song/song-create/song-create.com
       SongEditComponent,
       ArtistComponent,
       ArtistDetailsComponent,
+      ArtistCreateComponent,
+      ArtistEditComponent,
       AlbumComponent,
       AlbumDetailsComponent,
+      AlbumEditComponent,
+      AlbumCreateComponent,
       ChatComponent,
       StatisticsComponent,
       AboutComponent,

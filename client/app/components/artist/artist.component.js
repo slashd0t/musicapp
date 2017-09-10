@@ -15,6 +15,19 @@ var ArtistComponent = (function () {
     // Http request example
     function ArtistComponent(http) {
         var _this = this;
+        this.delete = function (id) {
+            var _this = this;
+            this.http.put('/remove', { model: 'Artists', id: id }).subscribe(function (data) {
+                alert(data._body);
+                _this.http.get('/getAll', {
+                    search: 'model=Artists'
+                }).subscribe(function (data) {
+                    // Read the result field from the JSON response.
+                    _this.artistsList = JSON.parse(data._body);
+                });
+            });
+        };
+        this.http = http;
         http.get('/getAll', {
             search: 'model=Artists'
         }).subscribe(function (data) {
