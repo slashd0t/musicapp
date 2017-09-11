@@ -1,8 +1,8 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {Http} from "@angular/http";
-import {TruncateString} from "../../../services/itunes-search.pipe";
-import {ItunesSearchService} from "../../../services/itunes-search.service";
+import { Http } from "@angular/http";
+import { TruncateString } from "../../../services/itunes-search.pipe";
+import { ItunesSearchService } from "../../../services/itunes-search.service";
 
 @Component({
     selector: 'song-details',
@@ -12,7 +12,7 @@ import {ItunesSearchService} from "../../../services/itunes-search.service";
     styleUrls: ['./app/components/song/song.component.css'],
     templateUrl: './app/components/song/song-details/song-details.component.html',
 })
-export class SongDetailsComponent{
+export class SongDetailsComponent implements OnInit {
 
     private id: string;
     private song: any;
@@ -22,9 +22,9 @@ export class SongDetailsComponent{
     itunesItem;
     message: String;
 
-    constructor( private route: ActivatedRoute,
-                 private http: Http,
-                 private itunesService:ItunesSearchService) {
+    constructor(private route: ActivatedRoute,
+        private http: Http,
+        private itunesService: ItunesSearchService) {
 
         this.sub = this.route.params.subscribe(params => {
             this.id = params['id']; // (+) converts string 'id' to a number
@@ -38,6 +38,7 @@ export class SongDetailsComponent{
                 }).subscribe(data => {
                     // Read the result field from the JSON response.
                     this.song = JSON.parse(data._body);
+                    this.increaseView();
 
                     debugger;
                     let songQuery = this.song.name.split(" ").join("+");
@@ -46,9 +47,9 @@ export class SongDetailsComponent{
                         // Clear previous items
                         this.itunesItem = null;
                         this.message = null;
-                        if(result.results.length > 0){
+                        if (result.results.length > 0) {
                             this.itunesItem = result.results[0];
-                        } else{
+                        } else {
                             this.message = "No results for \"" + songQuery + "\"";
                         }
 
@@ -56,6 +57,20 @@ export class SongDetailsComponent{
 
                 })
             }
+        });
+    }
+
+    increaseView() {
+        this.http.put('/update', {
+            model: 'Songs',
+            id: this.song._id,
+            model_data: {
+                ...this.song,
+                views: this.song.views + 1
+            }
+        }).subscribe(data => {
+            // Read the result field from the JSON response.
+            alert(data._body);
         });
     }
 
