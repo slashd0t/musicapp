@@ -37,6 +37,7 @@ export class AboutComponent implements OnInit {
   share(url: string) {
 
     let params: UIParams = {
+      href: 'https://github.com/zyra/ngx-facebook',
       method: 'share'
     };
 

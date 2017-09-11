@@ -31,6 +31,7 @@ var AboutComponent = (function () {
     }
     AboutComponent.prototype.share = function (url) {
         var params = {
+            href: 'https://github.com/zyra/ngx-facebook',
             method: 'share'
         };
         this.fb.ui(params)
