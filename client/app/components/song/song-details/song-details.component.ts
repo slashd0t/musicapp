@@ -70,7 +70,7 @@ export class SongDetailsComponent implements OnInit {
             }
         }).subscribe(data => {
             // Read the result field from the JSON response.
-            alert(data._body);
+            console.log(data._body);
         });
     }
 

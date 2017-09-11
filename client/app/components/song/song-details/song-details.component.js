@@ -63,7 +63,7 @@ var SongDetailsComponent = (function () {
             model_data: __assign({}, this.song, { views: this.song.views + 1 })
         }).subscribe(function (data) {
             // Read the result field from the JSON response.
-            alert(data._body);
+            console.log(data._body);
         });
     };
     SongDetailsComponent = __decorate([
