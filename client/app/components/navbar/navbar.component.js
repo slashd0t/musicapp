@@ -10,14 +10,14 @@ var core_1 = require("@angular/core");
 var NavbarComponent = (function () {
     function NavbarComponent() {
     }
+    NavbarComponent = __decorate([
+        core_1.Component({
+            selector: 'navbar',
+            styleUrls: ['./app/components/navbar/navbar.component.css'],
+            templateUrl: './app/components/navbar/navbar.component.html'
+        })
+    ], NavbarComponent);
     return NavbarComponent;
 }());
-NavbarComponent = __decorate([
-    core_1.Component({
-        selector: 'navbar',
-        styleUrls: ['./app/components/navbar/navbar.component.css'],
-        templateUrl: './app/components/navbar/navbar.component.html'
-    })
-], NavbarComponent);
 exports.NavbarComponent = NavbarComponent;
 //# sourceMappingURL=navbar.component.js.map

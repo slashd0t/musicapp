@@ -18,12 +18,12 @@ var TruncateString = (function () {
         }
         return value.substring(0, limit) + '...';
     };
+    TruncateString = __decorate([
+        core_1.Pipe({
+            name: 'truncate'
+        })
+    ], TruncateString);
     return TruncateString;
 }());
-TruncateString = __decorate([
-    core_1.Pipe({
-        name: 'truncate'
-    })
-], TruncateString);
 exports.TruncateString = TruncateString;
 //# sourceMappingURL=itunes-search.pipe.js.map

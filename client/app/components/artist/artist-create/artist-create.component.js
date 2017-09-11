@@ -51,15 +51,15 @@ var ArtistCreateComponent = (function () {
         };
         this.innerHttp = http;
     }
+    ArtistCreateComponent = __decorate([
+        core_1.Component({
+            selector: 'artist-create',
+            styleUrls: ['./app/components/artist/artist.component.css'],
+            templateUrl: './app/components/artist/artist-create/artist-create.component.html'
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], ArtistCreateComponent);
     return ArtistCreateComponent;
 }());
-ArtistCreateComponent = __decorate([
-    core_1.Component({
-        selector: 'artist-create',
-        styleUrls: ['./app/components/artist/artist.component.css'],
-        templateUrl: './app/components/artist/artist-create/artist-create.component.html'
-    }),
-    __metadata("design:paramtypes", [http_1.Http])
-], ArtistCreateComponent);
 exports.ArtistCreateComponent = ArtistCreateComponent;
 //# sourceMappingURL=artist-create.component.js.map

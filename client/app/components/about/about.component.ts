@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Http } from '@angular/http';
 import { FacebookService, UIParams, UIResponse } from 'ngx-facebook';
 
@@ -26,7 +26,7 @@ export class AboutComponent implements OnInit {
   private svg: any;
   private g: any;
 
-  constructor(private http: Http, private fb: FacebookService) {
+  constructor(private http: Http, private fb: FacebookService, private container: ElementRef) {
     fb.init({
       appId: '167814953770444',
       xfbml: true,
@@ -57,13 +57,12 @@ export class AboutComponent implements OnInit {
       this.initAxis();
       this.drawAxis();
       this.drawBars();
-      console.log(data.json());
     });
 
   }
 
   private initSvg() {
-    this.svg = d3.select("svg");
+    this.svg = d3.select(this.container.nativeElement).select("svg");
     this.width = +this.svg.attr("width") - this.margin.left - this.margin.right;
     this.height = +this.svg.attr("height") - this.margin.top - this.margin.bottom;
     this.g = this.svg.append("g")

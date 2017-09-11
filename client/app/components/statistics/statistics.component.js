@@ -17,8 +17,9 @@ var d3Shape = require("d3-shape");
 var d3Axis = require("d3-axis");
 var d3Array = require("d3-array");
 var StatisticsComponent = (function () {
-    function StatisticsComponent(http) {
+    function StatisticsComponent(http, container) {
         this.http = http;
+        this.container = container;
         this.statisticsData = [];
         this.allGenres = [];
     }
@@ -53,7 +54,7 @@ var StatisticsComponent = (function () {
         this.margin = { top: 20, right: 20, bottom: 30, left: 40 };
     };
     StatisticsComponent.prototype.initSvg = function () {
-        this.svg = d3.select('svg');
+        this.svg = d3.select(this.container.nativeElement).select('svg');
         this.width = +this.svg.attr('width') - this.margin.left - this.margin.right;
         this.height = +this.svg.attr('height') - this.margin.top - this.margin.bottom;
         this.g = this.svg.append("g").attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
@@ -123,15 +124,15 @@ var StatisticsComponent = (function () {
             .attr("dy", "0.32em")
             .text(function (d) { return d; });
     };
+    StatisticsComponent = __decorate([
+        core_1.Component({
+            selector: 'statistics',
+            styleUrls: ['./app/components/statistics/statistics.component.css'],
+            templateUrl: './app/components/statistics/statistics.component.html'
+        }),
+        __metadata("design:paramtypes", [http_1.Http, core_1.ElementRef])
+    ], StatisticsComponent);
     return StatisticsComponent;
 }());
-StatisticsComponent = __decorate([
-    core_1.Component({
-        selector: 'statistics',
-        styleUrls: ['./app/components/statistics/statistics.component.css'],
-        templateUrl: './app/components/statistics/statistics.component.html'
-    }),
-    __metadata("design:paramtypes", [http_1.Http])
-], StatisticsComponent);
 exports.StatisticsComponent = StatisticsComponent;
 //# sourceMappingURL=statistics.component.js.map

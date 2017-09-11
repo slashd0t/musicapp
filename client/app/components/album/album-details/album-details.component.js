@@ -58,21 +58,21 @@ var AlbumDetailsComponent = (function () {
         };
         image.src = this.album.songs[(tick % this.album.songs.length)].picture;
     };
+    __decorate([
+        core_1.ViewChild('myCanvas'),
+        __metadata("design:type", core_1.ElementRef)
+    ], AlbumDetailsComponent.prototype, "canvasRef", void 0);
+    AlbumDetailsComponent = __decorate([
+        core_1.Component({
+            selector: 'album-details',
+            styleUrls: ['./app/components/album/album-details/album-details.component.css'],
+            templateUrl: './app/components/album/album-details/album-details.component.html'
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            http_1.Http,
+            core_1.ElementRef])
+    ], AlbumDetailsComponent);
     return AlbumDetailsComponent;
 }());
-__decorate([
-    core_1.ViewChild('myCanvas'),
-    __metadata("design:type", core_1.ElementRef)
-], AlbumDetailsComponent.prototype, "canvasRef", void 0);
-AlbumDetailsComponent = __decorate([
-    core_1.Component({
-        selector: 'album-details',
-        styleUrls: ['./app/components/album/album-details/album-details.component.css'],
-        templateUrl: './app/components/album/album-details/album-details.component.html'
-    }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        http_1.Http,
-        core_1.ElementRef])
-], AlbumDetailsComponent);
 exports.AlbumDetailsComponent = AlbumDetailsComponent;
 //# sourceMappingURL=album-details.component.js.map

@@ -113,15 +113,15 @@ var SongComponent = (function () {
             });
         }
     };
+    SongComponent = __decorate([
+        core_1.Component({
+            selector: 'song',
+            styleUrls: ['./app/components/song/song.component.css'],
+            templateUrl: './app/components/song/song.component.html'
+        }),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], SongComponent);
     return SongComponent;
 }());
-SongComponent = __decorate([
-    core_1.Component({
-        selector: 'song',
-        styleUrls: ['./app/components/song/song.component.css'],
-        templateUrl: './app/components/song/song.component.html'
-    }),
-    __metadata("design:paramtypes", [http_1.Http])
-], SongComponent);
 exports.SongComponent = SongComponent;
 //# sourceMappingURL=song.component.js.map

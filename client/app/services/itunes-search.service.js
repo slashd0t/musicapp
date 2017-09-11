@@ -29,11 +29,11 @@ var ItunesSearchService = (function () {
     ItunesSearchService.prototype.logError = function (error) {
         console.log("Something went wrong" + error);
     };
+    ItunesSearchService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Jsonp])
+    ], ItunesSearchService);
     return ItunesSearchService;
 }());
-ItunesSearchService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Jsonp])
-], ItunesSearchService);
 exports.ItunesSearchService = ItunesSearchService;
 //# sourceMappingURL=itunes-search.service.js.map

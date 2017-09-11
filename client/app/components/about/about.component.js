@@ -17,9 +17,10 @@ var d3Scale = require("d3-scale");
 var d3Array = require("d3-array");
 var d3Axis = require("d3-axis");
 var AboutComponent = (function () {
-    function AboutComponent(http, fb) {
+    function AboutComponent(http, fb, container) {
         this.http = http;
         this.fb = fb;
+        this.container = container;
         this.STATISTICS = [];
         this.margin = { top: 20, right: 20, bottom: 30, left: 40 };
         fb.init({
@@ -47,11 +48,10 @@ var AboutComponent = (function () {
             _this.initAxis();
             _this.drawAxis();
             _this.drawBars();
-            console.log(data.json());
         });
     };
     AboutComponent.prototype.initSvg = function () {
-        this.svg = d3.select("svg");
+        this.svg = d3.select(this.container.nativeElement).select("svg");
         this.width = +this.svg.attr("width") - this.margin.left - this.margin.right;
         this.height = +this.svg.attr("height") - this.margin.top - this.margin.bottom;
         this.g = this.svg.append("g")
@@ -96,7 +96,7 @@ var AboutComponent = (function () {
             styleUrls: ['./app/components/about/about.component.css'],
             templateUrl: './app/components/about/about.component.html'
         }),
-        __metadata("design:paramtypes", [http_1.Http, ngx_facebook_1.FacebookService])
+        __metadata("design:paramtypes", [http_1.Http, ngx_facebook_1.FacebookService, core_1.ElementRef])
     ], AboutComponent);
     return AboutComponent;
 }());

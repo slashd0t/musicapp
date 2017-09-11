@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Http } from '@angular/http';
 
 import * as d3 from 'd3-selection';
@@ -37,7 +37,7 @@ export class StatisticsComponent implements OnInit {
     private z: any;
     private g: any;
 
-    constructor(private http: Http) { }
+    constructor(private http: Http, private container: ElementRef) { }
 
     ngOnInit() {
         this.http.get('/getAllGenres', {}).subscribe(data => {
@@ -78,7 +78,7 @@ export class StatisticsComponent implements OnInit {
     }
 
     private initSvg() {
-        this.svg = d3.select('svg');
+        this.svg = d3.select(this.container.nativeElement).select('svg');
 
         this.width = +this.svg.attr('width') - this.margin.left - this.margin.right;
         this.height = +this.svg.attr('height') - this.margin.top - this.margin.bottom;
