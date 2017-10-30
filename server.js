@@ -310,6 +310,12 @@ app.put('/remove', (req, res) => {
     });
 })
 
+
+// catch-all routes
+app.get('*', function(req, res) {
+  res.sendfile('./views/index.html')
+})
+
 /********** Useful Functions **********/
 
 function sendIncaseOfError(err, res) {
