@@ -14,7 +14,9 @@ var index = require('./routes/index');
 var app = express();
 
 /********** Database Init **********/
-mongoose.connect(config.mongo_connection);
+var conn = process.env.MONGODBURL_MUSICAPP;
+console.log('conn:',conn);
+mongoose.connect(conn);
 var Schemas = require('./mongo_schemas'); // Object that contains Songs, Albums and Artists
 var {
     Songs,
@@ -96,7 +98,7 @@ app.get('/getById', (req, res) => {
 });
 
 /**
- * This function returns an album model from the database by it's ID 
+ * This function returns an album model from the database by it's ID
  * and adds all the songs that are connected to this album in an array called 'songs'
  * It requires the ID of the album
  * example: '/getAlbumWithSongs?id=59b2ee47ef53dd8c2fac3063'
@@ -126,7 +128,7 @@ app.get('/getAlbumWithSongs', (req, res) => {
 });
 
 /**
- * This function returns all the albums from the database 
+ * This function returns all the albums from the database
  * and adds all the songs that are connected to each album in an array called 'songs'
  * example: '/getAllAlbumsWithSongs
  */
@@ -145,7 +147,7 @@ app.get('/getAllAlbumsWithSongs', (req, res) => {
 });
 
 /**
- * This function returns an album model from the database by it's ID 
+ * This function returns an album model from the database by it's ID
  * and adds all the songs that are connected to this album in an array called 'songs'
  * It requires the ID of the artist
  * example: '/getArtistWithAlbums?id=59b2ee47ef53dd8c2fac3063'
@@ -174,7 +176,7 @@ app.get('/getArtistWithAlbums', (req, res) => {
 });
 
 /**
- * This function returns a song model from the database by it's ID 
+ * This function returns a song model from the database by it's ID
  * and adds the object of it's artist and album by their id
  * It requires the ID of the song
  * example: '/getFullDetailSong?id=59b2ee47ef53dd8c2fac3063'
@@ -212,7 +214,7 @@ app.get('/getFullDetailSong', (req, res) => {
 /**
  * This function returns songs by album, artist and genre.
  * It doesn't have to receive each and every one of them - all are optional
- * examples: 
+ * examples:
  * /getSongs?album=59b2ee47ef53dd8c2fac3063&artist=59b2ee47ef53dd8c2fac3063
  * /getSongs?genre=rock&album=59b2ee47ef53dd8c2fac3063
  * /getSongs?artist=59b2ee47ef53dd8c2fac3063
@@ -231,7 +233,7 @@ app.get('/getSongs', (req, res) => {
 });
 
 /**
- * This functions return an array with all the genres that are present on the songs 
+ * This functions return an array with all the genres that are present on the songs
  * example: /getAllGenres
  */
 app.get('/getAllGenres', (req, res) => {
@@ -245,15 +247,15 @@ app.get('/getAllGenres', (req, res) => {
  * This function inserts a new object to the database
  * It requires a name of a model and the model itself
  * this is a put request
- * Object sent in ajax should look like : 
+ * Object sent in ajax should look like :
  * { model: 'Songs',
-     model_data: { 
+     model_data: {
         name: 'try',
         artist: 1,
         album: 1,
         date: '2017-08-29T16:31:42.138Z',
         picture: '',
-        genre: 'Test' } 
+        genre: 'Test' }
     }
  */
 app.put('/insert', (req, res) => {
@@ -273,11 +275,11 @@ app.put('/insert', (req, res) => {
  * This function updates an object in the database
  * It requires a name of a model, id, and the updated data
  * this is a put request
- * Object sent in ajax should look like : 
+ * Object sent in ajax should look like :
  * { model: 'Songs',
      id: '59a052c5ef53dd8c2fe2b402',
-     model_data: { 
-        name: 'try2' } 
+     model_data: {
+        name: 'try2' }
     }
  */
 app.put('/update', (req, res) => {
@@ -371,7 +373,7 @@ function validateTemplate(data, params, callback) {
  */
 function validQuery(data, params) {
     // Runs on all the query attributes and only if everyone passes
-    // the requirements proceed with the request 
+    // the requirements proceed with the request
     return Object.keys(queryAttributes).every((val) => {
         return basicQueryValidation(val, data, params, queryAttributes[val]);
     });
@@ -379,7 +381,7 @@ function validQuery(data, params) {
 
 /*
  * Checks if the attribute is in the params needed for the request
- * if it isn't then return true 
+ * if it isn't then return true
  * if it is check if it is indeed on the request
  * if it is use the specific validation functions from the queryAttributes object
  */
@@ -402,7 +404,7 @@ const server = app.listen(config.port, function () {
 });
 
 
-//// Socket.io 
+//// Socket.io
 
 var io = require('socket.io')(server);
 

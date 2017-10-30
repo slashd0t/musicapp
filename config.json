@@ -1,4 +1,4 @@
 {
   "port": 8080,
-  "mongo_connection": "mongodb://user:123456@ds035036.mlab.com:35036/musicapp"
+  "mongo_connection": "mongodb://user:123456@localhost:27017/musicapp"
 }
